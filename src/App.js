@@ -6,6 +6,9 @@ import Header from "./Containers/Header"
 import Profile from "./Containers/Profile"
 import FameWall from "./Components/FameWall"
 import PostsContainer from "./Containers/PostsContainer"
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import PostForm from "./Components/PostForm";
 
 class App extends React.Component {
   render(){
@@ -18,8 +21,11 @@ class App extends React.Component {
                 }/>
                 <Route exact path = '/' render = { ()=>     
                    <div>
-                     <Header/>                
+                     <Header/> 
+                     <Login/>
+                     <Signup/>               
                      <FameWall /> 
+                     <PostForm/>
                      <PostsContainer/>     
                   </div> 
                 }/> 

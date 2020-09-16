@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import Comment from "./Comment"
 
-class Post extends Component {
+class PostForm extends Component {
     render() {
         return (
             <div>
-                post
-                <Comment/>
+                form create
             </div>
         );
     }
 }
 
-export default Post;
+export default PostForm;
