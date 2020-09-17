@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-class Questions extends Component {
+class Comment extends Component {
+    renderComments = () => this.props.comments.map(comm => <li key={comm.id}> {comm.user_id} {comm.text}</li>)
     render() {
         return (
-            <div>
-                question 1
-            </div>
+            <ul>
+              {this.renderComments()}
+            </ul>
         );
     }
 }
 
-export default Questions;
+export default Comment;

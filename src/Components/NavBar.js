@@ -4,7 +4,8 @@ import {NavLink} from 'react-router-dom';
 class NavBar extends Component {
     render() {
         return (
-            <div>
+            <div> 
+              
                 <NavLink className = "nav-link" to='/' exact>
                     <span id='logo-div'>
                        App
@@ -12,7 +13,7 @@ class NavBar extends Component {
                 </NavLink>
                 <NavLink className = "nav-link" to='/profile' exact > 
                    Profile    
-                </NavLink> 
+                </NavLink>  
                 
             </div>
         );
