@@ -7,32 +7,32 @@ class SignupForm extends Component {
                <h4>Signup Form</h4>
               <form onSubmit = {event => this.props.signUpHandler(event)}>
 
-                  <label>User name:</label>                 
+                  <label>User name:</label> <br/>               
                   <input type="text"  name="name" 
                          onChange = {event=> this.props.changeHandler(event)}>
                   </input>
                   <br/>
                   
 
-                  <label>Email:</label>
+                  <label>Email:</label><br/> 
                   <input type="text"  name="email"
                          onChange = {event=> this.props.changeHandler(event)}>
                   </input>
                   <br/> 
 
-                  <label>City:</label><br></br>
+                  <label>City:</label><br/> 
                   <input type="text"  name="city"
                          onChange = {event=> this.props.changeHandler(event)}>
                   </input>
                   <br/>         
                   
-                  <label>Password:</label>
+                  <label>Password:</label><br/> 
                   <input type="password"  name="password"
                          onChange = {event=> this.props.changeHandler(event)}>
                    </input>
                   <br/>
 
-                  <label>Photo:</label>                 
+                  <label>Photo:</label><br/>               
                   <input type="text"  name="photo"
                          onChange = {event=> this.props.changeHandler(event)}> 
                   </input>

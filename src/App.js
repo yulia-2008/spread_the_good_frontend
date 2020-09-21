@@ -105,6 +105,11 @@ searchHandler = search =>{
   // on Search submit render posts
   
 }
+
+postFormSubmitHandler = resp => {
+   this.setState({posts: [...this.state.posts, resp]
+   })
+}
   
   render(){
 
@@ -129,6 +134,7 @@ searchHandler = search =>{
                                     signUpHandler={this.signUpHandler}
                                     loginHandler={this.loginHandler}
                                     currentUser = {this.state.currentUser}
+                                    postFormSubmitHandler = {this.postFormSubmitHandler}
                                     />                                           
                   </div> 
                   
@@ -143,7 +149,6 @@ searchHandler = search =>{
      fetch(`http://localhost:4000/api/v1/posts`)
      .then(response => response.json())
      .then (resp =>  {this.setState({posts: resp}) 
-    //  console.log("state", this.state)
      });
   }
 }

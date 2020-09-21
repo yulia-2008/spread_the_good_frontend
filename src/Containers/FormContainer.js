@@ -17,6 +17,7 @@ class FormContainer extends Component {
                 /> : null}
                 {this.props.clicked.needHelpClicked ? <PostForm changeHandler={this.props.changeHandler}
                                                                 currentUser = {this.props.currentUser}
+                                                                postFormSubmitHandler = {this.props.postFormSubmitHandler}
                  /> : null}
             </div>
         );

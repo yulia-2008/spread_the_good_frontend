@@ -5,35 +5,9 @@ class PostsContainer extends Component {
     renderPosts = () => this.props.postsArray.map(post => <Post key={post.id} postObj={post}/>)
     render() {
         return (
-            <div id="container">
+            <div id="posts-container">
                  {this.renderPosts()}
-                 <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                <p bla></p>
-                
+                 
             </div>
         );
     }
