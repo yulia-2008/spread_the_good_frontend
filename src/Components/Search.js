@@ -13,8 +13,8 @@ class Search extends Component {
               method: "GET",
               headers: {
              "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-             "x-rapidapi-key": "8905bd84c0msh820ac6a40b3838cp161725jsn547ddad75481"
-             }
+             "x-rapidapi-key": process.env.REACT_APP_SPREAD_THE_GOOD_FRONTEND_API_KEY
+             } 
         })
        .then(resp => resp.json())
        .then(resp => {this.setState({cities: resp}) })
