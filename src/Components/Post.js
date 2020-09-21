@@ -9,6 +9,7 @@ class Post extends Component {
                 <p> Post decription: {this.props.postObj.description}</p>
                 {/* <img src = {this.props.postObj.image} alt=""></img> */}
                 <Comment comments = {this.props.postObj.comments}/>
+               
             </div>
         );
     }

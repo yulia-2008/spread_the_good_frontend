@@ -7,6 +7,33 @@ class PostsContainer extends Component {
         return (
             <div id="container">
                  {this.renderPosts()}
+                 <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                <p bla></p>
+                
             </div>
         );
     }

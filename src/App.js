@@ -21,7 +21,9 @@ class App extends React.Component {
     city: "",
     password: "",
     photo: "",
-    currentUser: null
+    currentUser: "",
+    // searchResults: "",
+    // tokenApi: ""
   }
 
 
@@ -29,15 +31,24 @@ class App extends React.Component {
 clickHandler = (e) => {
         
   if (e.target.matches(`#login-button`)) {
-      this.setState({loginClicked: !this.state.loginClicked})
+      this.setState({loginClicked: !this.state.loginClicked,
+                     signupClicked: false,
+                     needHelpClicked: false
+                    })
   }
   
   if (e.target.matches(`#signup-button`)) {
-      this.setState({signupClicked: !this.state.signupClicked})
+      this.setState({signupClicked: !this.state.signupClicked,
+                     loginClicked: false,
+                     needHelpClicked: false
+                    })
   }
 
   if (e.target.matches(`#create-post-button`)) {
-      this.setState({needHelpClicked: !this.state.needHelpClicked})
+      this.setState({needHelpClicked: !this.state.needHelpClicked,
+                     loginClicked: false,
+                     signupClicked: false     
+                    })
   }
 }
 
@@ -63,7 +74,8 @@ signUpHandler = event => {event.preventDefault()
                    }
         fetch('http://localhost:4000/api/v1/users', options)
         .then(response => response.json())
-        .then(resp => {this.setState({currentUser: resp, signupClicked: false})
+        .then(resp => { resp.user ? this.setState({currentUser: resp, signupClicked: false})
+                                  : this.setState({currentUser: resp})
          })
         event.target.reset()
 }
@@ -83,11 +95,49 @@ loginHandler = event => {event.preventDefault()
                   }      
      fetch('http://localhost:4000/api/v1/login', options)  // got toket in response !
      .then(response => response.json())
-     .then(resp => { this.setState({currentUser: resp})
+     .then(resp => { resp.user ? this.setState({currentUser: resp, loginClicked: false})
+                               : this.setState({currentUser: resp})
      }) 
      event.target.reset()                   
 } 
 
+searchHandler = search =>{ 
+  // on Search submit render posts
+  
+}
+  // this.getApiToken()
+   
+
+//   getApiToken = () => {
+//       fetch("https://www.universal-tutorial.com/api/getaccesstoken", 
+//          {method: 'GET',
+//          headers: {'Content-Type': 'application/json',
+//          Accept: 'application/json',
+//         "api-token": "7uqo2M-ooS6imBevlwJ3lLlOYOznY4u-vv2vnIBOs6syU0LuKWL0IP7C5TLXFRc-iMI",
+//          "user-email": "juliana.ny2008@gmail.com"
+//           }
+//          })
+//    .then(resp => resp.json())
+//    .then(resp => this.setState({tokenApi: resp}) )
+//    .then(this.getSearchResults())
+// }   
+
+// getSearchResults = () => {
+//   fetch("https://www.universal-tutorial.com/api/cities/New%20York", 
+//      {method: 'GET',
+//      headers: {'Content-Type': 'application/json',
+//      Accept: 'application/json',
+//      Authorization: `Bearer ${this.state.tokenApi.auth_token}`, 
+//      }}
+//      )
+//   .then(resp => resp.json())
+//   .then(resp =>  console.log("response", resp) )
+//       }
+     // https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
+
+   
+     
+  
   render(){
 
     return(<>
@@ -98,8 +148,8 @@ loginHandler = event => {event.preventDefault()
                 }/>
                 <Route exact path = '/' render = { ()=> 
                 <>    
-                   <div id="header-containers">
-                     <Search/>
+                   <div id="app-containers">
+                     <Search searchHandler={this.searchHandler}/>
                      <ButtonContainer clickHandler = {this.clickHandler}/>
                    </div>
                     
@@ -110,8 +160,10 @@ loginHandler = event => {event.preventDefault()
                      <FormContainer clicked = {this.state} changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}
                                     loginHandler={this.loginHandler}
+                                    currentUser = {this.state.currentUser}
                                     />                                           
                   </div> 
+                  
                   </>
                 }/> 
         </Router>

@@ -39,7 +39,7 @@
 
 #fame-wall-photo {
   height: 100%;
-  width: 60%;
+  width: 100%;
 }
 
 div {
@@ -75,10 +75,22 @@ div {
   overflow-y: scroll; */
 }
 
+/* #fame-wall-container {
+  width: 50%;
+  height: 100%;
+  border: 3px solid lightgreen;
+  padding: 1px;
+  margin: 1px;
+  position: sticky;
+  top: 0;
+/*  
+  overflow-y: scroll; */
+/* } */ 
+
 #app-containers {
   display: flex;
+  /* position: sticky; */
+  /* top: 0; */
 }
 
-#header-containers {
-  display: flex;
-}
+

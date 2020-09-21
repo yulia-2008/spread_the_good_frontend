@@ -4,7 +4,7 @@ class SignupForm extends Component {
     render() {
         return (
             <div>
-               
+               <h4>Signup Form</h4>
               <form onSubmit = {event => this.props.signUpHandler(event)}>
 
                   <label>User name:</label>                 
@@ -39,6 +39,7 @@ class SignupForm extends Component {
                   <br/><br/>
                   
                   <input id='signup-btn' className='login-btns' type="submit" value="Submit"></input>
+                  <p>{this.props.currentUser.error}</p> 
               </form> 
             </div>
         );

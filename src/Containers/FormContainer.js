@@ -9,11 +9,15 @@ class FormContainer extends Component {
             <div id="form-container">               
                 {this.props.clicked.loginClicked ? <LoginForm changeHandler={this.props.changeHandler}
                                                               loginHandler={this.props.loginHandler}
+                                                              currentUser = {this.props.currentUser}
                 /> : null}
                 {this.props.clicked.signupClicked ? <SignupForm changeHandler={this.props.changeHandler}
                                                                 signUpHandler={this.props.signUpHandler}
+                                                                currentUser = {this.props.currentUser}
                 /> : null}
-                {this.props.clicked.needHelpClicked ? <PostForm changeHandler={this.props.changeHandler}/> : null}
+                {this.props.clicked.needHelpClicked ? <PostForm changeHandler={this.props.changeHandler}
+                                                                currentUser = {this.props.currentUser}
+                 /> : null}
             </div>
         );
     }
