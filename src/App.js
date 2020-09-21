@@ -16,6 +16,7 @@ class App extends React.Component {
     loginClicked: false,
     signupClicked: false,
     needHelpClicked: false,
+   
     name:"",
     email: "",
     city: "",
@@ -48,9 +49,15 @@ clickHandler = (e) => {
       this.setState({needHelpClicked: !this.state.needHelpClicked,
                      loginClicked: false,
                      signupClicked: false     
-                    })
+                    })                  
   }
+
+  // if (e.target.matches(`#offer-your-help-button`)) {
+  //     this.setState({offerHelpClicked: true})
+  //     this.createConnection()
+  // }
 }
+
 
 changeHandler = event => {this.setState({ [event.target.name]: event.target.value})
 }
@@ -110,6 +117,8 @@ postFormSubmitHandler = resp => {
    this.setState({posts: [...this.state.posts, resp]
    })
 }
+
+
   
   render(){
 
@@ -128,7 +137,8 @@ postFormSubmitHandler = resp => {
                     
                   
                      <div id="app-containers">
-                     <PostsContainer postsArray = {this.state.posts}/>   
+                     <PostsContainer postsArray = {this.state.posts}
+                                     currentUser = {this.state.currentUser}/>   
                      <FameWall /> 
                      <FormContainer clicked = {this.state} changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}

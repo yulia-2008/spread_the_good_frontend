@@ -114,6 +114,18 @@ div {
  
 } 
 
+#profile-history {
+  width: 30%;
+  height: 100%; 
+  padding: 1px;
+  margin: 1px;
+}
+
+#profile-avatar {
+  width: 10%;
+  height: 10%;
+}
+
 
 
 

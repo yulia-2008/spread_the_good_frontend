@@ -8,9 +8,9 @@ class History extends Component {
         return (
             <div id="app-containers">
                 
-                <YouHelped/>
-                <HelpedYou/>
-                <YourPosts/>
+                <YouHelped currentUser={this.props.currentUser}/>
+                <HelpedYou currentUser={this.props.currentUser}/>
+                <YourPosts currentUser={this.props.currentUser}/>
             </div>
         );
     }

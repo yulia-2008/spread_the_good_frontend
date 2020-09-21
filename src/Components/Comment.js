@@ -7,15 +7,12 @@ class Comment extends Component {
     }
 
     comments = () => {     
-        this.state.comments.map(comm => <li> {comm.text} </li>);  
-        console.log("comm", this.state.comments)    
+       return this.state.comments.map((comm) => <li key={comm.id}> {comm.text}</li> )             
     }
        
-    render() {
+    render() { 
         return (
-            <ul>
-               {this.comments()}         
-            </ul>
+            <ul>{this.comments()}</ul>
         );
     
     }

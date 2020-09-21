@@ -6,7 +6,7 @@ class Profile extends Component {
         return (
             <div> 
                 <h1>{this.props.currentUser.user.username}</h1>
-               <img src={ this.props.currentUser} alt=""></img> 
+               <img id="profile-avatar" src={ this.props.currentUser.user.image} alt=""></img> 
                <p>Karma_score: {this.props.currentUser.user.karma_score}</p>
                <p>City: {this.props.currentUser.user.city}</p>
                <p>Bio: {this.props.currentUser.user.bio}</p>
