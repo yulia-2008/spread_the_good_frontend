@@ -29,8 +29,8 @@ class PostForm extends Component {
                    }
         fetch('http://localhost:4000/api/v1/posts', options)
         .then(response => response.json())
-        .then(resp => {  this.props.postFormSubmitHandler(resp)
-         })
+        .then(this.props.postFormSubmitHandler()
+         )
         event.target.reset()
        
         // need to add rendering a new post in a PostsContainer (it is rendering only after reload)
@@ -39,26 +39,8 @@ class PostForm extends Component {
     render() {
         return ( this.props.currentUser==="" ? "Please login first" :
             <div> 
-         <h4> Post Form</h4>
+         <h4> </h4>
           <form onSubmit = {event => this.postFormSubmitHandler(event)}>
-              <label>User name:</label> <br/>              
-              <input type="text"  name="username" 
-                     value={this.props.currentUser.user.username}  
-                     onChange={this.changeHandler}></input>
-              <br/><br/>
-              
-              <label>Email:</label><br/> 
-              <input type="text"  name="email" 
-                     value={this.props.currentUser.user.email}                   
-                     onChange={this.changeHandler}></input>
-              <br/><br/> 
-
-              <label>City:</label><br/> 
-              <input type="text"  name="city" 
-                     value="Hunter" 
-                     onChange={this.changeHandler} >
-                     </input>
-              <br/><br/>     
               
               <input type="text"  name="title"  
                      placeholder = "Title"

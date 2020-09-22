@@ -4,7 +4,7 @@ class SignupForm extends Component {
     render() {
         return (
             <div>
-               <h4>Signup Form</h4>
+               <h4>Signup</h4>
               <form onSubmit = {event => this.props.signUpHandler(event)}>
 
                   <label>User name:</label> <br/>               

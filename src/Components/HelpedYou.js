@@ -6,13 +6,13 @@ class HelpedYou extends Component {
     }
     
     helpers = () => {  
-        return this.state.helpers.map((person) => <li> {person.username}</li> )             
+        return this.state.helpers.map((person) => <li> {person.username}, {person.email}</li> )             
     }
     
     render() {
         return (
             <div id="profile-history">
-                Users who helped you.
+                Users who wish to help you.
                 <ul>{this.helpers()}</ul>
             </div>
         );

@@ -16,7 +16,7 @@ class FormContainer extends Component {
                                                                 currentUser = {this.props.currentUser}
                 /> : null}
                 {this.props.clicked.needHelpClicked ? <PostForm changeHandler={this.props.changeHandler}
-                                                                currentUser = {this.props.currentUser}
+                                                                currentUser = {this.props.currentUser}                                                           
                                                                 postFormSubmitHandler = {this.props.postFormSubmitHandler}
                  /> : null}
             </div>

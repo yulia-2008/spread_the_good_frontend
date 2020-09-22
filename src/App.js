@@ -12,50 +12,59 @@ import FormContainer from "./Containers/FormContainer"
 class App extends React.Component {
 
   state={
-    posts: [],
     loginClicked: false,
     signupClicked: false,
-    needHelpClicked: false,
-   
+    needHelpClicked: false, 
+    newPostSubmited: false, 
+    offerHelpClicked: false,
     name:"",
     email: "",
     city: "",
     password: "",
     photo: "",
     currentUser: "",
+    karmaScore: "",
+    searchResult: ""
+
     // searchResults: "",
     // tokenApi: ""
   }
 
 
 
-clickHandler = (e) => {
+clickHandler = (event) => {
         
-  if (e.target.matches(`#login-button`)) {
+  if (event.target.matches(`#login-button`)) {
       this.setState({loginClicked: !this.state.loginClicked,
                      signupClicked: false,
                      needHelpClicked: false
                     })
   }
   
-  if (e.target.matches(`#signup-button`)) {
+  if (event.target.matches(`#signup-button`)) {
       this.setState({signupClicked: !this.state.signupClicked,
                      loginClicked: false,
                      needHelpClicked: false
                     })
   }
 
-  if (e.target.matches(`#create-post-button`)) {
+  if (event.target.matches(`#create-post-button`)) {
       this.setState({needHelpClicked: !this.state.needHelpClicked,
                      loginClicked: false,
                      signupClicked: false     
                     })                  
   }
 
-  // if (e.target.matches(`#offer-your-help-button`)) {
-  //     this.setState({offerHelpClicked: true})
-  //     this.createConnection()
+  // if (event.target.matches(`#offer-your-help-button`)) {
+  //     
+     
   // }
+}
+
+offerHelpClickHandler = (user) => {
+       this.setState({offerHelpClicked: true,
+                      karmaScore: user.karma_score
+       })
 }
 
 
@@ -81,7 +90,7 @@ signUpHandler = event => {event.preventDefault()
                    }
         fetch('http://localhost:4000/api/v1/users', options)
         .then(response => response.json())
-        .then(resp => { resp.user ? this.setState({currentUser: resp, signupClicked: false})
+        .then(resp => { resp.user ? this.setState({currentUser: resp, signupClicked: false, karmaScore: resp.user.karma_score })
                                   : this.setState({currentUser: resp})
          })
         event.target.reset()
@@ -102,31 +111,29 @@ loginHandler = event => {event.preventDefault()
                   }      
      fetch('http://localhost:4000/api/v1/login', options)  // got toket in response !
      .then(response => response.json())
-     .then(resp => { resp.user ? this.setState({currentUser: resp, loginClicked: false})
+     .then(resp => { resp.user ? this.setState({currentUser: resp, loginClicked: false, karmaScore: resp.user.karma_score})
                                : this.setState({currentUser: resp})
      }) 
      event.target.reset()                   
 } 
 
-searchHandler = search =>{ 
+searchHandler = search =>{ this.setState({searchResult: search})
   // on Search submit render posts
   
 }
 
-postFormSubmitHandler = resp => {
-   this.setState({posts: [...this.state.posts, resp]
-   })
-}
+postFormSubmitHandler = () => {this.setState({newPostSubmited: true})}
 
 
   
-  render(){
+  render(){ 
 
     return(<>
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 
-                   this.state.currentUser.user ? <Profile currentUser={this.state.currentUser}/> : null 
+                   this.state.currentUser.user ? <Profile currentUser={this.state.currentUser} 
+                                                          karmaScore={this.state.karmaScore}/> :  <h2>Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 
                 <>    
@@ -137,14 +144,19 @@ postFormSubmitHandler = resp => {
                     
                   
                      <div id="app-containers">
-                     <PostsContainer postsArray = {this.state.posts}
-                                     currentUser = {this.state.currentUser}/>   
-                     <FameWall /> 
-                     <FormContainer clicked = {this.state} changeHandler={this.changeHandler}
+                     <PostsContainer offerHelpClickHandler={this.offerHelpClickHandler}
+                                     currentUser = {this.state.currentUser}
+                                     karmaScore={this.state.karmaScore}
+                                     searchResult = {this.state.searchResult}
+                                     />  
+                     <FameWall karmaScore={this.state.karmaScore} 
+                              currentUser = {this.state.currentUser}/> 
+                     <FormContainer clicked = {this.state} 
+                                    changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}
                                     loginHandler={this.loginHandler}
                                     currentUser = {this.state.currentUser}
-                                    postFormSubmitHandler = {this.postFormSubmitHandler}
+                                    postFormSubmitHandler = {this.postFormSubmitHandler}                                   
                                     />                                           
                   </div> 
                   
@@ -154,12 +166,6 @@ postFormSubmitHandler = resp => {
                 </>   
     )
   }
-
-  componentDidMount(){
-     fetch(`http://localhost:4000/api/v1/posts`)
-     .then(response => response.json())
-     .then (resp =>  {this.setState({posts: resp}) 
-     });
-  }
+  
 }
 export default App;

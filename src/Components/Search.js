@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Search extends Component {
     state = {
         search: "",
-        cities: ""
+        cities: "",
+        submitClicked: false
     }
 
     changeHandler = e => {
@@ -24,24 +25,30 @@ class Search extends Component {
     submitHandler = e => {
         e.preventDefault()
         this.props.searchHandler(this.state.search)
+        // e.target.reset()  
     }
 
-      cities=()=> this.state.cities.data.map((c)=>  <p>{c.city}, {c.region}, {c.country}</p> )
+    clickHandler = event => {this.setState({search: event.target.textContent, 
+                                            submitClicked: true})
+    }
+
+      cities=()=> this.state.cities.data.map((c)=>  <p onClick= {event => this.clickHandler(event)}>{c.city} , {c.region}, {c.country}</p> )
 
     render() {
-        return (   console.log("search:",this.state),
+        return (  
             <div id="search-container">
                 <form onSubmit={this.submitHandler}>
-                    <input  
-                        type="text"
+                    <input type="text"
                         placeholder={"Search for city"}
                         onChange={this.changeHandler}
                         value={this.state.search}
                     />
-                    <button type='submit'>search</button>
-     {this.state.cities.data  ?  <>{this.cities()}</> :null} 
-    
-                </form>  
+                    
+                      <button type='submit'>search</button>
+                      {this.state.submitClicked ? null :
+                           this.state.cities.data  ?  <>{this.cities()}</> :null}    
+                </form> 
+  
             </div>
             
         );
@@ -49,3 +56,4 @@ class Search extends Component {
 }
 
 export default Search;
+

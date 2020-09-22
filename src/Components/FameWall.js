@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
 
 class FameWall extends Component {
+ 
+   state={
+      users:[]
+   }
+
+  user = () => { let max = 0;
+                 let rightUser= "";
+                 this.state.users.map(user => {
+                       if (user.karma_score > max) { max = user.karma_score; rightUser=user}               
+                }); 
+        return rightUser
+  }
+
+
     render() {
         return (
             <div id="fame-wall-container">
-                <h5>Fame Wall</h5>
-                <img id="fame-wall-photo" src='https://www.borealbirds.org/sites/default/files/bird_images/common-raven.jpg' alt=""></img>
+               <h3>Fame Wall </h3>              
+               <p> {this.user().username},  from {this.user().city}</p>
+               
+                Karma score:
+               { this.props.currentUser.user && this.props.currentUser.user.id === this.user().id ? 
+                         this.props.karmaScore : this.user().karma_score }
+               
+                <img id="fame-wall-photo" src={this.user().image} alt=""></img>
             </div>
         );
     }
+
+    componentDidMount(){
+        fetch(`http://localhost:4000/api/v1/users`)
+        .then(response => response.json())
+        .then (resp =>  {this.setState({users: resp}) 
+        });
+     }  
 }
 
 export default FameWall;

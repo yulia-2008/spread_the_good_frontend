@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// comment component for future 
+
 class Comment extends Component {
 
     state={
@@ -26,4 +28,4 @@ class Comment extends Component {
     } 
 }
 
-export default Comment;
+// export default Comment;

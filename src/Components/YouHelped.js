@@ -12,7 +12,7 @@ helpSeekers = () => {
 
 
     render() {
-        return (console.log(this.state.help_seekers),
+        return (
             <div id="profile-history">
                 Users who you helped.
                 <ul>{this.helpSeekers()}</ul>

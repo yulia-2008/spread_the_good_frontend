@@ -5,7 +5,7 @@ class LoginForm extends Component {
     render() {
         return (
             <div> 
-              <h4>Login Form</h4>
+              <h4>Login</h4>
               <form onSubmit = {event => this.props.loginHandler(event)}>
                 <label>User name:</label>
                 <br/>
