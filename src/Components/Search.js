@@ -4,7 +4,8 @@ class Search extends Component {
     state = {
         search: "",
         cities: "",
-        submitClicked: false
+      
+        selected: false
     }
 
     changeHandler = e => {
@@ -25,11 +26,11 @@ class Search extends Component {
     submitHandler = e => {
         e.preventDefault()
         this.props.searchHandler(this.state.search)
-        // e.target.reset()  
+       
     }
 
     clickHandler = event => {this.setState({search: event.target.textContent, 
-                                            submitClicked: true})
+                                            selected: true})
     }
 
       cities=()=> this.state.cities.data.map((c)=>  <p onClick= {event => this.clickHandler(event)}>{c.city} , {c.region}, {c.country}</p> )
@@ -45,7 +46,7 @@ class Search extends Component {
                     />
                     
                       <button type='submit'>search</button>
-                      {this.state.submitClicked ? null :
+                      {this.state.selected ? null :
                            this.state.cities.data  ?  <>{this.cities()}</> :null}    
                 </form> 
   

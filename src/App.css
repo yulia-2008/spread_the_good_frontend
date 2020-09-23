@@ -101,6 +101,12 @@ div {
   /* position: sticky; */
   /* top: 0; */
 }
+
+#profile-containers {
+  display: flex;
+  width: 50%;
+
+}
  
 #post-avatar {
   width: 20%;

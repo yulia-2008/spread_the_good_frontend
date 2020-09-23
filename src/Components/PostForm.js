@@ -53,7 +53,7 @@ class PostForm extends Component {
               </textarea>
               <br/><br/> 
 
-              <input id='signup-btn' className='login-btns' type="submit" value="Submit"></input>           
+              <input  type="submit" value="Submit"></input>           
           </form> 
         
         </div>

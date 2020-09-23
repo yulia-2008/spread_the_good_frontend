@@ -139,7 +139,8 @@ postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
   
   render(){ 
 
-    return(<>
+    return(<> 
+    <h1>SPREAD THE GOOD</h1> 
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 
@@ -147,7 +148,7 @@ postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
                                                           karmaScore={this.state.karmaScore}/> :  <h2>Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 
-                <>    
+                <>   <br/> 
                    <div id="app-containers">
                      <Search searchHandler={this.searchHandler}/>
                      <ButtonContainer clickHandler = {this.clickHandler}/>

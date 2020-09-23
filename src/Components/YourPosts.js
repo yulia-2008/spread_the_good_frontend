@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
+import YourPost from './YourPost';
 
 class YourPosts extends Component {
     state={
         posts: []
     }
 
-    myPosts = () => {  
-        return this.state.posts.map((post) => <li> {post.title}</li> )             
+    deleteClickHandler = (postId) => { 
+
+        let updatedPosts = this.state.posts.filter((post) => post.id !== postId)
+        console.log(updatedPosts)
+        this.setState({posts: updatedPosts})
+
+        let options = { method: 'DELETE',
+        headers: { Authorization: `Bearer ${this.props.currentUser.jwt}`
+            }, 
+         }
+       fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
+       
+
     }
 
-    
+    posts = () => {  
+        return this.state.posts.map((post) => <YourPost postId={post.id} post={post} 
+                                                        currentUser={this.props.currentUser}
+                                                        deleteClickHandler={this.deleteClickHandler}/> )             
+    }
 
     render() {
         return (
             <div id="profile-history">
-                All my postst.
-               <ul>{this.myPosts()}</ul> 
+                All my posts.
+            
+               <ul>{this.posts()}</ul> 
             </div>
         );
     }

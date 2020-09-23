@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import History from "../Components/History";
+import MyPost from '../Components/YourPost'
 
 class Profile extends Component {
+    state={
+        post: ""
+    }
+
+
     render() {
         return ( 
-            <div> 
+            
+            <div >
+              
                 <h1>{this.props.currentUser.user.username}</h1>
-               <img id="profile-avatar" src={ this.props.currentUser.user.image} alt=""></img> 
-               <p>Karma_score: {this.props.karmaScore}</p>
-               <p>City: {this.props.currentUser.user.city}</p>
-               <p>Bio: {this.props.currentUser.user.bio} <button  onClick={this.clickHandler}>Fill out </button></p>
-                 <br/>
-                <History currentUser={this.props.currentUser}/>
-            </div>
+                <img id="profile-avatar" src={ this.props.currentUser.user.image} alt=""></img> 
+                <p>Karma_score: {this.props.karmaScore}</p>
+                <p>City: {this.props.currentUser.user.city}</p>
+                <p>Bio: {this.props.currentUser.user.bio} <button  onClick={this.bioClickHandler}>Fill out </button></p>
+                <br/>
+           
+
+              
+               
+                <History currentUser={this.props.currentUser} clickHandler = {this.clickHandler}/>
+            </div> 
         );
     }
 }
