@@ -37,7 +37,7 @@ class PostForm extends Component {
 }
     
     render() {
-        return ( this.props.currentUser==="" ? "Please login first" :
+        return ( this.props.currentUser==="" ? <h3>Please login</h3> :
             <div> 
          <h4> </h4>
           <form onSubmit = {event => this.postFormSubmitHandler(event)}>

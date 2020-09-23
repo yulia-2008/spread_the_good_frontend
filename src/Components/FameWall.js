@@ -18,14 +18,14 @@ class FameWall extends Component {
     render() {
         return (
             <div id="fame-wall-container">
-               <h3>Fame Wall </h3>              
-               <p> {this.user().username},  from {this.user().city}</p>
-               
-                Karma score:
+               <h3>Fame Wall </h3>  
+              
+               <p> {this.user().username}   {this.user().city}</p>              
+             
                { this.props.currentUser.user && this.props.currentUser.user.id === this.user().id ? 
-                         this.props.karmaScore : this.user().karma_score }
-               
+                         this.props.karmaScore : this.user().karma_score }              
                 <img id="fame-wall-photo" src={this.user().image} alt=""></img>
+
             </div>
         );
     }

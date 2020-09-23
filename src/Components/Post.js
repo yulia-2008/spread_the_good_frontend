@@ -7,10 +7,9 @@ class Post extends Component {
         userKarmaUp: ""
     }
 
-clickHandler = () => {
+clickHandler = () => {  
    this.createConnection()
-   this.increaseKarmaScore()
-  
+    this.increaseKarmaScore() 
 }
 
 createConnection = () => {
@@ -70,8 +69,8 @@ increaseKarmaScore = () => {
                                 : null } */}
 
                  {/* does not show the button "offer your help" on your own posts */}
-                { this.props.currentUser.user && this.props.currentUser.user.id === this.props.postObj.user_id ? null:
-                   <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button> 
+                { this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?
+                   <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button> : null
                 }           
             </div>
             </div>

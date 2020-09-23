@@ -78,7 +78,7 @@ div {
   width: 30%;
   height: 100%;
   /* border: 3px solid lightgreen; */
-  padding: 1px;
+  padding: 10px;
   margin: 1px;
 /*  
   overflow-y: scroll; */
@@ -104,7 +104,7 @@ div {
  
 #post-avatar {
   width: 20%;
-  padding: 10px;
+  padding: 30px;
   height: 100px;
 } 
 

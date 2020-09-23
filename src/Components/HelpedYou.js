@@ -6,7 +6,7 @@ class HelpedYou extends Component {
     }
     
     helpers = () => {  
-        return this.state.helpers.map((person) => <li> {person.username}, {person.email}</li> )             
+        return this.state.helpers.map((person) => <li> {person.username}, email: {person.email}</li> )             
     }
     
     render() {

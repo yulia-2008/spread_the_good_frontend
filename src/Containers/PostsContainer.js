@@ -4,12 +4,8 @@ import Post from "../Components/Post"
 class PostsContainer extends Component {
 
     state={
-        posts:[]
+        posts: []
     }
-
-    // filterPosts = () => { let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult.split(" ")[0] )
-    //                                 this.setState({posts: filteredPosts }); console.log(this.state.posts)
-    // }
 
     
 
