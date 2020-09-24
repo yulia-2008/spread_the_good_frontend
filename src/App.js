@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import NavBar from './Components/NavBar'
+import NavBar from './Components/NavBar';
 import Search from "./Components/Search";
-import Profile from "./Containers/Profile"
+import Profile from "./Containers/Profile";
 import FameWall from "./Components/FameWall"
-import PostsContainer from "./Containers/PostsContainer"
-import ButtonContainer from "./Containers/ButtonContainer"
-import FormContainer from "./Containers/FormContainer"
+import PostsContainer from "./Containers/PostsContainer";
+import FilteredPosts from "./Containers/FilteredPosts";
+import UpdatedPosts from "./Containers/UpdatedPosts";
+import ButtonContainer from "./Containers/ButtonContainer";
+import FormContainer from "./Containers/FormContainer";
 
 class App extends React.Component {
 
@@ -125,11 +127,11 @@ postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
 }
 
 componentDidMount(){      
-      fetch(`http://localhost:4000/api/v1/posts`)
-      .then(response => response.json())
-      .then (resp =>  {console.log("app", this.state.posts); this.setState({posts: resp}) 
-      }) 
-   }  
+  fetch(`http://localhost:4000/api/v1/posts`)
+  .then(response => response.json())
+  .then (resp =>  { this.setState({posts: resp}) 
+  }) 
+}  
   
   render(){ 
 
@@ -150,16 +152,24 @@ componentDidMount(){
                     
                   
                      <div id="app-containers">
+                       {this.state.searchResult=== "" ?
                      <PostsContainer 
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
+                                     newPost = {this.state.newPost}
                                     //  karmaScore={this.state.karmaScore}
-                                     searchResult = {this.state.searchResult}
-                                     newPost={this.state.newPost}
+                                    //  searchResult = {this.state.searchResult}
+                                    //  newPost={this.state.newPost}
                                      posts = {this.state.posts}
                                      />  
-                     {/* <FameWall karmaScore={this.state.karmaScore} 
-                              currentUser = {this.state.currentUser}/>  */}
+                    
+
+
+                     : <FilteredPosts currentUser = {this.state.currentUser}
+                                      searchResult = {this.state.searchResult} 
+                                      />
+                }
+
                      <FormContainer clicked = {this.state} 
                                     changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}

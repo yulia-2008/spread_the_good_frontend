@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 
 class HelpedYou extends Component {
     state={
-        helpers: []
+        connections: []
+    }
+
+    acceptHelpClickHandle = () => {
+        // 1. archive the postMessage
+        // 2. star to helper
+
+
     }
     
-    helpers = () => {  
-        return this.state.helpers.map((person) => <p> {person.username} would like to help you 
-                                                      <button  onClick={ () => this.acceptHelpClickHandler()}>Accept Help</button>  
-                                                 </p> )             
-    }
+    // helpers = () => {  
+    //     return this.state.connections.filter((conn) => conn.he
+        
+        
+    //     <p> {person.username} would like to help you 
+    //                                                   <button  onClick={ () => this.acceptHelpClickHandler()}>Accept Help</button>  
+    //                                              </p> )             
+    // }
     
     render() {
         return (
@@ -19,9 +29,9 @@ class HelpedYou extends Component {
         );
     }
     componentDidMount(){
-        fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`)
+        fetch(`http://localhost:4000/api/v1/connections`)
         .then(response => response.json())
-        .then (resp =>  {this.setState({helpers: resp.helpers}) 
+        .then (resp =>  {this.setState({connectiona: resp}) 
         });
      }
 }

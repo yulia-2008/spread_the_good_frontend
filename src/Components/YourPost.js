@@ -52,9 +52,9 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
               </div>
-              <div id="profile-containers">
+              {/* <div id="profile-containers">
                  <HelpedYou currentUser={this.props.currentUser}/>
-              </div>  
+              </div>   */}
 
             </div>
         );
