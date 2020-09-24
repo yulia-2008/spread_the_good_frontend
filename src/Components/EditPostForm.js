@@ -13,8 +13,8 @@ class EditPostForm extends Component {
 
     editFormSubmitHandler = event => {event.preventDefault()
         this.props.editFormSubmitHandler(this.state)
-        
-                    }
+    } 
+                    
     render() {
         return (
            

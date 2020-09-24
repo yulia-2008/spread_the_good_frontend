@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Comment from "./Comment"
+import Comment from "./Comment"
 
 class Post extends Component {
     
@@ -43,7 +43,11 @@ increaseKarmaScore = () => {
      .then(response => response.json())
      .then (resp => {this.setState({userKarmaUp: resp});  this.props.offerHelpClickHandler(resp )
      });
-}
+} 
+
+// commentSubmitHandler = comment => {
+
+// }
 
     render() {
         return ( 
@@ -61,12 +65,14 @@ increaseKarmaScore = () => {
                 </p>                   */}
                 <p>Location: {this.props.postObj.user.city}</p> 
                
-               {/* comments option, for future  */}
-                             {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ? 
-                                 <> <p>Comments:</p>
-                                    <Comment post = {this.props.postObj}/> 
+               
+                              {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ?  */}
+                                 <> 
+                                    <Comment post = {this.props.postObj} 
+                                             commentSubmitHandler = {this.commentSubmitHandler}
+                                             currentUser = {this.props.currentUser}/> 
                                  </>
-                                : null } */}
+                                {/* : null } */}
 
                  {/* does not show the button "offer your help" on your own posts */}
                 { this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?

@@ -6,14 +6,15 @@ class HelpedYou extends Component {
     }
     
     helpers = () => {  
-        return this.state.helpers.map((person) => <li> {person.username}, email: {person.email}</li> )             
+        return this.state.helpers.map((person) => <p> {person.username} would like to help you 
+                                                      <button  onClick={ () => this.acceptHelpClickHandler()}>Accept Help</button>  
+                                                 </p> )             
     }
     
     render() {
         return (
-            <div id="profile-history">
-                Users who wish to help you.
-                <ul>{this.helpers()}</ul>
+            <div id="profile-history">                
+                <>{this.helpers()}</>
             </div>
         );
     }

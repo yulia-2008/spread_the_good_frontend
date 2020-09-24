@@ -9,7 +9,7 @@ class PostsContainer extends Component {
 
     
 
-    filterPosts= () => { let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult.split(" ")[0] )
+    filterPosts= () => { let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult )
                          return filteredPosts.map(post => <Post key={post.id} postObj={post} 
                                                   currentUser={this.props.currentUser}
                                                   karmaScore={this.props.karmaScore}
@@ -27,7 +27,7 @@ class PostsContainer extends Component {
     render() {
         return (
             <div id="posts-container">
-               {/* {this.renderPosts()} */}
+            
                   {this.props.searchResult === "" ? this.renderPosts() : this.filterPosts()  } 
             </div>
         );

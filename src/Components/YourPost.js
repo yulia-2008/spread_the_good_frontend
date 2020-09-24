@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import EditPostForm from "./EditPostForm"
+import EditPostForm from "./EditPostForm";
+import HelpedYou from "./HelpedYou";
 
 class YourPost extends Component {
     state={
@@ -39,17 +40,21 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 }
     render() {
         return (
-             <div > 
-    
-                   <h3>{this.state.post.title}</h3> 
-                  <p>Post description:  </p> 
-                  <p>{this.state.post.description}</p> 
+             <div id="app-containers"> 
+               <div id= "profile-containers">
+                <h3>{this.state.post.title}</h3> 
+                <p>Post description:  </p> 
+                <p>{this.state.post.description}</p> 
 
                 <p> <button  onClick={ () => this.editClickHandler(this.state.post.id)}>Edit</button>  
                     <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Delete</button>
+                    {/* <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Marked as solved </button> */}
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
-                
+              </div>
+              <div id="profile-containers">
+                 <HelpedYou currentUser={this.props.currentUser}/>
+              </div>  
 
             </div>
         );

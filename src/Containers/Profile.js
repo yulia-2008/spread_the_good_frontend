@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import History from "../Components/History";
-import MyPost from '../Components/YourPost'
+// import History from "../Components/History";
+import YourPosts from "../Components/YourPosts";
+
 
 class Profile extends Component {
     state={
@@ -22,8 +23,8 @@ class Profile extends Component {
            
 
               
-               
-                <History currentUser={this.props.currentUser} clickHandler = {this.clickHandler}/>
+                <YourPosts currentUser={this.props.currentUser} />
+                {/* <History currentUser={this.props.currentUser} clickHandler = {this.clickHandler}/> */}
             </div> 
         );
     }

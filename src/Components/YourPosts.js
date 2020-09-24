@@ -29,7 +29,7 @@ class YourPosts extends Component {
 
     render() {
         return (
-            <div id="profile-history">
+            <div >
                 All my posts.
             
                <ul>{this.posts()}</ul> 

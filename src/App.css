@@ -103,7 +103,7 @@ div {
 }
 
 #profile-containers {
-  display: flex;
+  padding: 30px;
   width: 50%;
 
 }
@@ -120,17 +120,21 @@ div {
   padding: 10px;
 } 
 
-#profile-history {
+/* #profile-history {
   width: 30%;
   height: 100%; 
   padding: 1px;
   margin: 1px;
-}
+} */
 
 #profile-avatar {
   width: 10%;
   height: 10%;
 }
+/* 
+#comments {
+  border: 3px solid black;
+} */
 
 
 

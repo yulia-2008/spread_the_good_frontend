@@ -118,8 +118,6 @@ loginHandler = event => {event.preventDefault()
 } 
 
 searchHandler = search =>{ this.setState({searchResult: search})
-  // on Search submit render posts
-  
 }
 
 postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
