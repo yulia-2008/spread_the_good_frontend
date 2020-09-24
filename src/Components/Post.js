@@ -3,47 +3,47 @@ import Comment from "./Comment"
 
 class Post extends Component {
     
-    state={      
-        userKarmaUp: ""
-    }
+//     state={      
+//         userKarmaUp: ""
+//     }
 
-clickHandler = () => {  
-   this.createConnection()
-    this.increaseKarmaScore() 
-}
+// clickHandler = () => {  
+//    this.createConnection()
+//     this.increaseKarmaScore() 
+// }
 
-createConnection = () => {
-    let options = { method: 'POST',
-                    headers: {
-                   'Content-Type': 'application/json',
-                    Accept: 'application/json'
-                    },
-                    body: JSON.stringify({
-                          connection:  {
-                          help_seeker_id: this.props.postObj.user_id,
-                          helper_id: this.props.currentUser.user.id
-                          }
-                    })
-                  }      
-     fetch('http://localhost:4000/api/v1/connections', options)  
-     .then(response => response.json()) 
-}
+// createConnection = () => {
+//     let options = { method: 'POST',
+//                     headers: {
+//                    'Content-Type': 'application/json',
+//                     Accept: 'application/json'
+//                     },
+//                     body: JSON.stringify({
+//                           connection:  {
+//                           help_seeker_id: this.props.postObj.user_id,
+//                           helper_id: this.props.currentUser.user.id
+//                           }
+//                     })
+//                   }      
+//      fetch('http://localhost:4000/api/v1/connections', options)  
+//      .then(response => response.json()) 
+// }
 
-increaseKarmaScore = () => { 
-                let options = { method: 'PATCH',
-                    headers: {
-                      'Content-Type': 'application/json',
-                       Accept: 'application/json',
-                       Authorization: `Bearer ${this.props.currentUser.jwt}`
-                       },
-                    body: JSON.stringify({ karma_score: this.props.currentUser.user.karma_score + 1
-                    })
-                  }
-     fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`, options)
-     .then(response => response.json())
-     .then (resp => {this.setState({userKarmaUp: resp});  this.props.offerHelpClickHandler(resp )
-     });
-} 
+// increaseKarmaScore = () => { 
+//                 let options = { method: 'PATCH',
+//                     headers: {
+//                       'Content-Type': 'application/json',
+//                        Accept: 'application/json',
+//                        Authorization: `Bearer ${this.props.currentUser.jwt}`
+//                        },
+//                     body: JSON.stringify({ karma_score: this.props.currentUser.user.karma_score + 1
+//                     })
+//                   }
+//      fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`, options)
+//      .then(response => response.json())
+//      .then (resp => {this.setState({userKarmaUp: resp});  this.props.offerHelpClickHandler(resp )
+//      });
+// } 
 
 // commentSubmitHandler = comment => {
 
@@ -69,7 +69,7 @@ increaseKarmaScore = () => {
                               {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ?  */}
                                  <> 
                                     <Comment post = {this.props.postObj} 
-                                             commentSubmitHandler = {this.commentSubmitHandler}
+                                            //  commentSubmitHandler = {this.commentSubmitHandler}
                                              currentUser = {this.props.currentUser}/> 
                                  </>
                                 {/* : null } */}

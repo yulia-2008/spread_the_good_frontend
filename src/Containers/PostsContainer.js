@@ -19,8 +19,8 @@ class PostsContainer extends Component {
 
     renderPosts = () => this.state.posts.map(post => <Post key={post.id} postObj={post} 
                                                            currentUser={this.props.currentUser}
-                                                           karmaScore={this.props.karmaScore}
-                                                           offerHelpClickHandler={this.props.offerHelpClickHandler}
+                                                        //    karmaScore={this.props.karmaScore}
+                                                        //    offerHelpClickHandler={this.props.offerHelpClickHandler}
                                             />)
 
 

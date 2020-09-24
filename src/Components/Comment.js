@@ -36,7 +36,8 @@ class Comment extends Component {
                            }
                 fetch('http://localhost:4000/api/v1/comments', options)
                 .then(response => response.json())
-                .then(resp => this.setState({ comments: [...this.state.comments, resp]
+                .then(resp => this.setState({ comments: [...this.state.comments, resp],
+                                              comment: "",
                                            })
                  )
                 //  resp.doesnt have a user who wrote a comment
@@ -48,14 +49,17 @@ class Comment extends Component {
             <div id = "comments">
            
             {this.comments()}
-            <form onSubmit = {event => this.commentSubmitHandler(event)}>
-            <textarea  type="text"  name="comment" rows="3"
-                        placeholder = "Enter your text"
-                        onChange={this.changeHandler}>                           
-              </textarea>
-              <br/> 
-              <input  type="submit" value="Submit"></input>           
-          </form>   
+            {this.props.currentUser.user ? 
+
+                 <form onSubmit = {event => this.commentSubmitHandler(event)}>
+                    <textarea  type="text"  name="comment" rows="3"
+                               placeholder = "Enter your text"
+                               onChange={this.changeHandler}>                           
+                    </textarea><br/>                    
+                    <input  type="submit" value="Submit"></input>           
+               </form>  
+               : null }
+                 
             </div>
 
 

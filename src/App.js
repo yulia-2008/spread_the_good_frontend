@@ -54,18 +54,13 @@ clickHandler = (event) => {
                      signupClicked: false     
                     })                  
   }
-
-  // if (event.target.matches(`#offer-your-help-button`)) {
-  //     
-     
-  // }
 }
 
-offerHelpClickHandler = (user) => {
-       this.setState({offerHelpClicked: true,
-                      karmaScore: user.karma_score
-       })
-}
+// offerHelpClickHandler = (user) => {
+//        this.setState({offerHelpClicked: true,
+//                       karmaScore: user.karma_score
+//        })
+// }
 
 
 changeHandler = event => {this.setState({ [event.target.name]: event.target.value})
@@ -154,14 +149,15 @@ postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
                     
                   
                      <div id="app-containers">
-                     <PostsContainer offerHelpClickHandler={this.offerHelpClickHandler}
+                     <PostsContainer 
+                                  //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
-                                     karmaScore={this.state.karmaScore}
+                                    //  karmaScore={this.state.karmaScore}
                                      searchResult = {this.state.searchResult}
                                      posts={this.state.posts}
                                      />  
-                     <FameWall karmaScore={this.state.karmaScore} 
-                              currentUser = {this.state.currentUser}/> 
+                     {/* <FameWall karmaScore={this.state.karmaScore} 
+                              currentUser = {this.state.currentUser}/>  */}
                      <FormContainer clicked = {this.state} 
                                     changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}
