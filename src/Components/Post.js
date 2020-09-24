@@ -69,7 +69,6 @@ class Post extends Component {
                               {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ?  */}
                                  <> 
                                     <Comment post = {this.props.postObj} 
-                                            //  commentSubmitHandler = {this.commentSubmitHandler}
                                              currentUser = {this.props.currentUser}/> 
                                  </>
                                 {/* : null } */}

@@ -24,7 +24,8 @@ class App extends React.Component {
     currentUser: "",
     karmaScore: "",
     searchResult: "",
-    posts: []
+    posts: [],
+    newPost: false
 
     // searchResults: "",
     // tokenApi: ""
@@ -118,17 +119,17 @@ searchHandler = search =>{ this.setState({searchResult: search})
 postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
         fetch(`http://localhost:4000/api/v1/posts`)
         .then(response => response.json())
-        .then (resp =>  {this.setState({posts: resp}) 
-        }) 
+        .then (this.setState({newPost: !this.state.newPost}) 
+        ) 
 
 }
 
-// componentDidMount(){      
-//       fetch(`http://localhost:4000/api/v1/posts`)
-//       .then(response => response.json())
-//       .then (resp =>  {this.setState({posts: resp}) 
-//       }) 
-//    }  
+componentDidMount(){      
+      fetch(`http://localhost:4000/api/v1/posts`)
+      .then(response => response.json())
+      .then (resp =>  {console.log("app", this.state.posts); this.setState({posts: resp}) 
+      }) 
+   }  
   
   render(){ 
 
@@ -154,7 +155,8 @@ postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
                                      currentUser = {this.state.currentUser}
                                     //  karmaScore={this.state.karmaScore}
                                      searchResult = {this.state.searchResult}
-                                     posts={this.state.posts}
+                                     newPost={this.state.newPost}
+                                     posts = {this.state.posts}
                                      />  
                      {/* <FameWall karmaScore={this.state.karmaScore} 
                               currentUser = {this.state.currentUser}/>  */}
