@@ -79,9 +79,9 @@ increaseKarmaScore = () => {
                    <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button> : null
                 }           
             </div>
-            </div>
+            </div> 
         );
-    }
+    };
 }
 
 export default Post;
