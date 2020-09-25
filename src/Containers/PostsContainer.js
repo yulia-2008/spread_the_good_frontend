@@ -48,15 +48,16 @@ class PostsContainer extends Component {
 
    
 
-       render() {
+       render() {console.log("posts")
           return (
             <div id="posts-container">
-              
-               {this.renderPosts()}
+
+               {/* {this.props.newPost === false ? this.renderPosts() : this.updatedPosts()} */}
+                {this.renderPosts()} 
               
               </div> 
         /* {this.props.searchResult=== "" ? 
-                     this.props.newPost === "" ? this.renderPosts() : this.updatedPosts()
+                    
                    : this.props.newPost === "" ? this.filterPosts() : this.updatedPosts()
                 }  */
 

@@ -121,26 +121,39 @@ searchHandler = search =>{ this.setState({searchResult: search})
 postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
         fetch(`http://localhost:4000/api/v1/posts`)
         .then(response => response.json())
-        .then (this.setState({newPost: !this.state.newPost}) 
+        .then (resp => this.setState({posts: resp}) 
         ) 
 
 }
 
-componentDidMount(){      
-  fetch(`http://localhost:4000/api/v1/posts`)
-  .then(response => response.json())
-  .then (resp =>  { this.setState({posts: resp}) 
-  }) 
+editFormSubmitHandler = () => {this.fetchPosts()
+}
+deleteClickHandler = postId => { 
+   let updatedPosts = this.state.posts.filter((post) => post.id !== postId )
+  this.setState({posts: updatedPosts}) 
+  console.log("slon")
+}
+
+componentDidMount(){this.fetchPosts() 
 }  
+
+fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
+.then(response => response.json())
+.then (resp =>  { this.setState({posts: resp}) 
+}) 
+
+}
   
-  render(){ 
+  render(){ console.log("app", this.state.posts)
 
     return(<> 
     <h1>SPREAD THE GOOD</h1> 
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 
-                   this.state.currentUser.user ? <Profile currentUser={this.state.currentUser} 
+                   this.state.currentUser.user ? <Profile currentUser={this.state.currentUser}
+                                                          deleteClickHandler={this.deleteClickHandler}
+                                                          editFormSubmitHandler={this.editFormSubmitHandler}
                                                           karmaScore={this.state.karmaScore}/> :  <h2>Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 

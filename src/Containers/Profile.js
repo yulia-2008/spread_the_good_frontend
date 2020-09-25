@@ -23,7 +23,9 @@ class Profile extends Component {
            
 
               
-                <YourPosts currentUser={this.props.currentUser} />
+                <YourPosts currentUser={this.props.currentUser} 
+                           deleteClickHandler = {this.props.deleteClickHandler}
+                           editFormSubmitHandler = {this.props.editFormSubmitHandler}/>
                 {/* <History currentUser={this.props.currentUser} clickHandler = {this.clickHandler}/> */}
             </div> 
         );

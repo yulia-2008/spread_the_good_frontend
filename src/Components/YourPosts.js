@@ -5,8 +5,11 @@ class YourPosts extends Component {
     state={
         posts: []
     }
+      
+    
 
-    deleteClickHandler = (postId) => { 
+    deleteClickHandler = postId => {  
+
 
         let updatedPosts = this.state.posts.filter((post) => post.id !== postId)
         console.log(updatedPosts)
@@ -16,14 +19,15 @@ class YourPosts extends Component {
         headers: { Authorization: `Bearer ${this.props.currentUser.jwt}`
             }, 
          }
-       fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
-       
-
+       fetch(`http://localhost:4000/api/v1/posts/${postId}`, options);
+      this.props.deleteClickHandler(postId)
+    
     }
 
     posts = () => {  
-        return this.state.posts.map((post) => <YourPost postId={post.id} post={post} 
+        return this.state.posts.map((post) => <YourPost key={post.id} post={post} 
                                                         currentUser={this.props.currentUser}
+                                                        editFormSubmitHandler = {this.props.editFormSubmitHandler}
                                                         deleteClickHandler={this.deleteClickHandler}/> )             
     }
 

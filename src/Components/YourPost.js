@@ -33,9 +33,9 @@ editFormSubmitHandler = (state) => { this.setState({clicked: false})
 
 fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 .then(response => response.json())
-.then(resp => this.setState({post: resp}) 
-)
-
+.then(resp => {this.setState({post: resp})
+; this.props.editFormSubmitHandler()
+})
 
 }
     render() {
@@ -46,7 +46,7 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
 
-                <p> <button  onClick={ () => this.editClickHandler(this.state.post.id)}>Edit</button>  
+                <p> <button  onClick={  this.editClickHandler}>Edit</button>  
                     <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Delete</button>
                     {/* <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Marked as solved </button> */}
                 </p>
