@@ -13,21 +13,20 @@ clickHandler = () => {
  }
 
 createConnection = () => {
-    let options = { method: 'POST',
+    let options = { method: 'PATCH',
                     headers: {
                    'Content-Type': 'application/json',
-                    Accept: 'application/json'
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.props.currentUser.jwt}`
+                                            
                     },
-                    body: JSON.stringify({
-                          connection:  {
-                          help_seeker_id: this.props.postObj.user_id,
-                          helper_id: this.props.currentUser.user.id
-                          }
+                    body: JSON.stringify({                                                
+                          helper_id: this.props.currentUser.user.id                          
                     })
                   }      
-     fetch('http://localhost:4000/api/v1/connections', options)  
+     fetch(`http://localhost:4000/api/v1/posts/${this.props.postObj.id}`, options)  
      .then(response => response.json()) 
-     .then(resp => console.log("create conection", resp))
+    //  .then(resp => console.log("Patch", resp))
 }
 
 // increaseKarmaScore = () => { 
@@ -51,6 +50,7 @@ createConnection = () => {
 // }
 
     render() {
+        // console.log( "inside of Post", this.props.postObj)
         return ( 
            <div id="app-containers">                  
                 <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
@@ -58,13 +58,13 @@ createConnection = () => {
             <div id="post-description">
                 <h3> {this.props.postObj.title}</h3>
                 <p> {this.props.postObj.description}</p>
-                <p>Autor: {this.props.postObj.user.username}</p>
+                {/* <p>Autor: {this.props.postObj.user.username}</p> */}
                  
                 {/* <p> Karma score: (not increasing right away , only increasing in profile)
                     {this.props.currentUser.user && this.props.postObj.id === this.props.currentUser.user.id ? 
                              this.props.karmaScore : this.props.postObj.user.karma_score}                   
                 </p>                   */}
-                <p>Location: {this.props.postObj.user.city}</p> 
+                {/* <p>Location: {this.props.postObj.user.city}</p>  */}
                
                
                               {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ?  */}

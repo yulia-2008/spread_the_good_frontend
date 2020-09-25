@@ -133,8 +133,7 @@ deleteClickHandler = postId => {
 
 
 
-componentDidMount(){this.fetchPosts() ; console.log("did mount")
-}  
+componentDidMount(){this.fetchPosts() }
 
 fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 .then(response => response.json())
@@ -142,7 +141,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 }) 
 }
   
-  render(){ console.log("app", this.state.posts)
+  render(){ 
 
     return(<> 
     <h1>SPREAD THE GOOD</h1> 

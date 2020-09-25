@@ -5,12 +5,12 @@ class HelpedYou extends Component {
         connections: []
     }
 
-    acceptHelpClickHandle = () => {
-        // 1. archive the postMessage
-        // 2. star to helper
+    // acceptHelpClickHandle = () => {
+    //     // 1. archive the postMessage
+    //     // 2. star to helper
 
 
-    }
+    // }
     
     // helpers = () => {  
     //     return this.state.connections.filter((conn) => conn.he

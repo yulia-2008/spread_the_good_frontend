@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EditPostForm from "./EditPostForm";
 import HelpedYou from "./HelpedYou";
+import Comment from "./Comment"
 
 class YourPost extends Component {
     state={
@@ -39,7 +40,7 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 
 }
     render() {
-        return (
+        return ( 
              <div id="app-containers"> 
                <div id= "profile-containers">
                 <h3>{this.state.post.title}</h3> 
@@ -51,10 +52,18 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                     {/* <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Marked as solved </button> */}
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
+
+                <Comment post = {this.state.post}
+                                            profile = {this.props.profile} 
+                                            currentUser = {this.props.currentUser}/> 
               </div>
               {/* <div id="profile-containers">
                  <HelpedYou currentUser={this.props.currentUser}/>
               </div>   */}
+
+
+                                   
+                                
 
             </div>
         );

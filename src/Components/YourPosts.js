@@ -27,11 +27,23 @@ class YourPosts extends Component {
     posts = () => {  
         return this.state.posts.map((post) => <YourPost key={post.id} post={post} 
                                                         currentUser={this.props.currentUser}
+                                                        profile = {this.props.profile}
                                                         editFormSubmitHandler = {this.props.editFormSubmitHandler}
                                                         deleteClickHandler={this.deleteClickHandler}/> )             
     }
+    componentDidMount(){ 
+        fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`)
+           .then(response => response.json())
+           .then(resp => {
+               this.setState({
+                   posts: resp
+               })
+               })
+        
+        }
 
-    render() {
+    render() { 
+        // console.log( "postsss",  this.state.posts)
         return (
             <div >
                 All my posts.
@@ -40,12 +52,7 @@ class YourPosts extends Component {
             </div>
         );
     }
-componentDidMount(){
-    fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`)
-       .then(response => response.json())
-       .then (resp =>  {this.setState({posts: resp.posts})
-       })
-    }
+
 }
 
 export default YourPosts;
