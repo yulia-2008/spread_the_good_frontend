@@ -18,13 +18,17 @@ class PostsContainer extends Component {
     //                                              />) 
     //  }
 
-    renderPosts = () => {
-       return this.props.posts.map(post => <Post key={post.id} postObj={post} 
-                                                           currentUser={this.props.currentUser}
-                                                        //    karmaScore={this.props.karmaScore}
-                                                        //    offerHelpClickHandler={this.props.offerHelpClickHandler}
+    renderPosts = () => {  return this.props.posts.map(post => <Post key={post.id} postObj={post} 
+                                                           currentUser={this.props.currentUser}                                                       
                                             />)
-        }
+        } 
+//    editedPosts = () => {
+      
+//       return this.props.posts.map(post => <Post key={post.id} postObj={post} 
+//       currentUser={this.props.currentUser}                                                       
+// />)
+
+//    }  
 
 
     // = () => { this.fetchPosts()
@@ -46,13 +50,21 @@ class PostsContainer extends Component {
     //                       }) 
     // }    
 
-   
+   //  componentDidMount(){this.fetchPosts() 
+   //     }  
+      
+   //    fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
+   //    .then(response => response.json())
+   //    .then (resp =>  { this.setState({posts: resp}) 
+   //    }) 
+      
+   //    }
 
-       render() {console.log("posts")
+       render() {console.log("post container", this.props.posts)
           return (
             <div id="posts-container">
 
-               {/* {this.props.newPost === false ? this.renderPosts() : this.updatedPosts()} */}
+                {/* {this.props.posts === [] ? this.renderPosts() : this.editedPosts() } */}
                 {this.renderPosts()} 
               
               </div> 

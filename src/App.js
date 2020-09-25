@@ -118,11 +118,8 @@ loginHandler = event => {event.preventDefault()
 searchHandler = search =>{ this.setState({searchResult: search})
 }
 
-postFormSubmitHandler = () => {this.setState({ needHelpClicked: false })
-        fetch(`http://localhost:4000/api/v1/posts`)
-        .then(response => response.json())
-        .then (resp => this.setState({posts: resp}) 
-        ) 
+postFormSubmitHandler = resp => { this.fetchPosts()
+this.setState({ needHelpClicked: false })
 
 }
 
@@ -131,17 +128,18 @@ editFormSubmitHandler = () => {this.fetchPosts()
 deleteClickHandler = postId => { 
    let updatedPosts = this.state.posts.filter((post) => post.id !== postId )
   this.setState({posts: updatedPosts}) 
-  console.log("slon")
+  
 }
 
-componentDidMount(){this.fetchPosts() 
+
+
+componentDidMount(){this.fetchPosts() ; console.log("did mount")
 }  
 
 fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 .then(response => response.json())
 .then (resp =>  { this.setState({posts: resp}) 
 }) 
-
 }
   
   render(){ console.log("app", this.state.posts)
@@ -180,6 +178,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 
                      : <FilteredPosts currentUser = {this.state.currentUser}
                                       searchResult = {this.state.searchResult} 
+                                      // clearSearch = {this.clearSearch}
                                       />
                 }
 

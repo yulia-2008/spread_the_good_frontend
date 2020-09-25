@@ -29,8 +29,9 @@ class PostForm extends Component {
                    }
         fetch('http://localhost:4000/api/v1/posts', options)
         .then(response => response.json())
-        .then(this.props.postFormSubmitHandler()
+        .then(resp => this.props.postFormSubmitHandler(resp)
          )
+        // this.props.postFormSubmitHandler()
         event.target.reset()
        
         // need to add rendering a new post in a PostsContainer (it is rendering only after reload)

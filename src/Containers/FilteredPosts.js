@@ -15,6 +15,7 @@ class FilteredPosts extends Component {
                                                     //   karmaScore={this.props.karmaScore}
                                                     //   offerHelpClickHandler={this.props.offerHelpClickHandler}
                                                      />) 
+                                                    //  this.props.clearSearch()
     }
 
     componentDidMount(){      
