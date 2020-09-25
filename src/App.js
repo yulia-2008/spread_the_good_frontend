@@ -26,8 +26,8 @@ class App extends React.Component {
     currentUser: "",
     karmaScore: "",
     searchResult: "",
-    posts: [],
-    newPost: false
+    posts: []
+    // newPost: false
 
     // searchResults: "",
     // tokenApi: ""
@@ -167,7 +167,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                      <PostsContainer 
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
-                                     newPost = {this.state.newPost}
+                                    //  newPost = {this.state.newPost}
                                     //  karmaScore={this.state.karmaScore}
                                     //  searchResult = {this.state.searchResult}
                                     //  newPost={this.state.newPost}

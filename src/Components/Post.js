@@ -7,27 +7,28 @@ class Post extends Component {
 //         userKarmaUp: ""
 //     }
 
-// clickHandler = () => {  
-//    this.createConnection()
+clickHandler = () => {  
+   this.createConnection()
 //     this.increaseKarmaScore() 
-// }
+ }
 
-// createConnection = () => {
-//     let options = { method: 'POST',
-//                     headers: {
-//                    'Content-Type': 'application/json',
-//                     Accept: 'application/json'
-//                     },
-//                     body: JSON.stringify({
-//                           connection:  {
-//                           help_seeker_id: this.props.postObj.user_id,
-//                           helper_id: this.props.currentUser.user.id
-//                           }
-//                     })
-//                   }      
-//      fetch('http://localhost:4000/api/v1/connections', options)  
-//      .then(response => response.json()) 
-// }
+createConnection = () => {
+    let options = { method: 'POST',
+                    headers: {
+                   'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                    },
+                    body: JSON.stringify({
+                          connection:  {
+                          help_seeker_id: this.props.postObj.user_id,
+                          helper_id: this.props.currentUser.user.id
+                          }
+                    })
+                  }      
+     fetch('http://localhost:4000/api/v1/connections', options)  
+     .then(response => response.json()) 
+     .then(resp => console.log("create conection", resp))
+}
 
 // increaseKarmaScore = () => { 
 //                 let options = { method: 'PATCH',

@@ -22,23 +22,13 @@ class PostsContainer extends Component {
                                                            currentUser={this.props.currentUser}                                                       
                                             />)
         } 
-//    editedPosts = () => {
-      
+//    editedPosts = () => {     
 //       return this.props.posts.map(post => <Post key={post.id} postObj={post} 
 //       currentUser={this.props.currentUser}                                                       
 // />)
 
 //    }  
 
-
-    // = () => { this.fetchPosts()
-    //   return this.state.posts.map(post => <Post key={post.id} postObj={post} 
-    //                                             currentUser={this.props.currentUser}/>)
-      
-    //  //    karmaScore={this.props.karmaScore}
-    //  //    offerHelpClickHandler={this.props.offerHelpClickHandler}
-    //                                      />)
-    // }
 
    
     //   updatedPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
@@ -51,8 +41,7 @@ class PostsContainer extends Component {
     // }    
 
    //  componentDidMount(){this.fetchPosts() 
-   //     }  
-      
+   //     }       
    //    fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
    //    .then(response => response.json())
    //    .then (resp =>  { this.setState({posts: resp}) 
@@ -64,10 +53,16 @@ class PostsContainer extends Component {
           return (
             <div id="posts-container">
 
-                {/* {this.props.posts === [] ? this.renderPosts() : this.editedPosts() } */}
                 {this.renderPosts()} 
               
               </div> 
+          );
+      }
+}
+export default PostsContainer;    
+
+
+
         /* {this.props.searchResult=== "" ? 
                     
                    : this.props.newPost === "" ? this.filterPosts() : this.updatedPosts()
@@ -79,13 +74,8 @@ class PostsContainer extends Component {
 
 // { this.props.searchResult=== "" ? 
 //                   
-          );
-      }
+     
 
     
 
-}
 
-
-
-export default PostsContainer;

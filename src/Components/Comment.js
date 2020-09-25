@@ -12,9 +12,21 @@ class Comment extends Component {
     //    return this.state.comments.map((comm) => <p key={comm.id}> {comm.text}</p> )             
     // }
 
-    comments = () => {     
-            return this.state.comments.map((comm) => <p key={comm.id}> {comm.text}</p> ) 
+// name = commId => {  
+//     fetch(`http://localhost:4000/api/v1/comments/${commId}`)
+//     .then(response => response.json())
+//     .then (resp =>   resp.user.username )
+  
+// }
+
+// name = comm => { this.props.post.users.filter((u) => u.id === comm.user_id)}
+
+    comments = () => {  
+        
+        
+            return this.state.comments.map((comm) => <p key={comm.id}>    {comm.text}</p> ) 
     }
+    // {this.name(comm.id)}:
 
     changeHandler = event => {this.setState({ comment: event.target.value})
     }
