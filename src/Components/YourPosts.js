@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import YourPost from './YourPost';
 
+const token = localStorage.getItem("token")
+
 class YourPosts extends Component {
     state={
         posts: []
@@ -16,7 +18,7 @@ class YourPosts extends Component {
         this.setState({posts: updatedPosts})
 
         let options = { method: 'DELETE',
-        headers: { Authorization: `Bearer ${this.props.currentUser.jwt}`
+        headers: { Authorization: `Bearer ${token}`
             }, 
          }
        fetch(`http://localhost:4000/api/v1/posts/${postId}`, options);
@@ -27,17 +29,23 @@ class YourPosts extends Component {
     posts = () => {  
         return this.state.posts.map((post) => <YourPost key={post.id} post={post} 
                                                         currentUser={this.props.currentUser}
-                                                        profile = {this.props.profile}
+                                                        // profile = {this.props.profile}
                                                         editFormSubmitHandler = {this.props.editFormSubmitHandler}
                                                         deleteClickHandler={this.deleteClickHandler}/> )             
     }
     componentDidMount(){ 
-        fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`)
+        const token = localStorage.getItem("token")
+        fetch(`http://localhost:4000/api/v1/users/${this.props.currentUser.user.id}`,{
+            method: "GET",
+            headers: {
+               'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`                                        
+                }} )
            .then(response => response.json())
            .then(resp => {
-               this.setState({
-                   posts: resp
-               })
+               this.setState({ posts: resp
+                 }, console.log("your posts, did mount", resp))
                })
         
         }

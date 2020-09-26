@@ -26,11 +26,12 @@ class App extends React.Component {
     currentUser: "",
     karmaScore: "",
     searchResult: "",
-    posts: []
+    posts: [],
+    // profile: false
     // newPost: false
 
     // searchResults: "",
-    // tokenApi: ""
+   
   }
 
 
@@ -109,8 +110,10 @@ loginHandler = event => {event.preventDefault()
                   }      
      fetch('http://localhost:4000/api/v1/login', options)  // got toket in response !
      .then(response => response.json())
-     .then(resp => { resp.user ? this.setState({currentUser: resp, loginClicked: false, karmaScore: resp.user.karma_score})
+     .then(resp => {console.log("login", resp) ;    resp.user ? this.setState({currentUser: resp, loginClicked: false, karmaScore: resp.user.karma_score})
                                : this.setState({currentUser: resp})
+          localStorage.setItem("token", resp.jwt) 
+                           
      }) 
      event.target.reset()                   
 } 
@@ -133,7 +136,21 @@ deleteClickHandler = postId => {
 
 
 
-componentDidMount(){this.fetchPosts() }
+componentDidMount(){this.fetchPosts() 
+const token = localStorage.getItem("token")
+if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
+           method: "GET", 
+           headers: {Authorization: `Bearer ${token}`},
+            })
+            .then(resp => resp.json())
+             .then(resp => this.setState({currentUser: resp})  )
+            // .then(resp=> console.log(resp))
+          }        
+  }
+
+
+
+
 
 fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 .then(response => response.json())
@@ -166,6 +183,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                      <PostsContainer 
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
+                                     profile = {this.state.profile} 
                                     //  newPost = {this.state.newPost}
                                     //  karmaScore={this.state.karmaScore}
                                     //  searchResult = {this.state.searchResult}
@@ -176,6 +194,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 
 
                      : <FilteredPosts currentUser = {this.state.currentUser}
+                                      // profile = {this.state.profile} 
                                       searchResult = {this.state.searchResult} 
                                       // clearSearch = {this.clearSearch}
                                       />

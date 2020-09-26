@@ -20,11 +20,12 @@ editClickHandler=()=> {this.setState({clicked: !this.state.clicked})
 }
     
 editFormSubmitHandler = (state) => { this.setState({clicked: false})
+   const token = localStorage.getItem("token")
    let options = { method: 'PATCH',
    headers: {
    'Content-Type': 'application/json',
    Accept: 'application/json',
-   Authorization: `Bearer ${this.props.currentUser.jwt}`
+   Authorization: `Bearer ${token}`
    },
    body: JSON.stringify({
         title: state.title,                           
@@ -54,8 +55,8 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
 
                 <Comment post = {this.state.post}
-                                            profile = {this.props.profile} 
-                                            currentUser = {this.props.currentUser}/> 
+                        profile = {this.props.profile} 
+                        currentUser = {this.props.currentUser}/> 
               </div>
               {/* <div id="profile-containers">
                  <HelpedYou currentUser={this.props.currentUser}/>

@@ -4,7 +4,7 @@ import Post from "../Components/Post"
 class PostsContainer extends Component {
 
     state={
-        posts:[]
+      //   posts: 
     }
 
     
@@ -18,8 +18,9 @@ class PostsContainer extends Component {
     //                                              />) 
     //  }
 
-    renderPosts = () => {  return this.props.posts.map(post => <Post key={post.id} postObj={post} 
-                                                           currentUser={this.props.currentUser}                                                       
+    renderPosts = () => {  return this.props.posts.filter(p => p.active===true)
+                    .map(post => <Post key={post.id} postObj={post} 
+                                        currentUser={this.props.currentUser}                                                       
                                             />)
         } 
 //    editedPosts = () => {     
@@ -49,7 +50,8 @@ class PostsContainer extends Component {
       
    //    }
 
-       render() {console.log("post container", this.props.posts)
+       render() {
+         //  console.log("post container", this.props.posts)
           return (
             <div id="posts-container">
 

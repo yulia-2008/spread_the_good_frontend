@@ -9,7 +9,7 @@ class FilteredPosts extends Component {
 
     
     filterPosts= () => {
-            let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult )
+            let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult && post.active )
             return filteredPosts.map(post => <Post key={post.id} postObj={post} 
                                                    currentUser={this.props.currentUser}
                                                     //   karmaScore={this.props.karmaScore}

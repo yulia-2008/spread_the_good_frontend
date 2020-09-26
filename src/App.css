@@ -115,8 +115,7 @@ div {
 } 
 
 #post-description {
-  width: 80%;
-  
+  width: 80%; 
   padding: 10px;
 } 
 
@@ -136,7 +135,14 @@ div {
   border: 3px solid black;
 } */
 
+#post-card-notActive {
+  border: 3px solid rgb(172, 171, 171);
+  background-color: lightgrey;
+}
 
+#post-card {
+  border: none;
+}
 
 
 

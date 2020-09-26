@@ -39,7 +39,8 @@ class Profile extends Component {
                 <div id="app-containers">
                     <div id="profile-containers">   
                     Posts that I helped.      
-                    <PostsContainer  currentUser = {this.props.currentUser}                                   
+                    <PostsContainer  currentUser = {this.props.currentUser}
+                                    //  profile = {this.state.profile}                                   
                                      posts = {this.state.helpedPosts}/>                                
                     </div> 
 
@@ -47,7 +48,8 @@ class Profile extends Component {
                     <YourPosts currentUser={this.props.currentUser} 
                            deleteClickHandler = {this.props.deleteClickHandler}
                            editFormSubmitHandler = {this.props.editFormSubmitHandler}
-                           profile = {this.state.profile}/>
+                        //    profile = {this.state.profile}
+                           />
                     </div>
                 </div> 
             </div> 

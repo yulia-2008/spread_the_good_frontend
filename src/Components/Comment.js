@@ -57,11 +57,12 @@ class Comment extends Component {
     }
        
     render() { 
+        //   console.log("profile?", this.props.profile)
         return (
             <div id = "comments">
            
             {this.comments()}
-            {this.props.currentUser.user && !this.props.profile  ? 
+           
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>
                     <textarea  type="text"  name="comment" rows="3"
@@ -70,7 +71,7 @@ class Comment extends Component {
                     </textarea><br/>                    
                     <input  type="submit" value="Submit"></input>           
                </form>  
-               : null }
+              
                  
             </div>
 

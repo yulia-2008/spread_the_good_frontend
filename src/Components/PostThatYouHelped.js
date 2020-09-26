@@ -3,7 +3,7 @@ import Comment from "./Comment"
 
 
 
-class Post extends Component {
+class PostThatYouHelped extends Component {
     
     state={ 
         clicked: false,
@@ -109,5 +109,4 @@ createConnection = () => {
     };
 }
 
-export default Post;
-    
+export default PostThatYouHelped;
