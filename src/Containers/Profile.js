@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import History from "../Components/History";
 import YourPosts from "../Components/YourPosts";
-import PostsContainer from "./PostsContainer";
+// import PostsContainer from "./PostsContainer";
+ import PostsYouHelped from  "./PostsYouHelped";
+
 
 class Profile extends Component {
     state={
@@ -29,7 +31,7 @@ class Profile extends Component {
             // console.log(this.props.posts),
             
             <div >
-              
+             
                 <h1>{this.props.currentUser.user.username}</h1>
                 <img id="profile-avatar" src={ this.props.currentUser.user.image} alt=""></img> 
                 <p>Karma_score: {this.props.karmaScore}</p>
@@ -39,7 +41,7 @@ class Profile extends Component {
                 <div id="app-containers">
                     <div id="profile-containers">   
                     Posts that I helped.      
-                    <PostsContainer  currentUser = {this.props.currentUser}
+                <PostsYouHelped  currentUser = {this.props.currentUser}
                                     //  profile = {this.state.profile}                                   
                                      posts = {this.state.helpedPosts}/>                                
                     </div> 
