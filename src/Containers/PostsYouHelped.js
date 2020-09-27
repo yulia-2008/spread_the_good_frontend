@@ -4,7 +4,9 @@ import PostYouHelped from "../Components/PostYouHelped"
 class PostsYouHelped extends Component {
 
  renderPosts = () => {  return this.props.posts.map(post => 
-                          <PostYouHelped key={post.id} postObj={post} currentUser={this.props.currentUser}/>)
+                          <PostYouHelped key={post.id} postObj={post} 
+                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
+                          currentUser={this.props.currentUser}/>)
 } 
   
      

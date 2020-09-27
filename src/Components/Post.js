@@ -34,7 +34,8 @@ createConnection = () => {
                   }      
      fetch(`http://localhost:4000/api/v1/posts/${this.props.postObj.id}`, options)  
      .then(response => response.json()) 
-      .then(resp => console.log("Patch", resp))
+    //   .then(resp => console.log("Patch", resp))
+    
 }
 
 // increaseKarmaScore = () => { 
@@ -85,6 +86,7 @@ createConnection = () => {
                                  <> 
                                 { !this.state.clicked ? 
                                     <Comment post = {this.props.postObj}
+                                             addCommentSubmitHandler = {this.props.addCommentSubmitHandler} 
                                             //  profile = {this.props.profile}  
                                              currentUser = {this.props.currentUser}/> 
                                              : null}

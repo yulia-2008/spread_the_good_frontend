@@ -41,14 +41,17 @@ class Profile extends Component {
                     <div id="profile-containers">   
                      I'm going to help:      
                 <PostsYouHelped  currentUser = {this.props.currentUser}
+                                 addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                                     //  profile = {this.state.profile}                                   
                                      posts = {this.state.helpedPosts}/>                                
                     </div> 
 
                     <div id = "profile-containers">
                     <YourPosts currentUser={this.props.currentUser} 
+                           karmaUp = {this.props.karmaUp}
                            deleteClickHandler = {this.props.deleteClickHandler}
                            editFormSubmitHandler = {this.props.editFormSubmitHandler}
+                           addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                         //    profile = {this.state.profile}
                            />
                     </div>

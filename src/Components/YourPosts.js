@@ -29,6 +29,8 @@ class YourPosts extends Component {
     posts = () => {  
         return this.state.posts.map((post) => <YourPost key={post.id} post={post} 
                                                         currentUser={this.props.currentUser}
+                                                        karmaUp = {this.props.karmaUp}
+                                                        addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                                                         // profile = {this.props.profile}
                                                         editFormSubmitHandler = {this.props.editFormSubmitHandler}
                                                         deleteClickHandler={this.deleteClickHandler}/> )             
@@ -43,20 +45,18 @@ class YourPosts extends Component {
                 Authorization: `Bearer ${token}`                                        
                 }} )
            .then(response => response.json())
-           .then(resp => { this.setState({ posts: resp
-                 })
-               })
-        
-        }
+           .then(resp => { this.setState({ posts: resp })
+               })       
+    }
 
     render() { 
-        //   console.log( "postsss",  this.state.posts[1])
+           console.log( "your postst",  this.props.currentUser.user)
         return (
-            <div >
+            <>
                 All my posts.
                 {/* {this.state.posts[1].id} */}
                 <ul>{this.posts()}</ul>  
-            </div>
+            </>
         );
     }
 

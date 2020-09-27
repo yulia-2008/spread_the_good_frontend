@@ -12,19 +12,25 @@ class Comment extends Component {
     //    return this.state.comments.map((comm) => <p key={comm.id}> {comm.text}</p> )             
     // }
 
-// name = commId => {  
-//     fetch(`http://localhost:4000/api/v1/comments/${commId}`)
-//     .then(response => response.json())
-//     .then (resp =>   resp.user.username )
+// name = commId => { 
+//     const token = localStorage.getItem("token") 
+//    return  fetch(`http://localhost:4000/api/v1/comments/${commId}`, {
+//         method: "GET", 
+//         headers: {Authorization: `Bearer ${token}`},
+//          })
+//     .then(response => {return response.json()} )
+//     // .then(resp => {return console.log(resp.user.username)})
+//      .then (resp =>  {let user = resp.user.username; return user} )
+   
   
 // }
+// {this.name(comm.id).id} 
 
-// name = comm => { this.props.post.users.filter((u) => u.id === comm.user_id)}
 
     comments = () => {  
         
         
-            return this.state.comments.map((comm) => <p key={comm.id}>    {comm.text}</p> ) 
+            return this.state.comments.map((comm) => <p key={comm.id}>   {comm.text}</p> ) 
     }
     // {this.name(comm.id)}:
 
@@ -53,11 +59,12 @@ class Comment extends Component {
                                            })
                  )
                 //  resp.doesnt have a user who wrote a comment
-                event.target.reset()     
+                event.target.reset()  
+                this.props.addCommentSubmitHandler()   
     }
        
     render() { 
-        //   console.log("profile?", this.props.profile)
+            // console.log("comm", this.props.post)
         return (
             <div id = "comments">
            

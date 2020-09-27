@@ -34,8 +34,8 @@ class PostYouHelped extends Component {
             < div id="post-card-notActive">
             
            
-           <div id="app-containers"> 
-                 <div  >                 
+           <div id="app-containers" > 
+                 <div>                 
                     <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
                     <p>{this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
                      <p> {this.props.postObj.user.city}</p>  
@@ -47,6 +47,7 @@ class PostYouHelped extends Component {
 
                 <Comment post = {this.props.postObj}
                          profile = {this.props.profile} 
+                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                         currentUser = {this.props.currentUser}/> 
               </div>    
 

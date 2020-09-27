@@ -40,14 +40,14 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 
 }
 
-karmaUp = () => {
+// karmaUp = () => {this.props.karmaUp()
 
-}
+// }
     render() { 
-          console.log("your post", this.state.post)
+        //   console.log("your post", this.state.post)
         return ( 
-             <div id="app-containers"> 
-               <div id= "profile-containers">
+              
+               <div id= "profile-your-post">
                 <h3>{this.state.post.title}</h3> 
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
@@ -60,13 +60,14 @@ karmaUp = () => {
 
                 <Comment post = {this.state.post}
                          profile = {this.props.profile} 
+                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                          currentUser = {this.props.currentUser}/> 
  
               {this.state.post.helper ? 
                     <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
                     <img  id="your-helper-avatar" src={this.state.post.helper.image}></img>
                    
-                    <button  onClick={this.karmaUp}> Done </button> 
+                    <button  onClick={() => this.props.karmaUp(this.state.post.helper)}> Done </button> 
                     </p>
                     :null}        
               </div>
@@ -76,7 +77,7 @@ karmaUp = () => {
                                    
                                 
 
-            </div>
+            
         );
     }
 }

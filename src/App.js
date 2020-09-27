@@ -128,6 +128,9 @@ this.setState({ needHelpClicked: false })
 
 editFormSubmitHandler = () => {this.fetchPosts()
 }
+
+addCommentSubmitHandler = () => {this.fetchPosts()}
+
 deleteClickHandler = postId => { 
    let updatedPosts = this.state.posts.filter((post) => post.id !== postId )
   this.setState({posts: updatedPosts}) 
@@ -149,7 +152,26 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
   }
 
 
-
+karmaUp = helper => { 
+  const token = localStorage.getItem("token")
+  let options = { method: 'PATCH',
+                headers: {
+               'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+                                        
+                },
+                body: JSON.stringify({                                                
+                      karma_score: helper.karma_score + 1, 
+                                             
+                })
+              }      
+ fetch(`http://localhost:4000/api/v1/users/${helper.id}`, options)  
+ .then(response => response.json()) 
+  .then( this.fetchPosts())
+//  .then(resp => console.log("Patch", resp))
+ 
+}
 
 
 fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
@@ -168,7 +190,9 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                    this.state.currentUser.user ? <Profile currentUser={this.state.currentUser}
                                                           deleteClickHandler={this.deleteClickHandler}
                                                           editFormSubmitHandler={this.editFormSubmitHandler}
-                                                          karmaScore={this.state.karmaScore}/> :  <h2>Plesse login</h2>
+                                                          addCommentSubmitHandler = {this.addCommentSubmitHandler}
+                                                          karmaUp={this.karmaUp}/>
+                                               :  <h2>Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 
                 <>   <br/> 
@@ -184,6 +208,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
                                      profile = {this.state.profile} 
+                                     addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                     //  newPost = {this.state.newPost}
                                     //  karmaScore={this.state.karmaScore}
                                     //  searchResult = {this.state.searchResult}
@@ -195,7 +220,9 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 
                      : <FilteredPosts currentUser = {this.state.currentUser}
                                       // profile = {this.state.profile} 
+                                      addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       searchResult = {this.state.searchResult} 
+                                      addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       // clearSearch = {this.clearSearch}
                                       />
                 }

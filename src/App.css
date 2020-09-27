@@ -65,7 +65,7 @@ div {
 }
 
 #posts-container {
-  width: 70%;
+  width: 50%;
   height: 100%;
   /* border: 3px solid lightgreen; */
   padding: 1px;
@@ -103,9 +103,10 @@ div {
 }
 
 #profile-containers {
-  padding: 30px;
+  padding-left: 50px;
+  
   width: 50%;
-
+ 
 }
  
 /* #post-avatar-container {
@@ -148,6 +149,7 @@ div {
 } */
 
 #post-card-notActive {
+  
   border: 3px solid rgb(172, 171, 171);
   background-color: lightgrey;
 }
@@ -156,6 +158,9 @@ div {
   border: none;
 }
 
+#profile-your-post {
+  padding-bottom: 70px; 
+}
 
 
 
