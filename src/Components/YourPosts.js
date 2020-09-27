@@ -45,16 +45,16 @@ class YourPosts extends Component {
                 Authorization: `Bearer ${token}`                                        
                 }} )
            .then(response => response.json())
-           .then(resp => { this.setState({ posts: resp })
+           .then(resp => { this.setState({ posts: resp.user_posts }, console.log(resp))
                })       
     }
 
     render() { 
-           console.log( "your postst",  this.props.currentUser.user)
+              console.log( "your postst",  this.state)
         return (
             <>
                 All my posts.
-                {/* {this.state.posts[1].id} */}
+               
                 <ul>{this.posts()}</ul>  
             </>
         );

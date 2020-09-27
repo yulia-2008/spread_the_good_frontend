@@ -5,6 +5,7 @@ import Comment from "./Comment"
 class YourPost extends Component {
     state={
         post: this.props.post,
+      
         clicked: false
     }
 
@@ -32,7 +33,7 @@ editFormSubmitHandler = (state) => { this.setState({clicked: false})
        })
    }
 
-fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
+fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
 .then(response => response.json())
 .then(resp => {this.setState({post: resp})
 ; this.props.editFormSubmitHandler()
@@ -43,8 +44,23 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 // karmaUp = () => {this.props.karmaUp()
 
 // }
+
+componentDidMount(){ console.log("hey")
+    const token = localStorage.getItem("token")
+    fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`,{
+        method: "GET",
+        headers: {
+           'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`                                        
+            }} )
+       .then(response => response.json())
+       .then(resp =>  console.log("hey", resp)
+            //  this.setState({post: resp}, console.log("state in mount", this.state.post))
+           )       
+}
     render() { 
-        //   console.log("your post", this.state.post)
+            // console.log("your post", this.state.post)
         return ( 
               
                <div id= "profile-your-post">
@@ -58,10 +74,11 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
 
-                <Comment post = {this.state.post}
+                   <Comment post = {this.state.post}
+                         
                          profile = {this.props.profile} 
                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-                         currentUser = {this.props.currentUser}/> 
+                         currentUser = {this.props.currentUser}/>   
  
               {this.state.post.helper ? 
                     <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})

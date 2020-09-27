@@ -52,7 +52,7 @@ class PostsContainer extends Component {
    //    }
 
        render() {
-         //  console.log("post container", this.props.posts)
+           console.log("post container", this.props.posts)
           return (
             <div id="posts-container">
 

@@ -181,6 +181,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 }
   
   render(){ 
+    // console.log("all posts", this.state.posts)
 
     return(<> 
     <h1>SPREAD THE GOOD</h1> 

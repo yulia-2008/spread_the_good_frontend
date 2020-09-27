@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 class Comment extends Component {
 
     state={
-        comments: this.props.post.comments,
+         comments: this.props.post.comments,
+      
         comment: ""
     }
 
@@ -62,9 +63,11 @@ class Comment extends Component {
                 event.target.reset()  
                 this.props.addCommentSubmitHandler()   
     }
+
+   
        
     render() { 
-            // console.log("comm", this.props.post)
+            //   console.log("comm", this.props)
         return (
             <div id = "comments">
            

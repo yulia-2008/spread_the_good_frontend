@@ -86,6 +86,7 @@ createConnection = () => {
                                  <> 
                                 { !this.state.clicked ? 
                                     <Comment post = {this.props.postObj}
+                                             
                                              addCommentSubmitHandler = {this.props.addCommentSubmitHandler} 
                                             //  profile = {this.props.profile}  
                                              currentUser = {this.props.currentUser}/> 
