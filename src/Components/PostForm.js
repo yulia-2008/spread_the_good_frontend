@@ -12,11 +12,12 @@ class PostForm extends Component {
    }
 
    postFormSubmitHandler = event => {event.preventDefault()
+    const token = localStorage.getItem("token")
     let options = { method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
-                    Authorization: `Bearer ${this.props.currentUser.jwt}`
+                    Authorization: `Bearer ${token}`
                     },
                     body: JSON.stringify({
                            post: { user_id: this.props.currentUser.user.id,                               

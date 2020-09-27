@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Comment from "./Comment"
 
 class PostYouHelped extends Component {
     state={ 
@@ -30,17 +31,24 @@ class PostYouHelped extends Component {
     render() {
         //   console.log( "inside of Post", this.props.postObj)
         return ( 
-            <div id="post-card-notActive">
+            < div id="post-card-notActive">
             
            
-           <div id="app-containers">                  
-                <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                        
+           <div id="app-containers"> 
+                 <div  >                 
+                    <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
+                    <p>{this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
+                     <p> {this.props.postObj.user.city}</p>  
+                  </div>
+                    
             <div id="post-description">
                 <h3> {this.props.postObj.title}</h3>
                 <p> {this.props.postObj.description}</p>
-                  <p>Autor: {this.props.postObj.user.username}</p> 
-                 <p>Location: {this.props.postObj.user.city}</p> 
+
+                <Comment post = {this.props.postObj}
+                         profile = {this.props.profile} 
+                        currentUser = {this.props.currentUser}/> 
+              </div>    
 
                  {/*                  
                  <p> Karma score: (not increasing right away , only increasing in profile)
@@ -63,7 +71,7 @@ class PostYouHelped extends Component {
 
             </div>
             </div> 
-            </div>
+            
         );
     };
 }

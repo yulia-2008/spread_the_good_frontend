@@ -7,7 +7,7 @@ class Post extends Component {
     
     state={ 
         clicked: false,
-        styleObj: {border: "none"}
+        styleObj: {}
         // cssId: "post-card"    
         // userKarmaUp: ""
     }
@@ -58,19 +58,20 @@ createConnection = () => {
 // }
 
     render() {
-          console.log( "inside of Post", this.props.postObj)
+        //   console.log( "inside of Post", this.props.postObj)
         return ( 
-            <div style={this.state.styleObj}>
+            <div  id="app-containers" style={this.state.styleObj}>
             
            
-           <div id="app-containers">                  
+           <div >                  
                 <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                        
-            <div id="post-description">
-                <h3> {this.props.postObj.title}</h3>
-                <p> {this.props.postObj.description}</p>
-                  <p>Autor: {this.props.postObj.user.username}</p> 
-                 <p>Location: {this.props.postObj.user.city}</p> 
+        <p> {this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
+                 <p> {this.props.postObj.user.city}</p> 
+            </div>            
+                <div id="post-description">
+                    <h3> {this.props.postObj.title}</h3>
+                    <p> {this.props.postObj.description}</p>
+                   
 
                  {/*                  
                  <p> Karma score: (not increasing right away , only increasing in profile)
@@ -91,10 +92,6 @@ createConnection = () => {
                                 {/* : null } */}
 
                  {/* does not show the button "offer your help" on your own posts */}
-                {/* {  this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?
- 
-                   <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button> : null
-                }            */}
 
                  { this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?
             !this.state.clicked ? 
@@ -102,7 +99,7 @@ createConnection = () => {
           : "Thank you"                  
     : null
 }
-            </div>
+           
             </div> 
             </div>
         );

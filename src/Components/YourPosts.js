@@ -43,20 +43,19 @@ class YourPosts extends Component {
                 Authorization: `Bearer ${token}`                                        
                 }} )
            .then(response => response.json())
-           .then(resp => {
-               this.setState({ posts: resp
-                 }, console.log("your posts, did mount", resp))
+           .then(resp => { this.setState({ posts: resp
+                 })
                })
         
         }
 
     render() { 
-        // console.log( "postsss",  this.state.posts)
+        //   console.log( "postsss",  this.state.posts[1])
         return (
             <div >
                 All my posts.
-            
-               <ul>{this.posts()}</ul> 
+                {/* {this.state.posts[1].id} */}
+                <ul>{this.posts()}</ul>  
             </div>
         );
     }

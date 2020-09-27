@@ -7,7 +7,6 @@ import Profile from "./Containers/Profile";
 import FameWall from "./Components/FameWall"
 import PostsContainer from "./Containers/PostsContainer";
 import FilteredPosts from "./Containers/FilteredPosts";
-import UpdatedPosts from "./Containers/UpdatedPosts";
 import ButtonContainer from "./Containers/ButtonContainer";
 import FormContainer from "./Containers/FormContainer";
 
@@ -91,6 +90,7 @@ signUpHandler = event => {event.preventDefault()
         .then(response => response.json())
         .then(resp => { resp.user ? this.setState({currentUser: resp, signupClicked: false, karmaScore: resp.user.karma_score })
                                   : this.setState({currentUser: resp})
+                        localStorage.setItem("token", resp.jwt) 
          })
         event.target.reset()
 }
@@ -110,7 +110,7 @@ loginHandler = event => {event.preventDefault()
                   }      
      fetch('http://localhost:4000/api/v1/login', options)  // got toket in response !
      .then(response => response.json())
-     .then(resp => {console.log("login", resp) ;    resp.user ? this.setState({currentUser: resp, loginClicked: false, karmaScore: resp.user.karma_score})
+     .then(resp => { resp.user ? this.setState({currentUser: resp, loginClicked: false, karmaScore: resp.user.karma_score})
                                : this.setState({currentUser: resp})
           localStorage.setItem("token", resp.jwt) 
                            
@@ -144,7 +144,7 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
             })
             .then(resp => resp.json())
              .then(resp => this.setState({currentUser: resp})  )
-            // .then(resp=> console.log(resp))
+              
           }        
   }
 

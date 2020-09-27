@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import History from "../Components/History";
 import YourPosts from "../Components/YourPosts";
-// import PostsContainer from "./PostsContainer";
- import PostsYouHelped from  "./PostsYouHelped";
+import PostsYouHelped from  "./PostsYouHelped";
 
 
 class Profile extends Component {
@@ -13,12 +11,13 @@ class Profile extends Component {
     }
  
     componentDidMount(){ 
+        const token = localStorage.getItem("token")
          fetch(`http://localhost:4000/api/v1/helpers/${this.props.currentUser.user.id}`, {
              method: "GET",
              headers: {
                 'Content-Type': 'application/json',
                  Accept: 'application/json',
-                 Authorization: `Bearer ${this.props.currentUser.jwt}`
+                 Authorization: `Bearer ${token}`
                                          
                  }
          })
@@ -32,7 +31,7 @@ class Profile extends Component {
             
             <div >
              
-                <h1>{this.props.currentUser.user.username}</h1>
+                <h1>{this.props.currentUser.user.username} ({this.props.currentUser.user.karma_score})</h1>
                 <img id="profile-avatar" src={ this.props.currentUser.user.image} alt=""></img> 
                 <p>Karma_score: {this.props.karmaScore}</p>
                 <p>City: {this.props.currentUser.user.city}</p>
@@ -40,7 +39,7 @@ class Profile extends Component {
                 <br/> 
                 <div id="app-containers">
                     <div id="profile-containers">   
-                    Posts that I helped.      
+                     I'm going to help:      
                 <PostsYouHelped  currentUser = {this.props.currentUser}
                                     //  profile = {this.state.profile}                                   
                                      posts = {this.state.helpedPosts}/>                                

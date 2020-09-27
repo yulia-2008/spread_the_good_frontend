@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import EditPostForm from "./EditPostForm";
-import HelpedYou from "./HelpedYou";
 import Comment from "./Comment"
 
 class YourPost extends Component {
@@ -40,7 +39,12 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
 })
 
 }
-    render() {
+
+karmaUp = () => {
+
+}
+    render() { 
+          console.log("your post", this.state.post)
         return ( 
              <div id="app-containers"> 
                <div id= "profile-containers">
@@ -55,14 +59,20 @@ fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, options)
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
 
                 <Comment post = {this.state.post}
-                        profile = {this.props.profile} 
-                        currentUser = {this.props.currentUser}/> 
+                         profile = {this.props.profile} 
+                         currentUser = {this.props.currentUser}/> 
+ 
+              {this.state.post.helper ? 
+                    <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+                    <img  id="your-helper-avatar" src={this.state.post.helper.image}></img>
+                   
+                    <button  onClick={this.karmaUp}> Done </button> 
+                    </p>
+                    :null}        
               </div>
-              {/* <div id="profile-containers">
-                 <HelpedYou currentUser={this.props.currentUser}/>
-              </div>   */}
+              
 
-
+               
                                    
                                 
 
