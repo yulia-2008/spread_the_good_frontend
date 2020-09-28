@@ -10,6 +10,8 @@ import FilteredPosts from "./Containers/FilteredPosts";
 import ButtonContainer from "./Containers/ButtonContainer";
 import FormContainer from "./Containers/FormContainer";
 
+const token = localStorage.getItem("token")
+
 class App extends React.Component {
 
   state={
@@ -36,6 +38,13 @@ class App extends React.Component {
 
 
 clickHandler = (event) => {
+
+  if (event.target.matches(`#logout-button`)) {
+    this.setState({login: false,
+                   signupClicked: false,
+                    needHelpClicked: false
+                  })
+}
         
   if (event.target.matches(`#login-button`)) {
       this.setState({loginClicked: !this.state.loginClicked,
@@ -138,7 +147,7 @@ deleteClickHandler = postId => {
 }
 
 createConnection = postId => {
-    const token = localStorage.getItem("token")
+    
     let options = { method: 'PATCH',
                     headers: {
                    'Content-Type': 'application/json',
@@ -163,7 +172,7 @@ createConnection = postId => {
 //  }
 
 componentDidMount(){this.fetchPosts() 
-const token = localStorage.getItem("token")
+
 if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
            method: "GET", 
            headers: {Authorization: `Bearer ${token}`},
@@ -176,7 +185,7 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
 
 
 karmaUp = helper => { 
-  const token = localStorage.getItem("token")
+
   let options = { method: 'PATCH',
                 headers: {
                'Content-Type': 'application/json',
@@ -227,7 +236,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                     
                   
                      <div id="app-containers">
-                       {this.state.searchResult=== "" ?
+                        {this.state.searchResult=== "" ? 
                      <PostsContainer 
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
@@ -239,12 +248,9 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                     //  searchResult = {this.state.searchResult}
                                     //  newPost={this.state.newPost}
                                      posts = {this.state.posts}
-                                     searchResult = {this.state.searchResult} 
+                                     
                                      />  
-                    
-
-
-                     : <FilteredPosts currentUser = {this.state.currentUser}
+                       :<FilteredPosts currentUser = {this.state.currentUser}
                     
                                       // profile = {this.state.profile} 
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
@@ -252,8 +258,8 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                       createConnection={this.createConnection}
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       // clearSearch = {this.clearSearch}
-                                      />
-                }
+                                      /> }
+               
 
                      <FormContainer clicked = {this.state} 
                                     changeHandler={this.changeHandler}

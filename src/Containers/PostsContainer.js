@@ -36,14 +36,22 @@ class PostsContainer extends Component {
     //                                              />) 
     //  }
 
-    renderPosts = () => {  return this.props.posts.filter((p) => p.user.city === this.props.searchResult && p.active )
-                    .map(post => <Post key={post.id} postObj={post} 
-                                        currentUser={this.props.currentUser}
+    // renderPosts = () => {  return this.props.posts.filter((p) => p.user.city === this.props.searchResult && p.active )
+    //                 .map(post => <Post key={post.id} postObj={post} 
+    //                                     currentUser={this.props.currentUser}
                                        
-                                         createConnection={this.props.createConnection}
-                                        addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
-                                            />)
-        } 
+    //                                      createConnection={this.props.createConnection}
+    //                                     addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
+    //                                         />)
+    //     } 
+
+
+        renderPosts = () => {  return this.props.posts.filter(p => p.active===true)
+          .map(post => <Post key={post.id} postObj={post} 
+                              currentUser={this.props.currentUser}
+                              addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
+                                  />)
+} 
 //    editedPosts = () => {     
 //       return this.props.posts.map(post => <Post key={post.id} postObj={post} 
 //       currentUser={this.props.currentUser}                                                       
