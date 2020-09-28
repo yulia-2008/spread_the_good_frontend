@@ -79,20 +79,15 @@ clickHandler = () => {
                     {this.props.currentUser.user && this.props.postObj.id === this.props.currentUser.user.id ? 
                              this.props.karmaScore : this.props.postObj.user.karma_score}                   
                 </p>                    */}
-             
-               
-               
-                              {/* {this.props.postObj.comments && this.props.postObj.comments.length >=1 ?  */}
-                                 <> 
-                                { !this.state.clicked ? 
+
+                                { !this.state.clicked && this.props.currentUser ? 
                                     <Comment post = {this.props.postObj}
                                              
                                              addCommentSubmitHandler = {this.props.addCommentSubmitHandler} 
                                             //  profile = {this.props.profile}  
                                              currentUser = {this.props.currentUser}/> 
                                              : null}
-                                 </>
-                                {/* : null } */}
+                               
 
                  {/* does not show the button "offer your help" on your own posts */}
 

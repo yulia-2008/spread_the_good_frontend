@@ -39,7 +39,7 @@ class PostForm extends Component {
 }
     
     render() {
-        return ( this.props.currentUser==="" ? <h3>Please login</h3> :
+        return ( this.props.currentUser ?  
             <div> 
          <h4> </h4>
           <form onSubmit = {event => this.postFormSubmitHandler(event)}>
@@ -56,9 +56,10 @@ class PostForm extends Component {
               <br/><br/> 
 
               <input  type="submit" value="Submit"></input>           
-          </form> 
-        
+          </form>        
         </div>
+: <h3>Please login</h3>
+
         );
     }
 }

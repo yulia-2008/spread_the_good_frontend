@@ -27,12 +27,7 @@ class App extends React.Component {
     currentUser: "",
     karmaScore: "",
     searchResult: "",
-    posts: [],
-    // profile: false
-    // newPost: false
-
-    // searchResults: "",
-   
+    posts: [],  
   }
 
 
@@ -40,9 +35,11 @@ class App extends React.Component {
 clickHandler = (event) => {
 
   if (event.target.matches(`#logout-button`)) {
+    localStorage.removeItem("token")
     this.setState({login: false,
                    signupClicked: false,
-                    needHelpClicked: false
+                   needHelpClicked: false,
+                   currentUser: null
                   })
 }
         
@@ -164,12 +161,7 @@ createConnection = postId => {
       // .then(resp => { console.log("Patch", resp); this.fetchPosts()})
     .then(setTimeout(this.fetchPosts, 3000))
     } 
-      
-
-
-//  componentDidUpdate(){
-// console.log("did update")
-//  }
+ 
 
 componentDidMount(){this.fetchPosts() 
 
@@ -178,9 +170,8 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
            headers: {Authorization: `Bearer ${token}`},
             })
             .then(resp => resp.json())
-             .then(resp => this.setState({currentUser: resp})  )
-              
-          }        
+            .then(resp => this.setState({currentUser: resp})
+            )}                            
   }
 
 
@@ -213,7 +204,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 }
   
   render(){ 
-    //  console.log("all posts", this.state.posts)
+      // console.log("all posts", this.state.currentUser)
 
     return(<> 
     <h1>SPREAD THE GOOD</h1> 
@@ -231,37 +222,29 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                 <>   <br/> 
                    <div id="app-containers">
                      <Search searchHandler={this.searchHandler}/>
-                     <ButtonContainer clickHandler = {this.clickHandler}/>
+                     <ButtonContainer clickHandler = {this.clickHandler}
+                                       currentUser = {this.state.currentUser}/>
                    </div>
-                    
-                  
+                                     
                      <div id="app-containers">
                         {this.state.searchResult=== "" ? 
-                     <PostsContainer 
-                                  //  offerHelpClickHandler={this.offerHelpClickHandler}
+                             <PostsContainer                                
                                      currentUser = {this.state.currentUser}
                                      createConnection={this.createConnection}
                                      profile = {this.state.profile} 
-                                     addCommentSubmitHandler = {this.addCommentSubmitHandler}
-                                    //  newPost = {this.state.newPost}
-                                    //  karmaScore={this.state.karmaScore}
-                                    //  searchResult = {this.state.searchResult}
-                                    //  newPost={this.state.newPost}
+                                     addCommentSubmitHandler = {this.addCommentSubmitHandler}                                
+                                    //  karmaScore={this.state.karmaScore}                                                                      
                                      posts = {this.state.posts}
                                      
                                      />  
-                       :<FilteredPosts currentUser = {this.state.currentUser}
-                    
-                                      // profile = {this.state.profile} 
+                             :<FilteredPosts currentUser = {this.state.currentUser}                                    
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       searchResult = {this.state.searchResult} 
                                       createConnection={this.createConnection}
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       // clearSearch = {this.clearSearch}
                                       /> }
-               
-
-                     <FormContainer clicked = {this.state} 
+                       <FormContainer clicked = {this.state} 
                                     changeHandler={this.changeHandler}
                                     signUpHandler={this.signUpHandler}
                                     loginHandler={this.loginHandler}
