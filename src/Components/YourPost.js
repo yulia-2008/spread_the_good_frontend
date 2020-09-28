@@ -4,7 +4,7 @@ import Comment from "./Comment"
 
 class YourPost extends Component {
     state={
-        post: "g",
+        post: this.props.post,
       
         clicked: false
     }
@@ -54,25 +54,25 @@ fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
 //                                                            currentUser = {this.props.currentUser}/>  )             
 // }
 
-componentDidMount(){ 
-    const token = localStorage.getItem("token")
-    fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`,{
-        method: "GET",
-        headers: {
-           'Content-Type': 'application/json',
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`                                        
-            }} )
-       .then(response => response.json())
-       .then(resp =>  {
-              this.setState({post: resp})}
-           )       
-}
+// componentDidMount(){ 
+//     const token = localStorage.getItem("token")
+//     fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`,{
+//         method: "GET",
+//         headers: {
+//            'Content-Type': 'application/json',
+//             Accept: 'application/json',
+//             Authorization: `Bearer ${token}`                                        
+//             }} )
+//        .then(response => response.json())
+//        .then(resp =>  {
+//               this.setState({post: resp})}
+//            )       
+// }
     render() { 
-             console.log("your post", this.state.post)
+            //  console.log("your post", this.state.post)
         return ( 
               
-               <div id= "profile-your-post">
+               <div id= "profile-your-post" >
                 <h3>{this.state.post.title}</h3> 
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
@@ -83,17 +83,17 @@ componentDidMount(){
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
 
-                       <Comment post = {this.state.post}
+                        <Comment post = {this.state.post}
                          
                          profile = {this.props.profile} 
                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-                         currentUser = {this.props.currentUser}/>       
+                         currentUser = {this.props.currentUser}/>        
 
               {/* <p>{this.comments()}</p> */}
 
               {this.state.post.helper ? 
                     <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-                    <img  id="your-helper-avatar" src={this.state.post.helper.image}></img>
+                    <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
                    
                     <button  onClick={() => this.props.karmaUp(this.state.post.helper)}> Done </button> 
                     </p>

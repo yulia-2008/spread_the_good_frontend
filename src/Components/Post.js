@@ -61,7 +61,9 @@ createConnection = () => {
     render() {
         //   console.log( "inside of Post", this.props.postObj)
         return ( 
-            <div  id="app-containers" style={this.state.styleObj}>
+            <div  id="app-containers" 
+            // style={this.state.styleObj}
+            >
             
            
            <div >                  

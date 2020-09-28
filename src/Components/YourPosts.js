@@ -51,7 +51,7 @@ class YourPosts extends Component {
     }
 
     render() { 
-            //   console.log( "your postst",  this.state)
+            //    console.log( "your postst",  this.state.posts)
         return (
             <>
                 All my posts.

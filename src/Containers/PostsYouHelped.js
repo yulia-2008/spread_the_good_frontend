@@ -15,7 +15,7 @@ class PostsYouHelped extends Component {
             return (
               <div id="posts-container">
   
-                  {this.renderPosts()} 
+                 {this.renderPosts()}  
                 
                 </div> 
             );

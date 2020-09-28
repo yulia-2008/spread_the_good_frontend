@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Comment extends Component {
 
     state={
-         comments: this.props.post.comments,     
+        comments: this.props.post.comments,     
         comment: ""
     }
 
@@ -27,10 +27,9 @@ class Comment extends Component {
 // {this.name(comm.id).id} 
 
 
-    comments = () => {  
-        
-        
-            return this.state.comments.map((comm) => <p key={comm.id}>   {comm.text}</p> ) 
+    comments = () => {          
+         return this.state.comments.map((comm) => 
+            <p key={comm.id}> {comm.user.username}:  {comm.text}</p> ) 
     }
     // {this.name(comm.id)}:
 
@@ -54,10 +53,11 @@ class Comment extends Component {
                            }
                 fetch('http://localhost:4000/api/v1/comments', options)
                 .then(response => response.json())
-                .then(resp =>{console.log("l", resp); this.setState({ comments: [...this.state.comments, resp],
-                                              comment: "",
-                                           })  }
-                 )
+                .then(resp =>{resp.user= this.props.currentUser.user
+                              this.setState({ comments: [...this.state.comments, resp]                                              
+                                           }) 
+                 }) 
+
                 //  resp.doesnt have a user who wrote a comment
                 event.target.reset()  
                 this.props.addCommentSubmitHandler()   
@@ -66,11 +66,11 @@ class Comment extends Component {
    
        
     render() { 
-               console.log("comm", this.props.post.comments)
+                 console.log("comm", this.state.comments)
         return (
             <div id = "comments">
-            
-            {this.comments()} 
+            <h5>Messages:</h5>
+           <h6> {this.comments()} </h6>
            
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>
