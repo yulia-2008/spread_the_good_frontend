@@ -92,13 +92,7 @@ class Comment extends Component {
     
     }
    
-           
-//    componentDidMount() { 
-//        fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`)
-//        .then(response => response.json())
-//        .then (resp =>  {this.setState({comments: resp.comments}) 
-//        })
-//     } 
+
 }
 
  export default Comment;

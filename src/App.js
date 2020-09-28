@@ -65,11 +65,6 @@ clickHandler = (event) => {
   }
 }
 
-// offerHelpClickHandler = (user) => {
-//        this.setState({offerHelpClicked: true,
-//                       karmaScore: user.karma_score
-//        })
-// }
 
 
 changeHandler = event => {this.setState({ [event.target.name]: event.target.value})
@@ -144,7 +139,7 @@ deleteClickHandler = postId => {
 }
 
 createConnection = postId => {
-    
+  const token = localStorage.getItem("token")
     let options = { method: 'PATCH',
                     headers: {
                    'Content-Type': 'application/json',
@@ -158,8 +153,8 @@ createConnection = postId => {
                   }      
      fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)  
      .then(response => response.json()) 
-      // .then(resp => { console.log("Patch", resp); this.fetchPosts()})
-    .then(setTimeout(this.fetchPosts, 3000))
+    //  .then(resp => { console.log("Patch", resp)})
+    .then(setTimeout(this.fetchPosts, 2000))
     } 
  
 
@@ -171,12 +166,13 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
             })
             .then(resp => resp.json())
             .then(resp => this.setState({currentUser: resp})
-            )}                            
+            )}  
+            console.log("did moutn", this.state.currentUser)                          
   }
 
 
-karmaUp = helper => { 
-
+karmaUp = (helper) => { console.log("Patch user ", helper)
+  const token = localStorage.getItem("token")
   let options = { method: 'PATCH',
                 headers: {
                'Content-Type': 'application/json',
@@ -191,8 +187,8 @@ karmaUp = helper => {
               }      
  fetch(`http://localhost:4000/api/v1/users/${helper.id}`, options)  
  .then(response => response.json()) 
-  .then( this.fetchPosts())
-//  .then(resp => console.log("Patch", resp))
+  // .then( this.fetchPosts())
+ .then(resp => console.log("Patch", resp))
  
 }
 
@@ -232,15 +228,14 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                      currentUser = {this.state.currentUser}
                                      createConnection={this.createConnection}
                                      profile = {this.state.profile} 
-                                     addCommentSubmitHandler = {this.addCommentSubmitHandler}                                
-                                    //  karmaScore={this.state.karmaScore}                                                                      
+                                     addCommentSubmitHandler = {this.addCommentSubmitHandler}                                                                                                                                       
                                      posts = {this.state.posts}
                                      
                                      />  
                              :<FilteredPosts currentUser = {this.state.currentUser}                                    
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       searchResult = {this.state.searchResult} 
-                                      createConnection={this.createConnection}
+                                      createConnection={this.createConnection}                                     
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       // clearSearch = {this.clearSearch}
                                       /> }

@@ -54,7 +54,7 @@ class YourPosts extends Component {
             //    console.log( "your postst",  this.state.posts)
         return (
             <>
-                All my posts.
+               
                
                 <ul>{this.posts()}</ul>  
             </>

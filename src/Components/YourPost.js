@@ -4,8 +4,7 @@ import Comment from "./Comment"
 
 class YourPost extends Component {
     state={
-        post: this.props.post,
-      
+        post: this.props.post,     
         clicked: false
     }
 
@@ -40,6 +39,10 @@ fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
 })
 
 }
+
+ karmaUp = () => {this.setState({clicked: true})
+    this.props.karmaUp(this.state.post.helper)
+  }
 
 // karmaUp = () => {this.props.karmaUp()
 
@@ -95,7 +98,7 @@ fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
                     <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
                     <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
                    
-                    <button  onClick={() => this.props.karmaUp(this.state.post.helper)}> Done </button> 
+                     <button  onClick={this.karmaUp}> Done </button>  
                     </p>
                     :null}        
               </div>

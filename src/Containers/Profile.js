@@ -39,7 +39,7 @@ class Profile extends Component {
                 <br/> 
                 <div id="app-containers">
                     <div id="profile-containers">   
-                     I'm going to help:      
+                     <h2>I'm going to help:  </h2>    
                 <PostsYouHelped  currentUser = {this.props.currentUser}
                                  addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                                     //  profile = {this.state.profile}                                   
@@ -47,6 +47,8 @@ class Profile extends Component {
                     </div> 
 
                     <div id = "profile-containers">
+
+                    <h2>My posts:  </h2>   
                     <YourPosts currentUser={this.props.currentUser} 
                            karmaUp = {this.props.karmaUp}
                            deleteClickHandler = {this.props.deleteClickHandler}
