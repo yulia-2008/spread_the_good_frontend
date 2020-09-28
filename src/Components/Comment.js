@@ -4,8 +4,7 @@ import React, { Component } from 'react';
 class Comment extends Component {
 
     state={
-         comments: this.props.post.comments,
-      
+         comments: this.props.post.comments,     
         comment: ""
     }
 
@@ -39,12 +38,12 @@ class Comment extends Component {
     }
 
     commentSubmitHandler = event => {event.preventDefault()
-
+        const token = localStorage.getItem("token")
             let options = { method: 'POST',
                             headers: {
                             'Content-Type': 'application/json',
                             Accept: 'application/json',
-                            Authorization: `Bearer ${this.props.currentUser.jwt}`
+                            Authorization: `Bearer ${token}`
                             },
                             body: JSON.stringify({
                                    comment: { user_id: this.props.currentUser.user.id,  
@@ -55,9 +54,9 @@ class Comment extends Component {
                            }
                 fetch('http://localhost:4000/api/v1/comments', options)
                 .then(response => response.json())
-                .then(resp => this.setState({ comments: [...this.state.comments, resp],
+                .then(resp =>{console.log("l", resp); this.setState({ comments: [...this.state.comments, resp],
                                               comment: "",
-                                           })
+                                           })  }
                  )
                 //  resp.doesnt have a user who wrote a comment
                 event.target.reset()  
@@ -67,11 +66,11 @@ class Comment extends Component {
    
        
     render() { 
-            //   console.log("comm", this.props)
+               console.log("comm", this.props.post.comments)
         return (
             <div id = "comments">
-           
-            {this.comments()}
+            
+            {this.comments()} 
            
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>

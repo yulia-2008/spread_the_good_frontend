@@ -4,7 +4,7 @@ import Comment from "./Comment"
 
 class YourPost extends Component {
     state={
-        post: this.props.post,
+        post: "g",
       
         clicked: false
     }
@@ -45,7 +45,16 @@ fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
 
 // }
 
-componentDidMount(){ console.log("hey")
+// comments = () => {  
+//     return this.state.post.comments.map((comm) => <Comment key={comm.id}
+//                                                            post = {this.state.post}
+                         
+//                                                            profile = {this.props.profile} 
+//                                                            addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
+//                                                            currentUser = {this.props.currentUser}/>  )             
+// }
+
+componentDidMount(){ 
     const token = localStorage.getItem("token")
     fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`,{
         method: "GET",
@@ -55,12 +64,12 @@ componentDidMount(){ console.log("hey")
             Authorization: `Bearer ${token}`                                        
             }} )
        .then(response => response.json())
-       .then(resp =>  console.log("hey", resp)
-            //  this.setState({post: resp}, console.log("state in mount", this.state.post))
+       .then(resp =>  {
+              this.setState({post: resp})}
            )       
 }
     render() { 
-            // console.log("your post", this.state.post)
+             console.log("your post", this.state.post)
         return ( 
               
                <div id= "profile-your-post">
@@ -74,12 +83,14 @@ componentDidMount(){ console.log("hey")
                 </p>
                 {this.state.clicked ? <EditPostForm editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
 
-                   <Comment post = {this.state.post}
+                       <Comment post = {this.state.post}
                          
                          profile = {this.props.profile} 
                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-                         currentUser = {this.props.currentUser}/>   
- 
+                         currentUser = {this.props.currentUser}/>       
+
+              {/* <p>{this.comments()}</p> */}
+
               {this.state.post.helper ? 
                     <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
                     <img  id="your-helper-avatar" src={this.state.post.helper.image}></img>

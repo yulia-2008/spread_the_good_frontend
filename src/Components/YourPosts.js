@@ -45,12 +45,13 @@ class YourPosts extends Component {
                 Authorization: `Bearer ${token}`                                        
                 }} )
            .then(response => response.json())
-           .then(resp => { this.setState({ posts: resp.user_posts }, console.log(resp))
+           .then(resp => { this.setState({ posts: resp.user_posts } 
+            )
                })       
     }
 
     render() { 
-              console.log( "your postst",  this.state)
+            //   console.log( "your postst",  this.state)
         return (
             <>
                 All my posts.
