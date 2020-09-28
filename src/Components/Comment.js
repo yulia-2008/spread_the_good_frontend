@@ -66,7 +66,7 @@ class Comment extends Component {
    
        
     render() { 
-                 console.log("comm", this.state.comments)
+                //  console.log("comm", this.state.comments)
         return (
             <div id = "comments">
             <h5>Messages:</h5>
@@ -75,10 +75,10 @@ class Comment extends Component {
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>
                     <textarea  type="text"  name="comment" rows="3"
-                               placeholder = "Enter your text"
+                               placeholder = "Send a message"
                                onChange={this.changeHandler}>                           
                     </textarea><br/>                    
-                    <input  type="submit" value="Submit"></input>           
+                    <input  type="submit" value="Send"></input>           
                </form>  
               
                  

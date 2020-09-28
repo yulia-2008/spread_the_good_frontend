@@ -12,6 +12,7 @@ class FilteredPosts extends Component {
             let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult && post.active )
             return filteredPosts.map(post => <Post key={post.id} postObj={post}
                                                    addCommentSubmitHandler = {this.props.addCommentSubmitHandler} 
+                                                   createConnection={this.props.createConnection}
                                                    currentUser={this.props.currentUser}
                                                     //   karmaScore={this.props.karmaScore}
                                                     //   offerHelpClickHandler={this.props.offerHelpClickHandler}

@@ -4,10 +4,28 @@ import Post from "../Components/Post"
 class PostsContainer extends Component {
 
     state={
-      //   posts: 
+          // posts: this.props.posts
     }
 
+//    createConnection = postId => {
+//     const token = localStorage.getItem("token")
+//     let options = { method: 'PATCH',
+//                     headers: {
+//                    'Content-Type': 'application/json',
+//                     Accept: 'application/json',
+//                     Authorization: `Bearer ${token}`
+                                            
+//                     },
+//                     body: JSON.stringify({                                                
+//                           helper_id: this.state.currentUser.user.id, 
+//                           active: false                       
+//                     })
+//                   }      
+//      fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)  
+//      .then(response => response.json()) 
+//       .then(resp => (this.state.filter((p) => ))
     
+// } 
 
     // filterPosts= () => { this.fetchPosts()
     //     let filteredPosts = this.state.posts.filter((post) => post.user.city === this.props.searchResult )
@@ -18,9 +36,11 @@ class PostsContainer extends Component {
     //                                              />) 
     //  }
 
-    renderPosts = () => {  return this.props.posts.filter(p => p.active===true)
+    renderPosts = () => {  return this.props.posts.filter((p) => p.user.city === this.props.searchResult && p.active )
                     .map(post => <Post key={post.id} postObj={post} 
                                         currentUser={this.props.currentUser}
+                                       
+                                         createConnection={this.props.createConnection}
                                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
                                             />)
         } 

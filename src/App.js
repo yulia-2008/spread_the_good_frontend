@@ -137,7 +137,30 @@ deleteClickHandler = postId => {
   
 }
 
+createConnection = postId => {
+    const token = localStorage.getItem("token")
+    let options = { method: 'PATCH',
+                    headers: {
+                   'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`                                           
+                    },
+                    body: JSON.stringify({                                                
+                          helper_id: this.state.currentUser.user.id, 
+                          active: false                       
+                    })
+                  }      
+     fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)  
+     .then(response => response.json()) 
+      // .then(resp => { console.log("Patch", resp); this.fetchPosts()})
+    .then(setTimeout(this.fetchPosts, 3000))
+    } 
+      
 
+
+//  componentDidUpdate(){
+// console.log("did update")
+//  }
 
 componentDidMount(){this.fetchPosts() 
 const token = localStorage.getItem("token")
@@ -181,7 +204,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 }
   
   render(){ 
-    // console.log("all posts", this.state.posts)
+    //  console.log("all posts", this.state.posts)
 
     return(<> 
     <h1>SPREAD THE GOOD</h1> 
@@ -208,6 +231,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                      <PostsContainer 
                                   //  offerHelpClickHandler={this.offerHelpClickHandler}
                                      currentUser = {this.state.currentUser}
+                                     createConnection={this.createConnection}
                                      profile = {this.state.profile} 
                                      addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                     //  newPost = {this.state.newPost}
@@ -215,14 +239,17 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                     //  searchResult = {this.state.searchResult}
                                     //  newPost={this.state.newPost}
                                      posts = {this.state.posts}
+                                     searchResult = {this.state.searchResult} 
                                      />  
                     
 
 
                      : <FilteredPosts currentUser = {this.state.currentUser}
+                    
                                       // profile = {this.state.profile} 
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       searchResult = {this.state.searchResult} 
+                                      createConnection={this.createConnection}
                                       addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                       // clearSearch = {this.clearSearch}
                                       />

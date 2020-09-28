@@ -20,7 +20,7 @@ class Search extends Component {
             <div id="search-container">
                 <form onSubmit={this.submitHandler}>
                     <input type="text"
-                        placeholder={"Search for city"}
+                        placeholder={"Search posts by city"}
                         onChange={this.changeHandler}
                         value={this.state.search}
                     />                   

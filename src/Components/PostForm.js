@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PostForm extends Component {
    state={
        title: "",
-       description: "kk",
+       description: "",
        image: ""      
    }
 //    I put image in state  because I might change it for image of the post, not image of user 

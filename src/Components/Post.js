@@ -13,30 +13,30 @@ class Post extends Component {
     }
 
 clickHandler = () => {  
-   this.createConnection()
+   this.props.createConnection(this.props.postObj.id)
    this.setState({clicked: true, styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}})
 //     this.increaseKarmaScore() 
  }
 
-createConnection = () => {
-    const token = localStorage.getItem("token")
-    let options = { method: 'PATCH',
-                    headers: {
-                   'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${token}`
+// createConnection = () => {
+//     const token = localStorage.getItem("token")
+//     let options = { method: 'PATCH',
+//                     headers: {
+//                    'Content-Type': 'application/json',
+//                     Accept: 'application/json',
+//                     Authorization: `Bearer ${token}`
                                             
-                    },
-                    body: JSON.stringify({                                                
-                          helper_id: this.props.currentUser.user.id, 
-                          active: false                       
-                    })
-                  }      
-     fetch(`http://localhost:4000/api/v1/posts/${this.props.postObj.id}`, options)  
-     .then(response => response.json()) 
-    //   .then(resp => console.log("Patch", resp))
+//                     },
+//                     body: JSON.stringify({                                                
+//                           helper_id: this.props.currentUser.user.id, 
+//                           active: false                       
+//                     })
+//                   }      
+//      fetch(`http://localhost:4000/api/v1/posts/${this.props.postObj.id}`, options)  
+//      .then(response => response.json()) 
+//     //   .then(resp => console.log("Patch", resp))
     
-}
+// }
 
 // increaseKarmaScore = () => { 
 //                 let options = { method: 'PATCH',
@@ -61,9 +61,7 @@ createConnection = () => {
     render() {
         //   console.log( "inside of Post", this.props.postObj)
         return ( 
-            <div  id="app-containers" 
-            // style={this.state.styleObj}
-            >
+            <div  id="app-containers"  style={this.state.styleObj}  >
             
            
            <div >                  
@@ -101,7 +99,7 @@ createConnection = () => {
                  { this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?
             !this.state.clicked ? 
          <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button>
-          : "Thank you"                  
+          :<h1>Thank you</h1>                   
     : null
 }
            
