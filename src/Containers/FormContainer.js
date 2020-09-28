@@ -4,8 +4,7 @@ import LoginForm from "../Components/LoginForm";
 import PostForm from "../Components/PostForm";
 
 class FormContainer extends Component {
-    render() {console.log("post form clicked", this.props.clicked.needHelpClicked);
-    console.log("post form user", this.props.currentUser)
+    render() {
         return ( 
             <div id="form-container">               
                 {this.props.clicked.loginClicked ? <LoginForm changeHandler={this.props.changeHandler}

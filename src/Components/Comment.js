@@ -75,10 +75,13 @@ class Comment extends Component {
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>
                     <textarea  type="text"  name="comment" rows="3"
-                               placeholder = "Send a message"
+                               placeholder = "Your message"
                                onChange={this.changeHandler}>                           
-                    </textarea><br/>                    
-                    <input  type="submit" value="Send"></input>           
+                    </textarea><br/> 
+                  
+                 {this.props.currentUser ?                   
+                    <input  type="submit" value="Send"></input>  
+                 : <p>"Pease login to send a message"</p>  }       
                </form>  
               
                  
