@@ -26,8 +26,9 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
  karmaUp = () => {this.setState({doneClicked: true, 
-                                 styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}})
-    this.props.karmaUp(this.state.post.helper)
+                                //  styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
+                                })
+    this.props.karmaUp(this.state.post )
   }
   
 // karmaUp = () => { this.props.karmaUp(this.state.post.helper)

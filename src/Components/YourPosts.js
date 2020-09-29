@@ -32,6 +32,45 @@ fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
 
   }  
 
+  karmaUp = post => {
+      let updatedPosts = [...this.state.posts]
+    let updateKarma = updatedPosts.filter((p) => p.helper_id === post.helper_id)
+    updateKarma.map((post) => post.helper.karma_score++)
+    this.setState({posts: updatedPosts})
+    console.log(this.state.posts)
+    const token = localStorage.getItem("token")
+    let optionsKarma = { method: 'PATCH',
+                  headers: {
+                 'Content-Type': 'application/json',
+                  Accept: 'application/json',
+                  Authorization: `Bearer ${token}`                                         
+                  },
+                  body: JSON.stringify({                                                
+                        karma_score: post.helper.karma_score + 1,                                                
+                  })
+                }      
+     fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
+     .then(response => response.json()) 
+    //  .then( resp => { console.log("Your posts Patch karma", resp)})
+
+     let optionsPost = { method: 'PATCH',
+     headers: {
+    'Content-Type': 'application/json',
+     Accept: 'application/json',
+     Authorization: `Bearer ${token}`                                         
+     },
+     body: JSON.stringify({                                                
+           archived: true,                                                
+     })
+   }  
+   
+     fetch(`http://localhost:4000/api/v1/posts/${post.id}`, optionsPost)  
+     .then(response => response.json()) 
+    //  .then( resp => { console.log("Your postst Patch archived", resp)})
+
+this.props.karmaUp(post)
+  }
+
     deleteClickHandler = postId => {  
         let updatedPosts = this.state.posts.filter((post) => post.id !== postId)
         // console.log(updatedPosts)
@@ -49,7 +88,7 @@ fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
     posts = () => {  
         return this.state.posts.map((post) => <YourPost key={post.id} post={post} 
                                                         currentUser={this.props.currentUser}
-                                                        karmaUp = {this.props.karmaUp}
+                                                        karmaUp = {this.karmaUp}
                                                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                                                         // profile = {this.props.profile}
                                                         editFormSubmitHandler = {this.editFormSubmitHandler}

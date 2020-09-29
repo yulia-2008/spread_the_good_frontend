@@ -27,7 +27,8 @@ class App extends React.Component {
     currentUser: "",
     karmaScore: "",
     searchResult: "",
-    posts: [],  
+    posts: [], 
+    updatedKarma: false 
   }
 
 
@@ -176,26 +177,13 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
   }
 
 
-karmaUp = (helper) => { 
+karmaUp = post => { 
   // console.log("Patch user ", helper)
-  const token = localStorage.getItem("token")
-  let options = { method: 'PATCH',
-                headers: {
-               'Content-Type': 'application/json',
-                Accept: 'application/json',
-                Authorization: `Bearer ${token}`
-                                        
-                },
-                body: JSON.stringify({                                                
-                      karma_score: helper.karma_score + 1, 
-                                             
-                })
-              }      
- fetch(`http://localhost:4000/api/v1/users/${helper.id}`, options)  
- .then(response => response.json()) 
-   .then( resp => {this.fetchPosts(); console.log("Patch", resp)})
- 
- 
+  let updatedPosts = [...this.state.posts]
+  let updateKarma = updatedPosts.filter((p) => p.user_id === post.helper_id)
+  updateKarma.map((post) => post.user.karma_score++)
+  this.setState({posts: updatedPosts, updatedKarma: true})
+  // this.fetchPosts()
 }
 
 
@@ -217,7 +205,8 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                                           deleteClickHandler={this.deleteClickHandler}
                                                           editFormSubmitHandler={this.editFormSubmitHandler}
                                                           addCommentSubmitHandler = {this.addCommentSubmitHandler}
-                                                          karmaUp={this.karmaUp}/>
+                                                          karmaUp={this.karmaUp}
+                                                          updatedKarma = {this.state.updatedKarma}/>
                                                :  <h2>Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 
