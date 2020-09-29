@@ -8,19 +8,39 @@ class YourPosts extends Component {
         posts: []
     }
       
-    
+  editFormSubmitHandler = (state, postId) => {
+  
+    let updatePost = this.state.posts.find((post) => post.id === postId)
+    updatePost.title = state.title
+    updatePost.description = state.description
+
+   let options = { method: 'PATCH',
+   headers: {
+   'Content-Type': 'application/json',
+   Accept: 'application/json',
+   Authorization: `Bearer ${token}`
+   },
+   body: JSON.stringify({
+        title: state.title,                           
+        description: state.description            
+       })
+   }
+
+fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
+.then(response => response.json())
+ this.props.editFormSubmitHandler(state, postId)
+
+  }  
 
     deleteClickHandler = postId => {  
-
-
         let updatedPosts = this.state.posts.filter((post) => post.id !== postId)
-        console.log(updatedPosts)
+        // console.log(updatedPosts)
         this.setState({posts: updatedPosts})
 
         let options = { method: 'DELETE',
-        headers: { Authorization: `Bearer ${token}`
-            }, 
-         }
+                       headers: { Authorization: `Bearer ${token}`
+                      } 
+                      }
        fetch(`http://localhost:4000/api/v1/posts/${postId}`, options);
       this.props.deleteClickHandler(postId)
     
@@ -32,7 +52,7 @@ class YourPosts extends Component {
                                                         karmaUp = {this.props.karmaUp}
                                                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                                                         // profile = {this.props.profile}
-                                                        editFormSubmitHandler = {this.props.editFormSubmitHandler}
+                                                        editFormSubmitHandler = {this.editFormSubmitHandler}
                                                         deleteClickHandler={this.deleteClickHandler}/> )             
     }
     componentDidMount(){ 

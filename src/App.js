@@ -129,7 +129,10 @@ this.setState({ needHelpClicked: false })
 
 }
 
-editFormSubmitHandler = () => {this.fetchPosts()
+editFormSubmitHandler = (state, postId) => {
+  let updatePost = this.state.posts.find((post) => post.id === postId)
+  updatePost.title = state.title
+  updatePost.description = state.description
 }
 
 addCommentSubmitHandler = () => {this.fetchPosts()}
@@ -190,8 +193,8 @@ karmaUp = (helper) => {
               }      
  fetch(`http://localhost:4000/api/v1/users/${helper.id}`, options)  
  .then(response => response.json()) 
-   .then( this.fetchPosts())
-//  .then(resp => console.log("Patch", resp))
+   .then( resp => {this.fetchPosts(); console.log("Patch", resp)})
+ 
  
 }
 

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class EditPostForm extends Component {
     state={
-        title: "",
-        description: "",
+        title: this.props.post.title,
+        description: this.props.post.description,
         image: ""      
     }
  //    I put image in state  because I might change it for image of the post, not image of user 
