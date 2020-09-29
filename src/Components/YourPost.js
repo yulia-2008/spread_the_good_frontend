@@ -6,7 +6,8 @@ class YourPost extends Component {
     state={
         post: this.props.post,     
         editClicked: false,
-        doneClicked: false
+        doneClicked: false,
+        styleObj: {}
     }
 
 //     post = () => { fetch(`http://localhost:4000/api/v1/posts/${this.props.postId}`)
@@ -20,32 +21,15 @@ editClickHandler=()=> {this.setState({editClicked: !this.state.editClicked})
 }
     
 editFormSubmitHandler = (state) => { this.setState({editClicked: false})
-//    const token = localStorage.getItem("token")
-//    let options = { method: 'PATCH',
-//    headers: {
-//    'Content-Type': 'application/json',
-//    Accept: 'application/json',
-//    Authorization: `Bearer ${token}`
-//    },
-//    body: JSON.stringify({
-//         title: state.title,                           
-//         description: state.description            
-//        })
-//    }
-
-// fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, options)
-// .then(response => response.json())
-// .then(resp => {console.log("get after edit", resp); this.setState({post: resp})
-// ; this.props.editFormSubmitHandler()
-// })
 
 this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
-//  karmaUp = () => {this.setState({doneClicked: true})
-//     this.props.karmaUp(this.state.post.helper)
-//   }
-
+ karmaUp = () => {this.setState({doneClicked: true, 
+                                 styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}})
+    this.props.karmaUp(this.state.post.helper)
+  }
+  
 // karmaUp = () => { this.props.karmaUp(this.state.post.helper)
 //     const token = localStorage.getItem("token")
 //     fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, {
@@ -85,7 +69,7 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
             //  console.log("your post", this.state.post)
         return ( 
               
-               <div id= "profile-your-post" >
+               <div id= "profile-your-post" styleObj={this.state.styleObj}>
                 <h3>{this.state.post.title}</h3> 
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
@@ -104,13 +88,19 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
 
           
 
-              {this.state.post.helper ? 
-                    <p> Helper: {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-                    <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
-                   
-                     <button  onClick={this.karmaUp}> Done </button>  
-                    </p>
-                    :null}        
+              {this.state.post.helper ?
+                   this.state.doneClicked ? 
+                         <p> 
+                           Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+                           <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
+                           
+                         </p>  
+                         :<p> 
+                           Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+                           <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
+                           <button  onClick={this.karmaUp}> Done </button>  
+                          </p>
+                    :null }      
               </div>
               
 
