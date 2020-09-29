@@ -39,8 +39,10 @@ clickHandler = (event) => {
     this.setState({login: false,
                    signupClicked: false,
                    needHelpClicked: false,
-                   currentUser: null
+                   currentUser: ""
                   })
+
+
 }
         
   if (event.target.matches(`#login-button`)) {
@@ -171,7 +173,8 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
   }
 
 
-karmaUp = (helper) => { console.log("Patch user ", helper)
+karmaUp = (helper) => { 
+  // console.log("Patch user ", helper)
   const token = localStorage.getItem("token")
   let options = { method: 'PATCH',
                 headers: {
@@ -187,8 +190,8 @@ karmaUp = (helper) => { console.log("Patch user ", helper)
               }      
  fetch(`http://localhost:4000/api/v1/users/${helper.id}`, options)  
  .then(response => response.json()) 
-  // .then( this.fetchPosts())
- .then(resp => console.log("Patch", resp))
+   .then( this.fetchPosts())
+//  .then(resp => console.log("Patch", resp))
  
 }
 

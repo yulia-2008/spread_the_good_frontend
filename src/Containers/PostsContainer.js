@@ -49,7 +49,6 @@ class PostsContainer extends Component {
         renderPosts = () => {  return this.props.posts.filter(p => p.active===true)
           .map(post => <Post key={post.id} postObj={post} 
                               currentUser={this.props.currentUser}
-                              karmaUp={this.props.karmaUp}  
                               createConnection ={this.props.createConnection}
                               addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
                                   />)
@@ -86,7 +85,7 @@ class PostsContainer extends Component {
           return (
             <div id="posts-container">
 
-                {this.renderPosts()} 
+                 {this.renderPosts()}  
               
               </div> 
           );

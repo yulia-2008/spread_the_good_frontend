@@ -30,7 +30,7 @@ class FilteredPosts extends Component {
              render() {
                 return (
                   <div id="posts-container">
-                     { this.filterPosts()}
+                     { this.filterPosts()} 
                     </div>             
                 );
             }
