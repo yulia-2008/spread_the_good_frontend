@@ -37,11 +37,10 @@ class PostYouHelped extends Component {
            <div id="app-containers" > 
                  <div>                 
                     <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                    <p>{this.props.postObj.user.username} </p> 
-                   { this.props.updatedKarma ?   (this.props.postObj.user.karma_score+1):
-                    
-                    (this.props.postObj.user.karma_score)}
-                    
+                    <p>{this.props.postObj.user.username}                      
+                  ({ this.props.updatedKarma ?   this.props.postObj.user.karma_score+1:
+                                                 this.props.postObj.user.karma_score})
+                    </p>
                     
                      <p> {this.props.postObj.user.city}</p>  
                   </div>

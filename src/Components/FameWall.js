@@ -7,11 +7,11 @@ class FameWall extends Component {
    }
 
   user = () => { let max = 0;
-                 let rightUser= "";
+                 let bestHelper= "";
                  this.state.users.map(user => {
-                       if (user.karma_score > max) { max = user.karma_score; rightUser=user}               
+                       if (user.karma_score > max) { max = user.karma_score; bestHelper=user}               
                 }); 
-        return rightUser
+        return bestHelper
   }
 
 
@@ -20,14 +20,15 @@ class FameWall extends Component {
             <div id="fame-wall-container">
                <h3>Fame Wall </h3>  
               
-               <p> {this.user().username}   {this.user().city}</p>              
+                 <p> {this.user().username} ({this.user().karma_score})</p>
+                 <p>  {this.user().city}</p>              
              
-               { this.props.currentUser.user && this.props.currentUser.user.id === this.user().id ? 
-                         this.props.karmaScore : this.user().karma_score }              
-                <img id="fame-wall-photo" src={this.user().image} alt=""></img>
+               {/* { this.props.currentUser.user && this.props.currentUser.user.id === this.user().id ? 
+                         this.props.karmaScore : this.user().karma_score }               */}
+                <img id="fame-wall-photo" src={this.user().image} alt=""></img> 
 
-            </div>
-        );
+            </div> 
+        )
     }
 
     componentDidMount(){

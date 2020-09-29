@@ -197,7 +197,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
       // console.log("all posts", this.state.currentUser)
 
     return(<> 
-    <h1>SPREAD THE GOOD</h1> 
+    <h1 id="header">Spread The Good</h1> 
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 
@@ -240,7 +240,11 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                     loginHandler={this.loginHandler}
                                     currentUser = {this.state.currentUser}
                                     postFormSubmitHandler = {this.postFormSubmitHandler}                                   
-                                    />                                           
+                                    />  
+                                     
+                      
+                      {/* <FameWall />  */}
+                                                              
                   </div> 
                   
                   </>

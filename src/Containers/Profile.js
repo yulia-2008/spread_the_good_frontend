@@ -3,6 +3,7 @@ import YourPosts from "../Components/YourPosts";
 import PostsYouHelped from  "./PostsYouHelped";
 
 
+
 class Profile extends Component {
     state={
         post: "",
@@ -57,6 +58,8 @@ class Profile extends Component {
                            addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
                         //    profile = {this.state.profile}
                            />
+
+                      
                     </div>
                 </div> 
             </div> 

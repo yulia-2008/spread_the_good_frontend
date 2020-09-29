@@ -37,7 +37,7 @@ fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
     let updateKarma = updatedPosts.filter((p) => p.helper_id === post.helper_id)
     updateKarma.map((post) => post.helper.karma_score++)
     this.setState({posts: updatedPosts})
-    console.log(this.state.posts)
+    // console.log(this.state.posts)
     const token = localStorage.getItem("token")
     let optionsKarma = { method: 'PATCH',
                   headers: {
@@ -53,20 +53,7 @@ fetch(`http://localhost:4000/api/v1/posts/${postId}`, options)
      .then(response => response.json()) 
     //  .then( resp => { console.log("Your posts Patch karma", resp)})
 
-     let optionsPost = { method: 'PATCH',
-     headers: {
-    'Content-Type': 'application/json',
-     Accept: 'application/json',
-     Authorization: `Bearer ${token}`                                         
-     },
-     body: JSON.stringify({                                                
-           archived: true,                                                
-     })
-   }  
-   
-     fetch(`http://localhost:4000/api/v1/posts/${post.id}`, optionsPost)  
-     .then(response => response.json()) 
-    //  .then( resp => { console.log("Your postst Patch archived", resp)})
+     
 
 this.props.karmaUp(post)
   }

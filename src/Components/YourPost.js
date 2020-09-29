@@ -6,8 +6,8 @@ class YourPost extends Component {
     state={
         post: this.props.post,     
         editClicked: false,
-        doneClicked: false,
-        styleObj: {}
+        // doneClicked: false,
+        // styleObj: {}
     }
 
 //     post = () => { fetch(`http://localhost:4000/api/v1/posts/${this.props.postId}`)
@@ -25,10 +25,31 @@ editFormSubmitHandler = (state) => { this.setState({editClicked: false})
 this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
- karmaUp = () => {this.setState({doneClicked: true, 
+ karmaUp = () => {
                                 //  styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
-                                })
-    this.props.karmaUp(this.state.post )
+                               
+let updatedPost = this.state.post
+updatedPost.archived=true
+      this.setState({post: updatedPost})
+ 
+      
+      const token = localStorage.getItem("token")
+let optionsPost = { method: 'PATCH',
+     headers: {
+    'Content-Type': 'application/json',
+     Accept: 'application/json',
+     Authorization: `Bearer ${token}`                                         
+     },
+     body: JSON.stringify({                                                
+           archived: true,                                                
+     })
+   }  
+   
+     fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, optionsPost)  
+     .then(response => response.json()) 
+    //  .then( resp => {   this.setState({post: resp})})
+
+    this.props.karmaUp(this.state.post)
   }
   
 // karmaUp = () => { this.props.karmaUp(this.state.post.helper)
@@ -66,11 +87,19 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
 //               this.setState({post: resp})}
 //            )       
 // }
+
+styleObj = () => {let styleObj
+    this.state.post.archived ? styleObj={border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
+                      : styleObj={}
+         return styleObj           
+ }
+
     render() { 
-            //  console.log("your post", this.state.post)
+              console.log("your post", this.state.post)
         return ( 
-              
-               <div id= "profile-your-post" styleObj={this.state.styleObj}>
+            //   styleObj={this.state.styleObj}
+            // styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
+               <div id= "profile-your-post"  style={this.styleObj()}>
                 <h3>{this.state.post.title}</h3> 
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
@@ -90,13 +119,13 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
           
 
               {this.state.post.helper ?
-                   this.state.doneClicked ? 
-                         <p> 
-                           Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-                           <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
-                           
-                         </p>  
-                         :<p> 
+                   this.state.post.archived ?
+                              <p> 
+                                Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+                                <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
+                               
+                              </p> :
+                        <p>
                            Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
                            <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
                            <button  onClick={this.karmaUp}> Done </button>  
@@ -115,3 +144,16 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
 export default YourPost;
+// {this.state.post.helper ?
+//     this.state.doneClicked ? 
+//           <p> 
+//             Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+//             <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
+            
+//           </p>  
+//           :<p> 
+//             Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
+//             <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
+//             <button  onClick={this.karmaUp}> Done </button>  
+//            </p>
+//      :null } 
