@@ -35,15 +35,15 @@ class PostYouHelped extends Component {
             
            
            <div id="app-containers" > 
-                 <div>                 
+                <div>                 
                     <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                    <p>{this.props.postObj.user.username}                      
-                  ({ this.props.updatedKarma ?   this.props.postObj.user.karma_score+1:
-                                                 this.props.postObj.user.karma_score})
-                    </p>
-                    
-                     <p> {this.props.postObj.user.city}</p>  
-                  </div>
+                    <p id="name-avatar">{this.props.postObj.user.username}&nbsp;                      
+                    (<span id="karma-score">
+                    {this.props.updatedKarma ? this.props.postObj.user.karma_score+1:
+                                             this.props.postObj.user.karma_score}</span>)
+                    </p>                   
+                     <p id="city-avatar"> {this.props.postObj.user.city}</p>  
+                </div>
                     
             <div id="post-description">
                 <h3> {this.props.postObj.title}</h3>

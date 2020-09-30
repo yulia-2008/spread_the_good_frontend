@@ -65,9 +65,11 @@ clickHandler = () => {
             
            
            <div >                  
-                <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                 <p> {this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
-                 <p> {this.props.postObj.user.city}</p> 
+                <img id="post-avatar" src = {this.props.postObj.image} alt=""></img>                
+                <p id="name-avatar" > {this.props.postObj.user.username}&nbsp;
+               (<span id="karma-score">{this.props.postObj.user.karma_score}</span>)</p> 
+                <p id="city-avatar"> {this.props.postObj.user.city}</p> 
+                 
            </div>   
 
 

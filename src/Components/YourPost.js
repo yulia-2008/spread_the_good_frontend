@@ -101,8 +101,8 @@ styleObj = () => {let styleObj
             // styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
                <div id= "profile-your-post"  style={this.styleObj()}>
                 <h3>{this.state.post.title}</h3> 
-                <p>Post description:  </p> 
-                <p>{this.state.post.description}</p> 
+            
+                <p> &nbsp;  {this.state.post.description}</p> 
 
                 <p> <button className="button" onClick={this.editClickHandler}>Edit</button>  
                     <button className="button" onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Delete</button>
@@ -117,19 +117,22 @@ styleObj = () => {let styleObj
                          currentUser = {this.props.currentUser}/>        
 
           
-
+           
               {this.state.post.helper ?
                    this.state.post.archived ?
-                              <p> 
-                                Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-                                <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
-                               
-                              </p> :
-                        <p>
-                           Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-                           <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
-                           <button className="button" onClick={this.karmaUp}> Done </button>  
-                          </p>
+                             <>
+                               <h4>Helper:</h4>
+                               <img  id="your-helper-avatar" src={this.state.post.helper.image}></img>
+                               <p id="your-helper-name">  {this.state.post.helper.username} 
+                               (<span id="karma-score">{this.state.post.helper.karma_score}</span>)  </p>                            
+                              </> :
+                              <>
+                                <h4>Helper:</h4>
+                                <img  id="your-helper-avatar" src={this.state.post.helper.image}></img> 
+                               <p> {this.state.post.helper.username} 
+                               (<span id="karma-score">{this.state.post.helper.karma_score}</span>) </p>                                        
+                                <button className="button" onClick={this.karmaUp}> Done </button>  
+                              </>
                     :null }      
               </div>
               

@@ -99,14 +99,11 @@ this.props.karmaUp(post)
     render() { 
             //    console.log( "your postst",  this.state.posts)
         return (
-            <>
-               
-               
-                <ul>{this.posts()}</ul>  
+            <>              
+             <ul>{this.posts()}</ul>  
             </>
         );
     }
-
 }
 
 export default YourPosts;

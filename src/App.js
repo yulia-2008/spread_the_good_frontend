@@ -212,7 +212,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
                                                           addCommentSubmitHandler = {this.addCommentSubmitHandler}
                                                           karmaUp={this.karmaUp}
                                                           updatedKarma = {this.state.updatedKarma}/>
-                                               :  <h2>Plesse login</h2>
+                                               :  <h2 id="centered">Plesse login</h2>
                 }/>
                 <Route exact path = '/' render = { ()=> 
                 <>   <br/> 

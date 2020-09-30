@@ -149,7 +149,7 @@ input[type='text']  {
 #posts-container {
   width: 90%;
   height: auto;
- padding: 10px;
+  padding: 10px;
   margin: 1px; 
  
 /*  
@@ -182,9 +182,10 @@ input[type='text']  {
 
 #post-containers {
   display: flex;
-  border: 2px solid black;
+  border: 1px solid gray;
   border-radius: 5px;
   margin: 30px;
+  padding-right: 20px;
 }
 
 #profile-containers {
@@ -200,13 +201,49 @@ input[type='text']  {
   
 
 #post-avatar {
-  padding: 30px;
- 
+  padding-top: 30px; 
+  padding-left: 30px; 
+  padding-right: 30px; 
   height: 100px;
 }
 
+#name-avatar {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center; 
+  margin: 0;
+  padding:0;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#city-avatar {
+ margin-top: 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+#profile-name {
+  padding:0;
+  margin:0;
+
+}
+#city {
+  margin-left: 20px;
+  margin-top: 0;
+  padding: 0;
+
+ 
+}
+
+#karma-score {
+  color: red;
+
+}
+
 #your-helper-avatar {
-  padding: 10px;
+  padding: 0;
+  margin: 0;
   height: 50px;
   width: 50px;
 }
@@ -228,24 +265,46 @@ input[type='text']  {
   width: 10%;
   height: 10%;
 }
-/* 
+ 
+#centered {
+  text-align: center;
+}
 #comments {
-  border: 3px solid black;
-} */
+  margin-left: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+} 
 
 #post-card-notActive {
   
   border: 3px solid rgb(172, 171, 171);
   background-color: lightgrey;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  padding-right: 20px;
+}
+
+#your-helper-name {
+  margin: 0;
+  padding:0;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #post-card {
   border: 2px solid black;
   border-radius: 5px;
+  
 }
 
 #profile-your-post {
-  padding-bottom: 70px; 
+  border: 1px solid rgb(172, 171, 171);
+  border-radius: 6px;
+  margin-bottom: 30px;
+  padding-left: 40px; 
+  padding-top:0;
+  padding-bottom: 30px;
+ 
 }
 
 li, button{
