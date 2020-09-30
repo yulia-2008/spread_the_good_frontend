@@ -42,26 +42,61 @@
   width: 90%;
 }
 
-#header {
-  
+ #header { 
   text-align: center;
-  background: #1abc9c;
-  color: white;
-  
+  letter-spacing: 8px;
+  color:black;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 50px;
+  font-weight: bold; 
+  text-shadow: 5px 4px rgb(100, 100, 100);
+} 
+
+#nav-bar {
+  /* display: flex;
+  flex-direction: row; */
+  /* height: 10vh; */
+   /* background-color: rgb(255, 180, 118);  */
+  /* padding: 5px; */
+  text-decoration: none;
+     
+}
+ #nav-div {
+  padding-left: 45%;  
+ }
+
+#nav-link {
+  font-size: 20px;
+  font-weight: bold; 
+  text-align: left;
+  text-decoration: none;
 }
 
-div {
-  font-family: Arial, Helvetica, sans-serif;
-   /* border: 1px solid black;  */
+.button {
+  font-size: 20px;
+  border-radius: 5px;
 }
+
 
 #search-container {
   width: 85%; 
-  /* border: 3px solid lightgreen; */
-  /* padding: 1px;
-  margin: 1px; */
    float: left; 
    text-align: right;
+ 
+   
+}
+/* #seacrh-input{
+  height: 24px;
+  border-radius: 5px;
+} */
+
+#textarea-input {
+  border-radius: 5px;
+}
+
+input {
+  height: 24px;
+  border-radius: 5px;
 }
 
 #button-container {
@@ -78,7 +113,7 @@ div {
 }
 
 #posts-container {
-  width: 81%;
+  width: 90%;
   height: 100%;
   /* border: 3px solid lightgreen; */
   padding: 1px;
@@ -87,15 +122,13 @@ div {
   overflow-y: scroll; */
 }
 
-#fame-wall-container {
+  /* #fame-wall-container {
   width: 20%;
   height: 100%;
-  /* border: 3px solid lightgreen; */
-  padding: 10px;
-  margin: 1px;
-/*  
-  overflow-y: scroll; */
-}
+   border: 3px solid lightgreen; */
+  
+  
+ 
 
 /* #fame-wall-container {
   width: 50%;
@@ -116,8 +149,7 @@ div {
 }
 
 #profile-containers {
-  padding-left: 50px;
-  
+  padding-left: 50px; 
   width: 50%;
  
 }

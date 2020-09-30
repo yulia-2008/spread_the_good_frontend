@@ -197,7 +197,7 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
       // console.log("all posts", this.state.currentUser)
 
     return(<> 
-    <h1 id="header">Spread The Good</h1> 
+     <h1 id="header">Spread The Good !</h1>  
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 

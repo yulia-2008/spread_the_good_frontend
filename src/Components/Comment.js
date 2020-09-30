@@ -74,7 +74,7 @@ class Comment extends Component {
            
 
                  <form onSubmit = {event => this.commentSubmitHandler(event)}>
-                    <textarea  type="text"  name="comment" rows="3"
+                    <textarea id="textarea-input" type="text"  name="comment" rows="3"
                                placeholder = "Your message"
                                onChange={this.changeHandler}>                           
                     </textarea><br/> 

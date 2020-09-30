@@ -19,7 +19,7 @@ class LoginForm extends Component {
                        onChange = {event=> this.props.changeHandler(event)}>
                 </input>
                 <br/><br/>              
-                  <input id='login-btn' className='login-btns' type="submit" value="Submit"></input> 
+                  <input id='login-btn'  type="submit" value="Submit"></input> 
                   <p>{this.props.currentUser.message}</p>          
               </form>
              

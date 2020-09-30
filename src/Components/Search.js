@@ -19,12 +19,12 @@ class Search extends Component {
         return (  
             <div id="search-container">
                 <form onSubmit={this.submitHandler}>
-                    <input type="text"
+                    <input id="seacrh-input" type="text"
                         placeholder={"Search posts by city"}
                         onChange={this.changeHandler}
                         value={this.state.search}
                     />                   
-                      <button type='submit'>search</button>                    
+                      <button className="button" type='submit'>Search</button>                    
                 </form> 
   
             </div>

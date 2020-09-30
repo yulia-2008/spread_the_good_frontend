@@ -49,7 +49,7 @@ class PostForm extends Component {
                      onChange={this.changeHandler}></input>
               <br/><br/> 
 
-              <textarea  type="text"  name="description" rows="15"
+              <textarea  type="text" id="textarea-input" name="description" rows="15"
                         placeholder = "Enter your text"
                         onChange={this.changeHandler}>                           
               </textarea>
