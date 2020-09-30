@@ -27,13 +27,13 @@ class EditPostForm extends Component {
                      onChange={this.changeHandler}></input>
               <br/><br/> 
 
-              <textarea  type="text"  name="description" rows="15"
+              <textarea id="textarea-input" type="text"  name="description" rows="15"
                         placeholder = "Enter your text"
                         onChange={this.changeHandler}>                           
               </textarea>
-              <br/><br/> 
+              <br/>
 
-              <input  type="submit" value="Submit"></input>           
+              <input className="button" type="submit" value="Submit"></input>           
           </form> 
         
         </div>

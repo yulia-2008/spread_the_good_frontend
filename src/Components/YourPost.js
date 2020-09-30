@@ -104,8 +104,8 @@ styleObj = () => {let styleObj
                 <p>Post description:  </p> 
                 <p>{this.state.post.description}</p> 
 
-                <p> <button  onClick={this.editClickHandler}>Edit</button>  
-                    <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Delete</button>
+                <p> <button className="button" onClick={this.editClickHandler}>Edit</button>  
+                    <button className="button" onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Delete</button>
                     {/* <button  onClick={ () => this.props.deleteClickHandler(this.state.post.id)}>Marked as solved </button> */}
                 </p>
                 {this.state.editClicked ? <EditPostForm post = {this.state.post} editFormSubmitHandler = {this.editFormSubmitHandler}/> :null}
@@ -128,7 +128,7 @@ styleObj = () => {let styleObj
                         <p>
                            Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
                            <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
-                           <button  onClick={this.karmaUp}> Done </button>  
+                           <button className="button" onClick={this.karmaUp}> Done </button>  
                           </p>
                     :null }      
               </div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
+import ProfileImg from "../ProfileImg2.jpg";
+import HomeImage from "../HomeImage.jpg";
 
 class NavBar extends Component {
     render() {
@@ -7,10 +9,10 @@ class NavBar extends Component {
             <div id="nav-div" > 
               
                 <NavLink id="nav-bar" to='/' exact>
-                    <span id = "nav-link">Home &nbsp; </span>
+                  <img id="nav-button" src={HomeImage} alt="Home button" /> &nbsp;
                 </NavLink>
                 <NavLink id="nav-bar" to='/profile' exact > 
-                  <span id = "nav-link">Profile   </span>  
+              <img id="nav-button" src={ProfileImg} alt="Profile button"/> 
                 </NavLink>  
                 
             </div>
@@ -19,3 +21,4 @@ class NavBar extends Component {
 }
 
 export default NavBar;
+ 

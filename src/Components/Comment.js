@@ -80,7 +80,7 @@ class Comment extends Component {
                     </textarea><br/> 
                   
                  {this.props.currentUser ?                   
-                    <input  type="submit" value="Send"></input>  
+                    <input  className='button' type="submit" value="Send"></input>  
                  : <p>"Pease login to send a message"</p>  }       
                </form>  
               

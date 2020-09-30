@@ -61,17 +61,19 @@ clickHandler = () => {
     render() {
         //    console.log( "inside of Post", this.props.currentUser)
         return ( 
-            <div  id="app-containers"  style={this.state.styleObj}  >
+            <div  id="post-containers"  style={this.state.styleObj}  >
             
            
            <div >                  
                 <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-        <p> {this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
+                 <p> {this.props.postObj.user.username} ({this.props.postObj.user.karma_score})</p> 
                  <p> {this.props.postObj.user.city}</p> 
-            </div>            
-                <div id="post-description">
-                    <h3> {this.props.postObj.title}</h3>
-                    <p> {this.props.postObj.description}</p>
+           </div>   
+
+
+           <div id="post-description">
+                 <h3> {this.props.postObj.title}</h3>
+                 <p> {this.props.postObj.description}</p>
                    
 
                  {/*                  
@@ -80,23 +82,23 @@ clickHandler = () => {
                              this.props.karmaScore : this.props.postObj.user.karma_score}                   
                 </p>                    */}
 
-                                 { !this.state.clicked  ?
-                                
-                                    <Comment post = {this.props.postObj}
-                                             
-                                             addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                             
-                                             currentUser = {this.props.currentUser}/> 
-                                     : null} 
+                 { !this.state.clicked  ?  <Comment post = {this.props.postObj}                                            
+                                                    addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                             
+                                                    currentUser = {this.props.currentUser}/> 
+                                           : null
+                 } 
                                
 
                  {/* does not show the button "offer your help" on your own posts */}
 
                  { this.props.currentUser.user && this.props.currentUser.user.id !== this.props.postObj.user_id ?
-            !this.state.clicked ? 
-         <button id="offer-your-help-button" onClick={this.clickHandler}>Offer your help</button>
-          :<h1>Thank you</h1>                   
-    : null
-}
+                         !this.state.clicked ? 
+                               <button id="offer-your-help-button"  
+                                       className="button" 
+                                       onClick={this.clickHandler}>Offer your help</button>
+                               :<h1>Thank you</h1>                   
+                         : null
+                 }
            
             </div> 
             </div>

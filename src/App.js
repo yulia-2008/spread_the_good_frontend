@@ -9,6 +9,7 @@ import PostsContainer from "./Containers/PostsContainer";
 import FilteredPosts from "./Containers/FilteredPosts";
 import ButtonContainer from "./Containers/ButtonContainer";
 import FormContainer from "./Containers/FormContainer";
+import ImageLogo from "./ImageLogo.jpg";
 
 const token = localStorage.getItem("token")
 
@@ -197,7 +198,11 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
       // console.log("all posts", this.state.currentUser)
 
     return(<> 
-     <h1 id="header">Spread The Good !</h1>  
+    
+     <div >  <img id="logo"src={ImageLogo} alt="logo"></img>  
+     </div>
+      
+
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 

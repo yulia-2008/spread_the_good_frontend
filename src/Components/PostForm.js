@@ -53,9 +53,9 @@ class PostForm extends Component {
                         placeholder = "Enter your text"
                         onChange={this.changeHandler}>                           
               </textarea>
-              <br/><br/> 
+              <br/> 
 
-              <input  type="submit" value="Submit"></input>           
+              <input className="button" type="submit" value="Submit"></input>           
           </form>        
         </div>
 : <h3>Please login</h3>
