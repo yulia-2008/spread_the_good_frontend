@@ -84,6 +84,7 @@ class PostsContainer extends Component {
           //  console.log("post container", this.props.posts)
           return (
             <div id="posts-container">
+              
 
                  {this.renderPosts()}  
               

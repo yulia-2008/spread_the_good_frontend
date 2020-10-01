@@ -29,7 +29,7 @@ class PostYouHelped extends Component {
 
 
     render() {
-        //   console.log( "inside of Post", this.props.postObj)
+           console.log( "PostYou Helped", this.props.postObj)
         return ( 
             < div id="post-card-notActive">
             
@@ -37,10 +37,11 @@ class PostYouHelped extends Component {
            <div id="app-containers" > 
                 <div>                 
                     <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
-                    <p id="name-avatar">{this.props.postObj.user.username}&nbsp;                      
-                    (<span id="karma-score">
+                    <p id="name-avatar">{this.props.postObj.user.username}&nbsp;  
+                                        
+                    {/* (<span id="karma-score">
                     {this.props.updatedKarma ? this.props.postObj.user.karma_score+1:
-                                             this.props.postObj.user.karma_score}</span>)
+                                             this.props.postObj.user.karma_score}</span>) */}
                     </p>                   
                      <p id="city-avatar"> {this.props.postObj.user.city}</p>  
                 </div>

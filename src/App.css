@@ -59,17 +59,20 @@
    /* background-color: rgb(255, 180, 118);  */
   /* padding: 5px; */
   text-decoration: none;
-  
+   margin: 0;
+  padding: 0; 
   }
 
 
  #nav-div {
-  padding-left: 48%;  
+  padding-left: 40%;  
  }
 
  #nav-button {
   height: 60px;
   width: 60px;
+  margin: 0;
+  padding-top: 13px;
  }
 
 /* #nav-link {
@@ -96,7 +99,7 @@
 }
 
 #logo {
-  margin-left: 21%;
+  margin-left: 10%;
   height: 100px; 
  }
 
@@ -105,9 +108,22 @@
   width: 85%; 
    float: left; 
    text-align: right;
-   margin-top: 40px;
+   margin-top: 40px;  
+}
  
-   
+#gif-div {
+  width: 75%;
+  margin-right: 240px;
+  margin-top: 10px;
+  
+  padding-top: 30px;
+  /* padding-top: 50; */
+  /* padding: 100; */
+}
+
+#gif { 
+  height: 120px;
+  width: 400px;
 }
 /* #seacrh-input{
   height: 24px;
@@ -178,6 +194,8 @@ input[type='text']  {
 
 #app-containers {
   display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #post-containers {
@@ -189,9 +207,15 @@ input[type='text']  {
 }
 
 #profile-containers {
+  padding-top: 20px;
+  margin-top: 20px;
   padding-left: 50px; 
   width: 50%;
  
+}
+#div-profile-info{
+  margin-left: 60px;
+  margin-top: 20px;
 }
  
 /* #post-avatar-container {
@@ -230,10 +254,8 @@ input[type='text']  {
 }
 #city {
   margin-left: 20px;
-  margin-top: 0;
+  margin: 0;
   padding: 0;
-
- 
 }
 
 #karma-score {
@@ -262,12 +284,14 @@ input[type='text']  {
 } */
 
 #profile-avatar {
-  width: 10%;
-  height: 10%;
+  width: 30%;
+  height: 60%;
 }
  
 #centered {
   text-align: center;
+  margin-top: 0;
+  padding-top: 0;
 }
 #comments {
   margin-left: 20px;

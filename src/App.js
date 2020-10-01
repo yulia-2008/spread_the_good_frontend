@@ -174,7 +174,7 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
             .then(resp => resp.json())
             .then(resp => this.setState({currentUser: resp})
             )}  
-            console.log("did moutn", this.state.currentUser)                          
+             console.log(" app did moutn", this.state.posts)                          
   }
 
 
@@ -185,8 +185,27 @@ karmaUp = post => {
   updateKarma.map((post) => post.user.karma_score++)
   this.setState({posts: updatedPosts, updatedKarma: true})
   // this.fetchPosts()
+
+  // const token = localStorage.getItem("token")
+  //   let optionsKarma = { method: 'PATCH',
+  //                 headers: {
+  //                'Content-Type': 'application/json',
+  //                 Accept: 'application/json',
+  //                 Authorization: `Bearer ${token}`                                         
+  //                 },
+  //                 body: JSON.stringify({                                                
+  //                       karma_score: post.helper.karma_score + 1,                                                
+  //                 })
+  //               }      
+  //    fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
+  //    .then(response => response.json())
 }
 
+// componentDidUpdate(prevState) {
+//   if (this.state.updatedKarma !== prevState.updatedKarma) {this.fetchPosts()
+//   }
+//   console.log("did update", this.state.posts)
+// }
 
 fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 .then(response => response.json())
@@ -199,8 +218,8 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 
     return(<> 
     
-     <div >  <img id="logo"src={ImageLogo} alt="logo"></img>  
-     </div>
+     {/* <div >  <img id="logo"src={ImageLogo} alt="logo"></img>  
+     </div> */}
       
 
         <Router>  

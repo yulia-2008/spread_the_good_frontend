@@ -21,32 +21,32 @@ editClickHandler=()=> {this.setState({editClicked: !this.state.editClicked})
 }
     
 editFormSubmitHandler = (state) => { this.setState({editClicked: false})
-
+// console.log("state", state)
 this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
  karmaUp = () => {
-                                //  styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
-                               
-let updatedPost = this.state.post
-updatedPost.archived=true
-      this.setState({post: updatedPost})
+
+            // changing post to solved                    
+    let updatedPost = this.state.post
+    updatedPost.archived=true
+    this.setState({post: updatedPost})
  
       
-      const token = localStorage.getItem("token")
-let optionsPost = { method: 'PATCH',
-     headers: {
-    'Content-Type': 'application/json',
-     Accept: 'application/json',
-     Authorization: `Bearer ${token}`                                         
-     },
-     body: JSON.stringify({                                                
-           archived: true,                                                
-     })
-   }  
+    const token = localStorage.getItem("token")
+    let optionsPost = { method: 'PATCH',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`                                         
+                        },
+                        body: JSON.stringify({                                                
+                        archived: true,                                                
+                        })
+                      }  
    
-     fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, optionsPost)  
-     .then(response => response.json()) 
+    fetch(`http://localhost:4000/api/v1/posts/${this.state.post.id}`, optionsPost)  
+    .then(response => response.json()) 
     //  .then( resp => {   this.setState({post: resp})})
 
     this.props.karmaUp(this.state.post)
@@ -95,7 +95,7 @@ styleObj = () => {let styleObj
  }
 
     render() { 
-              console.log("your post", this.state.post)
+              console.log("your post", this.state.post.helper)
         return ( 
             //   styleObj={this.state.styleObj}
             // styleObj: {border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
