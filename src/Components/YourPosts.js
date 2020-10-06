@@ -34,33 +34,32 @@ editFormSubmitHandler = (state, postId) => {
   karmaUp = post => {
       //increase karma_score to helper on all his posts
 
-    let updatedPosts = [...this.state.posts]
-    let updateKarma = updatedPosts.filter((p) => p.helper_id === post.helper_id)
-    updateKarma.map((post) => post.helper.karma_score++)
-    this.setState({posts: updatedPosts})
+    // let updatedPosts = [...this.state.posts]
+    // let updateKarma = updatedPosts.filter((p) => p.helper_id === post.helper_id)
+    // updateKarma.map((post) => post.helper.karma_score++)
+    // this.setState({posts: updatedPosts})
 
      
-    const token = localStorage.getItem("token")
-    let optionsKarma = { method: 'PATCH',
-                  headers: {
-                 'Content-Type': 'application/json',
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`                                         
-                  },
-                  body: JSON.stringify({                                                
-                        karma_score: post.helper.karma_score + 1,                                                
-                  })
-                }      
-     fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
-     .then(response => response.json())     
-    //  .then( resp => { console.log("Your posts Patch karma", resp)})
+    // const token = localStorage.getItem("token")
+    // let optionsKarma = { method: 'PATCH',
+    //               headers: {
+    //              'Content-Type': 'application/json',
+    //               Accept: 'application/json',
+    //               Authorization: `Bearer ${token}`                                         
+    //               },
+    //               body: JSON.stringify({                                                
+    //                     karma_score: post.helper.karma_score + 1,                                                
+    //               })
+    //             }      
+    //  fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
+    //  .then(response => response.json())     
+    
 
 this.props.karmaUp(post)
   }
 
     deleteClickHandler = postId => {  
         let updatedPosts = this.state.posts.filter((post) => post.id !== postId)
-        // console.log(updatedPosts)
         this.setState({posts: updatedPosts})
 
         let options = { method: 'DELETE',
@@ -98,7 +97,7 @@ this.props.karmaUp(post)
     }
 
     render() { 
-                console.log( "your postst",  this.state.posts)
+                // console.log( "your posts",  this.state.posts)
         return (
             <>              
              <ul>{this.posts()}</ul>  

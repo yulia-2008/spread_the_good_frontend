@@ -29,7 +29,7 @@ class PostYouHelped extends Component {
 
 
     render() {
-           console.log( "PostYou Helped", this.props.postObj)
+        //    console.log( "PostYou Helped", this.props.postObj)
         return ( 
             < div id="post-card-notActive">                     
                 <div id="app-containers" > 

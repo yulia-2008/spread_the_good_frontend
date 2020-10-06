@@ -178,26 +178,25 @@ if (token) { fetch(`http://localhost:4000/api/v1/profile`, {
 
 
 karmaUp = post => { 
-  // console.log("Patch user ", helper)
+  //  console.log("app karma up ")
   let updatedPosts = [...this.state.posts]
   let updateKarma = updatedPosts.filter((p) => p.user_id === post.helper_id)
   updateKarma.map((post) => post.user.karma_score++)
   this.setState({posts: updatedPosts, updatedKarma: true})
-  // this.fetchPosts()
 
-  // const token = localStorage.getItem("token")
-  //   let optionsKarma = { method: 'PATCH',
-  //                 headers: {
-  //                'Content-Type': 'application/json',
-  //                 Accept: 'application/json',
-  //                 Authorization: `Bearer ${token}`                                         
-  //                 },
-  //                 body: JSON.stringify({                                                
-  //                       karma_score: post.helper.karma_score + 1,                                                
-  //                 })
-  //               }      
-  //    fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
-  //    .then(response => response.json())
+  const token = localStorage.getItem("token")
+    let optionsKarma = { method: 'PATCH',
+                  headers: {
+                 'Content-Type': 'application/json',
+                  Accept: 'application/json',
+                  Authorization: `Bearer ${token}`                                         
+                  },
+                  body: JSON.stringify({                                                
+                        karma_score: post.helper.karma_score + 1,                                                
+                  })
+                }      
+     fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
+     .then(response => response.json())
 }
 
 // componentDidUpdate(prevState) {
@@ -214,7 +213,6 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
   
   render(){ 
       // console.log("all posts", this.state.currentUser)
-
     return(<> 
     
         <Router>  

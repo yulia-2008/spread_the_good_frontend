@@ -13,12 +13,12 @@ editClickHandler=()=> {this.setState({editClicked: !this.state.editClicked})
 }
     
 editFormSubmitHandler = (state) => { this.setState({editClicked: false})
-// console.log("state", state)
 this.props.editFormSubmitHandler(state, this.state.post.id)
 }
 
  karmaUp = () => {
-            // changing post to solved                    
+            // changing post to solved   
+                             
     let updatedPost = this.state.post
     updatedPost.archived=true
     this.setState({post: updatedPost})
@@ -42,43 +42,7 @@ this.props.editFormSubmitHandler(state, this.state.post.id)
 
     this.props.karmaUp(this.state.post)
   }
-  
-// karmaUp = () => { this.props.karmaUp(this.state.post.helper)
-//     const token = localStorage.getItem("token")
-//     fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`, {
-//         method: "GET", 
-//         headers: {Authorization: `Bearer ${token}`},
-//          })
-//     .then(response => response.json())
-//     .then(resp => {this.setState({post: resp, doneClicked: true })
-    
-//     })
-// }
-
-// comments = () => {  
-//     return this.state.post.comments.map((comm) => <Comment key={comm.id}
-//                                                            post = {this.state.post}
-                         
-//                                                            profile = {this.props.profile} 
-//                                                            addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-//                                                            currentUser = {this.props.currentUser}/>  )             
-// }
-
-// componentDidMount(){ 
-//     const token = localStorage.getItem("token")
-//     fetch(`http://localhost:4000/api/v1/posts/${this.props.post.id}`,{
-//         method: "GET",
-//         headers: {
-//            'Content-Type': 'application/json',
-//             Accept: 'application/json',
-//             Authorization: `Bearer ${token}`                                        
-//             }} )
-//        .then(response => response.json())
-//        .then(resp =>  {
-//               this.setState({post: resp})}
-//            )       
-// }
-
+ 
 styleObj = () => {let styleObj
     this.state.post.archived ? styleObj={border: "3px solid rgb(172, 171, 171)", backgroundColor: "lightgrey"}
                              : styleObj={}
@@ -121,28 +85,9 @@ styleObj = () => {let styleObj
                             </>
                     :null }      
               </div>
-              
-
-               
-                                   
-                                
-
-            
+        
         );
     }
 }
 
 export default YourPost;
-// {this.state.post.helper ?
-//     this.state.doneClicked ? 
-//           <p> 
-//             Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-//             <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>
-            
-//           </p>  
-//           :<p> 
-//             Helper {this.state.post.helper.username} ({this.state.post.helper.karma_score})
-//             <img  id="your-helper-avatar" src={this.state.post.helper.image}></img><br/>                  
-//             <button  onClick={this.karmaUp}> Done </button>  
-//            </p>
-//      :null } 
