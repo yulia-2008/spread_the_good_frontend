@@ -38,8 +38,8 @@ class SignupForm extends Component {
                   </input>
                   <br/><br/>
                   
-                  <input id='signup-btn' className='login-btns' type="submit" value="Submit"></input>
-                  <p>{this.props.currentUser.error}</p> 
+                  <input id='signup-btn' className="button" type="submit" value="Submit"></input>
+               <p>{this.props.currentUser.error}</p>  
               </form> 
             </div>
         );

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PostForm extends Component {
    state={
        title: "",
-       description: "kk",
+       description: "",
        image: ""      
    }
 //    I put image in state  because I might change it for image of the post, not image of user 
@@ -12,11 +12,12 @@ class PostForm extends Component {
    }
 
    postFormSubmitHandler = event => {event.preventDefault()
+    const token = localStorage.getItem("token")
     let options = { method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
-                    Authorization: `Bearer ${this.props.currentUser.jwt}`
+                    Authorization: `Bearer ${token}`
                     },
                     body: JSON.stringify({
                            post: { user_id: this.props.currentUser.user.id,                               
@@ -29,34 +30,33 @@ class PostForm extends Component {
                    }
         fetch('http://localhost:4000/api/v1/posts', options)
         .then(response => response.json())
-        .then(this.props.postFormSubmitHandler()
+        .then(resp => this.props.postFormSubmitHandler(resp)
          )
-        event.target.reset()
-       
-        // need to add rendering a new post in a PostsContainer (it is rendering only after reload)
+        // this.props.postFormSubmitHandler()
+        event.target.reset()       
 }
     
     render() {
-        return ( this.props.currentUser==="" ? <h3>Please login</h3> :
-            <div> 
-         <h4> </h4>
-          <form onSubmit = {event => this.postFormSubmitHandler(event)}>
+        return ( this.props.currentUser ?  
+            <div>              
+              <form onSubmit = {event => this.postFormSubmitHandler(event)}>
               
               <input type="text"  name="title"  
                      placeholder = "Title"
                      onChange={this.changeHandler}></input>
               <br/><br/> 
 
-              <textarea  type="text"  name="description" rows="15"
+              <textarea  type="text" id="textarea-input" name="description" rows="15"
                         placeholder = "Enter your text"
                         onChange={this.changeHandler}>                           
               </textarea>
-              <br/><br/> 
+              <br/> 
 
-              <input  type="submit" value="Submit"></input>           
-          </form> 
-        
+              <input className="button" type="submit" value="Submit"></input>           
+          </form>        
         </div>
+: <h3>Please login</h3>
+
         );
     }
 }

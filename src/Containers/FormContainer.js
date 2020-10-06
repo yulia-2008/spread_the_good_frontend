@@ -5,7 +5,7 @@ import PostForm from "../Components/PostForm";
 
 class FormContainer extends Component {
     render() {
-        return (
+        return ( 
             <div id="form-container">               
                 {this.props.clicked.loginClicked ? <LoginForm changeHandler={this.props.changeHandler}
                                                               loginHandler={this.props.loginHandler}
@@ -15,7 +15,7 @@ class FormContainer extends Component {
                                                                 signUpHandler={this.props.signUpHandler}
                                                                 currentUser = {this.props.currentUser}
                 /> : null}
-                {this.props.clicked.needHelpClicked ? <PostForm changeHandler={this.props.changeHandler}
+                {this.props.clicked.needHelpClicked  ? <PostForm changeHandler={this.props.changeHandler}
                                                                 currentUser = {this.props.currentUser}                                                           
                                                                 postFormSubmitHandler = {this.props.postFormSubmitHandler}
                  /> : null}
