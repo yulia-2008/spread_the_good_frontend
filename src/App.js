@@ -4,12 +4,11 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Search from "./Components/Search";
 import Profile from "./Containers/Profile";
-import FameWall from "./Components/FameWall"
+// import FameWall from "./Components/FameWall"
 import PostsContainer from "./Containers/PostsContainer";
 import FilteredPosts from "./Containers/FilteredPosts";
 import ButtonContainer from "./Containers/ButtonContainer";
 import FormContainer from "./Containers/FormContainer";
-import ImageLogo from "./ImageLogo.jpg";
 
 const token = localStorage.getItem("token")
 
@@ -218,10 +217,6 @@ fetchPosts = () => { fetch(`http://localhost:4000/api/v1/posts`)
 
     return(<> 
     
-     {/* <div >  <img id="logo"src={ImageLogo} alt="logo"></img>  
-     </div> */}
-      
-
         <Router>  
              <NavBar /> 
                 <Route exact path = '/profile' render = {() => 

@@ -52,12 +52,8 @@ editFormSubmitHandler = (state, postId) => {
                   })
                 }      
      fetch(`http://localhost:4000/api/v1/users/${post.helper.id}`, optionsKarma)  
-     .then(response => response.json()) 
-
-     
+     .then(response => response.json())     
     //  .then( resp => { console.log("Your posts Patch karma", resp)})
-
-     
 
 this.props.karmaUp(post)
   }

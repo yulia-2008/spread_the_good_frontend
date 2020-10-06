@@ -31,11 +31,9 @@ class PostYouHelped extends Component {
     render() {
            console.log( "PostYou Helped", this.props.postObj)
         return ( 
-            < div id="post-card-notActive">
-            
-           
-           <div id="app-containers" > 
-                <div>                 
+            < div id="post-card-notActive">                     
+                <div id="app-containers" > 
+                  <div>                 
                     <img id="post-avatar" src = {this.props.postObj.image} alt=""></img> 
                     <p id="name-avatar">{this.props.postObj.user.username}&nbsp;  
                                         
@@ -44,40 +42,19 @@ class PostYouHelped extends Component {
                                              this.props.postObj.user.karma_score}</span>) */}
                     </p>                   
                      <p id="city-avatar"> {this.props.postObj.user.city}</p>  
-                </div>
+                  </div>
                     
-            <div id="post-description">
+              <div id="post-description">
                 <h3> {this.props.postObj.title}</h3>
                 <p> {this.props.postObj.description}</p>
-
                 <Comment post = {this.props.postObj}
                          profile = {this.props.profile} 
                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-                        currentUser = {this.props.currentUser}/> 
-              </div>    
-
-                 {/*                  
-                 <p> Karma score: (not increasing right away , only increasing in profile)
-                    {this.props.currentUser.user && this.props.postObj.id === this.props.currentUser.user.id ? 
-                             this.props.karmaScore : this.props.postObj.user.karma_score}                   
-                </p>                    */}
-             
-               
-               
-                         
-                                  
-                                {/* { !this.state.clicked ? 
-                                    <Comment post = {this.props.postObj}
-                                            //  profile = {this.props.profile}  
-                                             currentUser = {this.props.currentUser}/> 
-                                             : null}  */}
-                                
-                               
-
-
+                         currentUser = {this.props.currentUser}
+                         /> 
+              </div>                    
             </div>
-            </div> 
-            
+        </div>            
         );
     };
 }

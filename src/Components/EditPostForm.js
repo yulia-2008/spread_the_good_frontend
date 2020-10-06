@@ -18,8 +18,7 @@ class EditPostForm extends Component {
     render() {
         return (
            
-            <div> 
-         <h4> </h4>
+        <div>          
           <form onSubmit = {event => this.editFormSubmitHandler(event)}>
               
               <input type="text"  name="title"  

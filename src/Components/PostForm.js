@@ -33,16 +33,13 @@ class PostForm extends Component {
         .then(resp => this.props.postFormSubmitHandler(resp)
          )
         // this.props.postFormSubmitHandler()
-        event.target.reset()
-       
-        // need to add rendering a new post in a PostsContainer (it is rendering only after reload)
+        event.target.reset()       
 }
     
     render() {
         return ( this.props.currentUser ?  
-            <div> 
-         <h4> </h4>
-          <form onSubmit = {event => this.postFormSubmitHandler(event)}>
+            <div>              
+              <form onSubmit = {event => this.postFormSubmitHandler(event)}>
               
               <input type="text"  name="title"  
                      placeholder = "Title"

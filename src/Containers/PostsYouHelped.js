@@ -3,18 +3,12 @@ import PostYouHelped from "../Components/PostYouHelped"
 
 class PostsYouHelped extends Component {
 
-//   state={
-    
-//     posts: this.props.posts,
-  
-// }
-
 
  renderPosts = () => {  return this.props.posts.map(post => 
                           <PostYouHelped key={post.id} postObj={post} 
-                          addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
-                          updatedKarma = {this.props.updatedKarma}
-                          currentUser={this.props.currentUser}/>)
+                                         addCommentSubmitHandler = {this.props.addCommentSubmitHandler}
+                                         updatedKarma = {this.props.updatedKarma}
+                                         currentUser={this.props.currentUser}/>)
 } 
   
 //    componentDidUpdate(prevProps) {
@@ -38,10 +32,8 @@ class PostsYouHelped extends Component {
            //  console.log("post container", this.props.posts)
             return (
               <div id="posts-container">
-  
-                 {this.renderPosts()}  
-                
-                </div> 
+                 {this.renderPosts()}                  
+              </div> 
             );
         }
   }

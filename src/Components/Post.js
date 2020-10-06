@@ -8,8 +8,6 @@ class Post extends Component {
     state={ 
         clicked: false,
         styleObj: {}
-        // cssId: "post-card"    
-        // userKarmaUp: ""
     }
 
 clickHandler = () => {  
@@ -62,8 +60,7 @@ clickHandler = () => {
         //    console.log( "inside of Post", this.props.currentUser)
         return ( 
             <div  id="post-containers"  style={this.state.styleObj}  >
-            
-           
+                      
            <div >                  
                 <img id="post-avatar" src = {this.props.postObj.image} alt=""></img>                
                 <p id="name-avatar" > {this.props.postObj.user.username}&nbsp;
@@ -71,7 +68,6 @@ clickHandler = () => {
                 <p id="city-avatar"> {this.props.postObj.user.city}</p> 
                  
            </div>   
-
 
            <div id="post-description">
                  <h3> {this.props.postObj.title}</h3>
@@ -87,7 +83,7 @@ clickHandler = () => {
                  { !this.state.clicked  ?  <Comment post = {this.props.postObj}                                            
                                                     addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                             
                                                     currentUser = {this.props.currentUser}/> 
-                                           : null
+                                        : null
                  } 
                                
 

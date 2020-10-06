@@ -12,12 +12,12 @@ class NavBar extends Component {
              <img id="logo"src={ImageLogo} alt="logo"></img> &nbsp; &nbsp;
      
                 <NavLink id="nav-bar" to='/' exact>
-                  <img id="nav-button" src={HomeImage} alt="Home button" /> &nbsp; &nbsp;
+                   <img id="nav-button" src={HomeImage} alt="Home button" /> &nbsp; &nbsp;
                 </NavLink>
+
                 <NavLink id="nav-bar" to='/profile' exact > 
-              <img id="nav-button" src={ProfileImg} alt="Profile button"/> 
-                </NavLink>  
-                
+                   <img id="nav-button" src={ProfileImg} alt="Profile button"/> 
+                </NavLink>                  
             </div> 
         );
     }

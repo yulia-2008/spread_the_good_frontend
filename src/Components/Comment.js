@@ -8,30 +8,10 @@ class Comment extends Component {
         comment: ""
     }
 
-    // comments = () => {     
-    //    return this.state.comments.map((comm) => <p key={comm.id}> {comm.text}</p> )             
-    // }
-
-// name = commId => { 
-//     const token = localStorage.getItem("token") 
-//    return  fetch(`http://localhost:4000/api/v1/comments/${commId}`, {
-//         method: "GET", 
-//         headers: {Authorization: `Bearer ${token}`},
-//          })
-//     .then(response => {return response.json()} )
-//     // .then(resp => {return console.log(resp.user.username)})
-//      .then (resp =>  {let user = resp.user.username; return user} )
-   
-  
-// }
-// {this.name(comm.id).id} 
-
-
     comments = () => {          
          return this.state.comments.map((comm) => 
             <p key={comm.id}> {comm.user.username}: &nbsp; {comm.text}</p> ) 
     }
-    // {this.name(comm.id)}:
 
     changeHandler = event => {this.setState({ comment: event.target.value})
     }

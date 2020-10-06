@@ -46,19 +46,13 @@ class PostsContainer extends Component {
     //     } 
 
 
-        renderPosts = () => {  return this.props.posts.filter(p => p.active===true)
-          .map(post => <Post key={post.id} postObj={post} 
+ renderPosts = () => { return this.props.posts.filter(p => p.active===true)
+                        .map(post => <Post key={post.id} postObj={post} 
                               currentUser={this.props.currentUser}
                               createConnection ={this.props.createConnection}
                               addCommentSubmitHandler = {this.props.addCommentSubmitHandler}                                                     
                                   />)
 } 
-//    editedPosts = () => {     
-//       return this.props.posts.map(post => <Post key={post.id} postObj={post} 
-//       currentUser={this.props.currentUser}                                                       
-// />)
-
-//    }  
 
 
    
@@ -84,11 +78,8 @@ class PostsContainer extends Component {
           //  console.log("post container", this.props.posts)
           return (
             <div id="posts-container">
-              
-
-                 {this.renderPosts()}  
-              
-              </div> 
+                {this.renderPosts()}                
+            </div> 
           );
       }
 }
