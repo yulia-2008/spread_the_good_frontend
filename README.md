@@ -50,6 +50,11 @@ npm install react-router-dom
 npm start 
 ```
  (it starts on port 3000)
+ 
+ * npm
+```sh
+npm install npm@latest -g
+```
 
 
 
