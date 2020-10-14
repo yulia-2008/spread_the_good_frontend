@@ -10,16 +10,16 @@
 <p>The project backend seeded with a few fake user acounts and posts</p>
 
 <h2>Features</h2>
-- Creating an acoount.
-- Searching posts by city.
-- Loging in/Logging out.
-- Listing posts.
-- Editing/Deleting your posts.
-- Helping on others posts by clicking "Offer Your Help".
-- Users profile keeps tracks of posts you've helped to as well as posts you've created.
-- Private messaging.
-- Marking your post as "Completed" which increases karma_score of the User who helped you.
-- Other awesome features yet to be implemented
+<p>- Creating an acoount. </p>
+<p>- Searching posts by city.</p>
+<p>- Loging in/Logging out.</p>
+<p>- Listing posts.</p>
+<p>- Editing/Deleting your posts.</p>
+<p>- Helping on others posts by clicking "Offer Your Help".</p>
+<p>- Users profile keeps tracks of posts you've helped to as well as posts you've created.</p>
+<p>- Private messaging.</p>
+<p>- Marking your post as "Completed" which increases karma_score of the User who helped you.</p>
+<p>- Other awesome features yet to be implemented.</p>
 
 
 <h2>Frontend Built With</h2>
