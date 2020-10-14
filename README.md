@@ -13,26 +13,26 @@ Users can list, search, message and increase karma score.
 </ul>
 
 <h2>Getting Started</h2>
-Instructions on setting up your project locally. 
-To get a local copy up and running follow these simple steps:
- 
-1. In your terminal go to the directory where you want to clone this project.
-2. Clone frontend and backend repos to the same folder.
+<p>Instructions on setting up your project locally. </p>
+<p>To get a local copy up and running follow these simple steps:</p>
+ <ol>
+ <li> In your terminal go to the directory where you want to clone this project.
+ <li> Clone frontend and backend repos to the same folder.
  git clone  git@github.com:yulia-2008/spread_the_good_frontend.git
  git clone  git@github.com:yulia-2008/spread_the_good_backend.git
  
-3. Open the folder with cloned repos in your code editor.
-   Backend installation: 
-      - In your terminal go to backend directory.
-      - Start rails server on port 4000:
+ <li> Open the folder with cloned repos in your code editor.
+ <li>Backend installation: 
+  <p>- In your terminal go to backend directory.</p>
+  <p> - Start rails server on port 4000:</p>
 rails s -p4000
 
-Frontend installation:
-      - Install NPM packages:
+<li>Frontend installation:
+ <p> - Install NPM packages:</p>
 npm install 
-      - Install React Router:
+ <p> - Install React Router:</p>
 npm install react-router-dom
-      - Start rails server:
+ <p> - Start rails server:</p>
 npm start (it starts on port 3000)
 
 
