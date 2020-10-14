@@ -3,10 +3,11 @@
 <p>In purpose of demo the project seeded with a few fake user acounts and posts. </p>
 
 <h2>About The Project</h2>
-Social network for helping others. 
-Users can list, search, message and increase karma score. 
-Backend : https://github.com/yulia-2008/nycable_backend
-The project backend seeded with a few fake user acounts and posts
+<p>Social network for helping others.</p> 
+<p>Users can list, search, message and increase karma score. </p>
+<p>Users profile keeps tracks of posts you've helped to as well as posts you've created
+<p>Backend : https://github.com/yulia-2008/nycable_backend</p>
+<p>The project backend seeded with a few fake user acounts and posts</p>
 
 <h2>Frontend Built With</h2>
 <ul>
