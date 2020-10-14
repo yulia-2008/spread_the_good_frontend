@@ -18,11 +18,13 @@ Users can list, search, message and increase karma score.
  <ol>
  <li> In your terminal go to the directory where you want to clone this project.
  <li> Clone frontend and backend repos to the same folder.
+  <p>
 
 ```sh
 git clone  git@github.com:yulia-2008/spread_the_good_frontend.git
 ```
-  
+</p>
+
 ```sh
 git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 ```
