@@ -10,7 +10,7 @@ The project backend seeded with a few fake user acounts and posts
 
 <h2>Frontend Built With</h2>
 <ul>
- <li> **React.js** </li>
+ <li> <b>React.js</b> </li>
  <li> Utilized **React Router** to establish a dynamic routing system through the web app </li>
  <li> Browser's Local Storage for implementing current user info persistance after refreshing a page.</li>
 </ul>
