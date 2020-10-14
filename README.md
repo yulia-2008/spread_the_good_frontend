@@ -6,9 +6,21 @@
 <h2>About The Project</h2>
 <p>Social network for helping others.</p> 
 <p>Users can list, search, message and increase karma score. </p>
-<p>Users profile keeps tracks of posts you've helped to as well as posts you've created
 <p><b>Backend:</b> https://github.com/yulia-2008/nycable_backend</p>
 <p>The project backend seeded with a few fake user acounts and posts</p>
+
+<h2>Features</h2>
+- Creating an acoount.
+- Searching posts by city.
+- Loging in/Logging out.
+- Listing posts.
+- Editing/Deleting your posts.
+- Helping on others posts by clicking "Offer Your Help".
+- Users profile keeps tracks of posts you've helped to as well as posts you've created.
+- Private messaging.
+- Marking your post as "Completed" which increases karma_score of the User who helped you.
+- Other awesome features yet to be implemented
+
 
 <h2>Frontend Built With</h2>
 <ul>
@@ -30,6 +42,11 @@
 <p><b>Instructions on setting up your project locally.</b> </p>
 <p>To get a local copy up and running follow these simple steps:</p>
 <p> 1. In your terminal go to the directory where you want to clone this project.</p>
+
+```sh
+cd <FOLDER_NAME>
+```
+
 <p> 2.  Clone frontend and backend repos to the same folder.</p>
 
 ```sh
@@ -43,6 +60,10 @@ git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 <p> 3.  Open the folder with cloned repos in your code editor.</p>
 <p> <b>Backend installation: </b> </p>
   <p> - In your terminal go to backend directory.</p>
+   
+```sh
+cd spread_the_good_backend
+```
   <p> - Start rails server on port 4000:</p>
 
 ```sh
@@ -51,6 +72,11 @@ rails s -p4000
 
 <p> <b>Frontend installation: </b></p>
  <p> - In your terminal go to frontend directory.</p>
+ 
+```sh
+cd spread_the_good_frontend
+```
+
  <p> - Install NPM packages:</p>
  
 ```sh
@@ -61,12 +87,12 @@ npm install
 ```sh
 npm install react-router-dom
 ```
- <p> - Start rails server:</p>
+ <p> - Run the app:</p>
 
 ```sh
 npm start
 ```
- (it starts on port 3000)
+ (it starts on localhost:3000)
 
 
 
