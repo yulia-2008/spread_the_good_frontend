@@ -11,15 +11,15 @@ The project backend seeded with a few fake user acounts and posts
 <h2>Frontend Built With</h2>
 <ul>
  <li> <b>React.js</b> </li>
- <li> Utilized **React Router** to establish a dynamic routing system through the web app </li>
- <li> Browser's Local Storage for implementing current user info persistance after refreshing a page.</li>
+ <li> Utilized <b>React Router</b> to establish a dynamic routing system through the web app </li>
+ <li> Browser's <b>Local Storage</b> for implementing current user info persistance after refreshing a page.</li>
 </ul>
 
 <h2> Backend Built With</h2>
 <ul>
- <li> **Ruby on Rails** to create RESTful design of the app.</li>
- <li> **Postgres** database for managing the data</li>
- <li> Integrated **Auth** for user authentication and authorization for app security</li>
+ <li> <b>Ruby on Rails</b> to create RESTful design of the app.</li>
+ <li> <b>Postgres</b> database for managing the data</li>
+ <li> Integrated <b>Auth</b> for user authentication and authorization for app security</li>
 </ul>
 
 
