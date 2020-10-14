@@ -1,7 +1,7 @@
 <h1 align="center">Spread The Good</h1>
 <div align="center">
 <img src="./app-demo.gif"></img>
-<p><i>In purpose of demo the project seeded with a few fake user acounts and posts.</i> </p>
+<p><i>In purpose of demo the project seeded with a few fake user accounts and posts.</i> </p>
 </div>
 <h2>About The Project</h2>
 <p>Social network for helping others.</p> 
