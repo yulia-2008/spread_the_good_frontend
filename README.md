@@ -16,7 +16,7 @@
 <p>- Listing posts.</p>
 <p>- Editing/Deleting your posts.</p>
 <p>- Helping on others posts by clicking "Offer Your Help".</p>
-<p>- Users profile keeps tracks of posts you've helped to as well as posts you've created.</p>
+<p>- Users profile keeps tracks of posts you've helped to as well as posts you've created (active and completed) with the avatar of the User who helped on your post.</p>
 <p>- Private messaging.</p>
 <p>- Marking your post as "Completed" which increases karma_score of the User who helped you.</p>
 <p>- Other awesome features yet to be implemented.</p>
