@@ -1,16 +1,28 @@
 <h1 align="center">Spread The Good</h1>
 <img src="./app-demo.gif"></img>
+<p>In purpose of demo the project seeded with a few fake user acounts and posts. </p>
 
 <h2>About The Project</h2>
 Social network for helping others. 
 Users can list, search, message and increase karma score. 
+Backend : https://github.com/yulia-2008/nycable_backend
+The project backend seeded with a few fake user acounts and posts
 
-<h2>Built With</h2>
+<h2>Frontend Built With</h2>
 <ul>
- <li> Built the backend (RESTful API) to manage data using Ruby on Rails and a Postgres database
- <li> React.js and React Router to build front end of the app 
- <li> Integrated Auth for user authentication and authorization for app security
+ <li> **React.js** </li>
+ <li> Utilized **React Router** to establish a dynamic routing system through the web app </li>
+ <li> Browser's Local Storage for implementing current user info persistance after refreshing a page.</li>
 </ul>
+
+<h2> Backend Built With</h2>
+<ul>
+ <li> **Ruby on Rails** to create RESTful design of the app.</li>
+ <li> **Postgres** database for managing the data</li>
+ <li> Integrated **Auth** for user authentication and authorization for app security</li>
+</ul>
+
+
 
 <h2>Getting Started</h2>
 <p>Instructions on setting up your project locally. </p>
@@ -36,6 +48,7 @@ rails s -p4000
 ```
 
 <p> Frontend installation:</p>
+ <p> - In your terminal go to frontend directory.</p>
  <p> - Install NPM packages:</p>
  
 ```sh
