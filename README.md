@@ -1,12 +1,12 @@
 <h1 align="center">Spread The Good</h1>
 <img src="./app-demo.gif"></img>
-<p>In purpose of demo the project seeded with a few fake user acounts and posts. </p>
+<p><i>In purpose of demo the project seeded with a few fake user acounts and posts.<i> </p>
 
 <h2>About The Project</h2>
 <p>Social network for helping others.</p> 
 <p>Users can list, search, message and increase karma score. </p>
 <p>Users profile keeps tracks of posts you've helped to as well as posts you've created
-<p>Backend : https://github.com/yulia-2008/nycable_backend</p>
+<p><b>Backend:</b> https://github.com/yulia-2008/nycable_backend</p>
 <p>The project backend seeded with a few fake user acounts and posts</p>
 
 <h2>Frontend Built With</h2>
@@ -26,7 +26,7 @@
 
 
 <h2>Getting Started</h2>
-<p>Instructions on setting up your project locally. </p>
+<p><b>Instructions on setting up your project locally.</b> </p>
 <p>To get a local copy up and running follow these simple steps:</p>
 <p> 1. In your terminal go to the directory where you want to clone this project.</p>
 <p> 2.  Clone frontend and backend repos to the same folder.</p>
@@ -40,7 +40,7 @@ git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 ```
  
 <p> 3.  Open the folder with cloned repos in your code editor.</p>
-<p> Backend installation: 
+<p> <b>Backend installation: </b> </p>
   <p> - In your terminal go to backend directory.</p>
   <p> - Start rails server on port 4000:</p>
 
@@ -48,7 +48,7 @@ git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 rails s -p4000
 ```
 
-<p> Frontend installation:</p>
+<p> <b>Frontend installation: </b></p>
  <p> - In your terminal go to frontend directory.</p>
  <p> - Install NPM packages:</p>
  
