@@ -81,7 +81,7 @@ styleObj = () => {let styleObj
                                 <img  id="your-helper-avatar" src={this.state.post.helper.image}></img> 
                                <p> {this.state.post.helper.username} 
                                (<span id="karma-score">{this.state.post.helper.karma_score}</span>) </p>                                        
-                                <button className="button" onClick={this.karmaUp}> Done </button>  
+                                <button className="button" onClick={this.karmaUp}> Completed. </button>  
                             </>
                     :null }      
               </div>
