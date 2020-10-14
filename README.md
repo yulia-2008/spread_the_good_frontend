@@ -1,4 +1,4 @@
-<h1>Spread The Good</h1>
+<h1 align="center">Spread The Good</h1>
 <img src="./app-demo.gif"></img>
 
 <h2>About The Project</h2>
@@ -18,22 +18,38 @@ Users can list, search, message and increase karma score.
  <ol>
  <li> In your terminal go to the directory where you want to clone this project.
  <li> Clone frontend and backend repos to the same folder.
- git clone  git@github.com:yulia-2008/spread_the_good_frontend.git
+```sh
+git clone  git@github.com:yulia-2008/spread_the_good_frontend.git
+```
+  <br>
+```sh
  git clone  git@github.com:yulia-2008/spread_the_good_backend.git
+```
+
  
  <li> Open the folder with cloned repos in your code editor.
  <li>Backend installation: 
   <p>- In your terminal go to backend directory.</p>
   <p> - Start rails server on port 4000:</p>
+```sh
 rails s -p4000
+```
+
 
 <li>Frontend installation:
  <p> - Install NPM packages:</p>
+```sh
 npm install 
+```
  <p> - Install React Router:</p>
+```sh
 npm install react-router-dom
+```
  <p> - Start rails server:</p>
-npm start (it starts on port 3000)
+```sh
+npm start 
+```
+ (it starts on port 3000)
 
 
 
