@@ -10,9 +10,9 @@
 
 
 <h2>Features</h2>
-<p>- Creating an acoount. </p>
+<p>- Creating an account. </p>
 <p>- Searching posts by city.</p>
-<p>- Loging in/Logging out.</p>
+<p>- Logging in/Logging out.</p>
 <p>- Listing posts.</p>
 <p>- Editing/Deleting your posts.</p>
 <p>- Helping on others posts by clicking "Offer Your Help".</p>
@@ -24,7 +24,7 @@
 
 <h2>Frontend Built With</h2>
 <ul>
- <li> <b>React.js</b> </li>
+ <li> <b>React.js</b> for building user interface. </li>
  <li> Utilized <b>React Router</b> to establish a dynamic routing system through the web app </li>
  <li> Browser's <b>Local Storage</b> for implementing current user info persistance after refreshing a page.</li>
 </ul>
@@ -73,10 +73,6 @@ rails db:create
 rails db:migrate
 ``` 
  <p> 4. Start rails server on port 4000.</p>
-     
-```sh
-cd spread_the_good_backend
-```
 
 ```sh
 rails s -p4000
