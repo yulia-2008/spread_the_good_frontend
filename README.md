@@ -57,7 +57,6 @@ git clone  git@github.com:yulia-2008/spread_the_good_frontend.git
 git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 ```
  
-<p> 3.  Open the folder with cloned repos in your code editor.</p>
 <p> <b>Backend installation: </b> </p>
   <p> - In your terminal go to backend directory.</p>
    
