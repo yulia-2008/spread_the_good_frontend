@@ -68,13 +68,7 @@ Before start installation steps make sure you have following tools installed on 
  <div align="center">
  <img src="./databse_yml_example.jpg"></img>
  </div>
- 
-development:
-  <<: *default
-  database: nycable_backend_development
-  host: localhost
-  user: 
-  password: 
+
   
   <p> - Start rails server on port 4000, make sure you are in the project backend directory.</p>
      
