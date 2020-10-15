@@ -58,12 +58,29 @@ git clone  git@github.com:yulia-2008/spread_the_good_backend.git
 ```
  
 <p> <b>Backend installation: </b> </p>
-  <p> - In your terminal go to backend directory.</p>
-   
+
+Before start installation steps make sure you have following tools installed on the system.
+- Ruby 2.6.1
+- Rails 6.0.3.3
+- Postgresql
+
+<p>In <b>spread_the_good_backend/config/database.yml</b> file enter your postgres user for the project and password as shown below:</p>
+ <div align="center">
+ <img src="./databse_yml_example.jpg"></img>
+ </div>
+ 
+development:
+  <<: *default
+  database: nycable_backend_development
+  host: localhost
+  user: 
+  password: 
+  
+  <p> - Start rails server on port 4000, make sure you are in the project backend directory.</p>
+     
 ```sh
 cd spread_the_good_backend
 ```
-  <p> - Start rails server on port 4000:</p>
 
 ```sh
 rails s -p4000
