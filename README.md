@@ -57,7 +57,22 @@ git clone  git@github.com:yulia-2008/spread_the_good_backend.git
  <img src="./database_yml_example.jpg"></img>
  </div>
  
- <p> 2. Start rails server on port 4000, make sure you are in the project backend directory.</p>
+ <p> 2. Make sure you are in the project backend directory. </p>
+      
+```sh
+cd spread_the_good_backend
+```
+ 
+ <p> 3. Run the following commands to create and setup the database. </p>
+     
+```sh
+rails db:create
+```
+     
+```sh
+rails db:migrate
+``` 
+ <p> 4. Start rails server on port 4000.</p>
      
 ```sh
 cd spread_the_good_backend
